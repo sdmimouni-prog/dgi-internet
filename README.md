@@ -2,6 +2,8 @@
 
 Snapshot statique du portail public français de la Direction Générale des Impôts du Maroc.
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsdmimouni-prog%2Fdgi-internet&project-name=dgi-internet&repository-name=dgi-internet)
+
 - Source officielle: https://www.tax.gov.ma/wps/portal/DGI/Accueil/
 - Date de capture: 2026-05-24
 - Pages capturées: 103
