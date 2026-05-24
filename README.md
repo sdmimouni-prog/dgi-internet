@@ -12,8 +12,9 @@ Snapshot statique du portail public français de la Direction Générale des Imp
 ## Contenu
 
 - `snapshot/pages/`: copies HTML des pages publiques récupérées.
+- `index.html`: page d'accueil DGI capturée, servie à la racine du site.
+- `pages.html`: index navigable local des pages capturées.
 - `PAGES.md`: liste groupée des pages avec lien local et lien officiel.
 - `data/crawl-manifest.json`: manifeste structuré de la capture.
-- `index.html`: index navigable local des pages capturées.
 
 Les copies HTML incluent une balise `base` vers le site officiel afin que les ressources relatives du portail restent résolues correctement lors d'une consultation locale.
