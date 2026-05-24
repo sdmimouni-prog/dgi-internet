@@ -1,20 +1,12 @@
-# DGI Internet Snapshot
+# DGI Internet
 
-Snapshot statique du portail public français de la Direction Générale des Impôts du Maroc.
+Site statique DGI fourni localement, prêt pour GitHub Pages ou Vercel.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsdmimouni-prog%2Fdgi-internet&project-name=dgi-internet&repository-name=dgi-internet)
+- Source locale: `/Users/salaheddinemimouni/Documents/Codex/2026-05-19/DGI`
+- Entrée principale: `index.html`
+- Pages listées: voir `PAGES.md`
+- Langues incluses: français, arabe, amazigh, anglais, espagnol
 
-- Source officielle: https://www.tax.gov.ma/wps/portal/DGI/Accueil/
-- Date de capture: 2026-05-24
-- Pages capturées: 103
-- Portée: pages publiques internes /wps/portal/DGI, hors téléservices externes, variantes linguistiques et espaces nécessitant une session.
+## Déploiement
 
-## Contenu
-
-- `snapshot/pages/`: copies HTML des pages publiques récupérées.
-- `index.html`: page d'accueil DGI capturée, servie à la racine du site.
-- `pages.html`: index navigable local des pages capturées.
-- `PAGES.md`: liste groupée des pages avec lien local et lien officiel.
-- `data/crawl-manifest.json`: manifeste structuré de la capture.
-
-Les copies HTML incluent une balise `base` vers le site officiel afin que les ressources relatives du portail restent résolues correctement lors d'une consultation locale.
+Le dépôt est statique: Vercel sert directement `index.html` à la racine, sans étape de build.

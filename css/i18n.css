@@ -1,0 +1,200 @@
+html[lang="ar"] body {
+  direction: rtl;
+  font-family: "Noto Kufi Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+html[lang="zgh-Tfng"] body {
+  font-family: "Noto Sans Tifinagh", "Noto Sans", "Segoe UI", Arial, sans-serif;
+}
+
+html[dir="rtl"] .header-shell,
+html[dir="rtl"] .main-nav,
+html[dir="rtl"] .header-actions,
+html[dir="rtl"] .mega-menu-inner,
+html[dir="rtl"] .footer-grid,
+html[dir="rtl"] .footer-bottom {
+  direction: rtl;
+}
+
+html[dir="rtl"] .hero-grid {
+  direction: ltr;
+}
+
+html[dir="rtl"] .hero-content {
+  direction: rtl;
+  justify-self: start;
+  text-align: right;
+}
+
+@media (min-width: 941px) {
+  html[dir="rtl"] .hero-grid {
+    min-height: 340px;
+  }
+
+  html[dir="rtl"] .quick-action-bar {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 940px) {
+  html[dir="rtl"] .hero-grid {
+    direction: rtl;
+  }
+
+  html[dir="rtl"] .hero-content {
+    justify-self: stretch;
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+  }
+
+  html[dir="rtl"] .hero h1,
+  html[dir="rtl"] .hero p,
+  html[dir="rtl"] .hero-search,
+  html[dir="rtl"] .suggestions {
+    max-width: 100%;
+  }
+}
+
+html[dir="rtl"] .breadcrumb,
+html[dir="rtl"] .declare-hero-copy,
+html[dir="rtl"] .panel,
+html[dir="rtl"] .section-heading,
+html[dir="rtl"] .panel-heading,
+html[dir="rtl"] .docs-downloads-section h2,
+html[dir="rtl"] .newsletter-card,
+html[dir="rtl"] .site-footer {
+  text-align: right;
+}
+
+html[dir="rtl"] .mega-menu-copy {
+  border-right: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+html[dir="rtl"] .language-options {
+  right: auto;
+  left: 0;
+  text-align: right;
+}
+
+html[dir="rtl"] .declare-hero-image {
+  right: auto;
+  left: -8px;
+}
+
+html[dir="rtl"] .documentation-hero .declare-hero-image::after {
+  background:
+    linear-gradient(270deg, #fbfcff 0%, rgba(251, 252, 255, 0.58) 22%, rgba(251, 252, 255, 0) 66%),
+    linear-gradient(180deg, rgba(251, 252, 255, 0) 64%, #fbfcff 100%);
+}
+
+html[dir="rtl"] .declare-search,
+html[dir="rtl"] .docs-smart-search label,
+html[dir="rtl"] .docs-help-list a,
+html[dir="rtl"] .docs-guide-list a,
+html[dir="rtl"] .docs-download-strip a,
+html[dir="rtl"] .docs-trust-grid article {
+  direction: rtl;
+}
+
+html[dir="rtl"] .docs-help-list a {
+  grid-template-columns: 36px minmax(0, 1fr) 18px;
+}
+
+html[dir="rtl"] .docs-help-list span {
+  grid-column: 1;
+}
+
+html[dir="rtl"] .docs-help-list strong,
+html[dir="rtl"] .docs-help-list small {
+  grid-column: 2;
+}
+
+html[dir="rtl"] .docs-help-list a > svg {
+  grid-column: 3;
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] .docs-guide-list a {
+  grid-template-columns: 82px minmax(0, 1fr) 42px 52px 18px;
+}
+
+html[dir="rtl"] .docs-guide-list span {
+  text-align: right;
+}
+
+html[dir="rtl"] .docs-guide-list a > svg {
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] .docs-reg-card {
+  grid-template-columns: minmax(0, 1fr) 124px;
+}
+
+html[dir="rtl"] .docs-reg-card img {
+  grid-column: 2;
+}
+
+html[dir="rtl"] .docs-reg-card span {
+  grid-column: 1;
+}
+
+html[dir="rtl"] .docs-form-card {
+  grid-template-columns: 18px minmax(0, 1fr) 48px;
+}
+
+html[dir="rtl"] .docs-form-card .icon-disc {
+  grid-column: 3;
+}
+
+html[dir="rtl"] .docs-form-card strong,
+html[dir="rtl"] .docs-form-card small,
+html[dir="rtl"] .docs-form-card em,
+html[dir="rtl"] .docs-form-card b,
+html[dir="rtl"] .docs-form-card time {
+  grid-column: 2;
+}
+
+html[dir="rtl"] .docs-form-card > svg {
+  grid-column: 1;
+}
+
+html[dir="rtl"] .docs-download-strip a > svg,
+html[dir="rtl"] .link-more svg,
+html[dir="rtl"] .payment-choice-card em svg {
+  transform: rotate(180deg);
+}
+
+html[dir="rtl"] .newsletter-form {
+  direction: rtl;
+}
+
+@media (max-width: 940px) {
+  html[dir="rtl"] .declare-hero-image {
+    left: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  html[dir="rtl"] .docs-help-list a,
+  html[dir="rtl"] .docs-guide-list a {
+    grid-template-columns: 74px minmax(0, 1fr) 18px;
+  }
+
+  html[dir="rtl"] .docs-guide-list img,
+  html[dir="rtl"] .docs-help-list span {
+    grid-column: 1;
+  }
+
+  html[dir="rtl"] .docs-guide-list span,
+  html[dir="rtl"] .docs-help-list strong,
+  html[dir="rtl"] .docs-help-list small {
+    grid-column: 2;
+  }
+
+  html[dir="rtl"] .docs-guide-list a > svg,
+  html[dir="rtl"] .docs-help-list a > svg {
+    grid-column: 3;
+  }
+}

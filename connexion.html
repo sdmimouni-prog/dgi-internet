@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Prototype statique de connexion au téléservice simple de la Direction Générale des Impôts."
+    />
+    <title>Téléservice simple | Direction Générale des Impôts</title>
+    <link rel="stylesheet" href="css/style.css?v=header-logo" />
+  </head>
+  <body class="login-page">
+    <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="user" viewBox="0 0 24 24">
+        <path d="M20 21a8 8 0 0 0-16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+      <symbol id="lock" viewBox="0 0 24 24">
+        <rect x="4" y="10" width="16" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="eye" viewBox="0 0 24 24">
+        <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+      <symbol id="shield-check" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="m8.7 12 2.2 2.2 4.6-4.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="phone-device" viewBox="0 0 24 24">
+        <rect x="7" y="2" width="10" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M11 18h2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="headphones" viewBox="0 0 24 24">
+        <path d="M4 14a8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4 14v3a2 2 0 0 0 2 2h1v-7H6a2 2 0 0 0-2 2ZM20 14v3a2 2 0 0 1-2 2h-1v-7h1a2 2 0 0 1 2 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="chevron-down" viewBox="0 0 24 24">
+        <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="arrow-right" viewBox="0 0 24 24">
+        <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="maroc-connect" viewBox="0 0 24 24">
+        <path d="m12 3 7 4v7c0 4-3.1 6.7-7 7-3.9-.3-7-3-7-7V7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M9 13.5V11a3 3 0 0 1 6 0v2.5M8.5 14h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="refresh" viewBox="0 0 24 24">
+        <path d="M21 12a9 9 0 1 1-2.64-6.36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M21 4v6h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    </svg>
+
+    <main class="login-shell">
+      <section class="login-panel" aria-labelledby="login-title">
+        <div class="login-topbar">
+          <a class="login-brand" href="index.html" aria-label="Retour à l'accueil">
+            <img src="assets/images/dgi-logo-wordmark.svg" alt="Direction Générale des Impôts" />
+          </a>
+          <div class="language-menu login-language" data-language-menu>
+            <button class="language-trigger" type="button" aria-expanded="false" aria-haspopup="true" data-language-trigger>
+              FR
+              <svg aria-hidden="true"><use href="#chevron-down"></use></svg>
+            </button>
+            <div class="language-options" role="menu" aria-label="Changer la langue">
+              <a href="#" role="menuitem" lang="ar" dir="rtl">عربية</a>
+              <a href="#" role="menuitem" lang="es">ES</a>
+              <a href="#" role="menuitem" lang="en">EN</a>
+              <a href="#" role="menuitem" lang="zgh-Tfng">Amazigh</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="login-content">
+          <header class="login-heading">
+            <h1 id="login-title">Identification en ligne</h1>
+            <p>Renseignez votre numéro CNIE et le code captcha pour accéder au service SIMPL.</p>
+          </header>
+
+          <form class="login-card" action="dashboard.html" method="get" data-login-form>
+            <label class="login-field">
+              <span>Numéro CNIE <b lang="ar" dir="rtl">رقم بطاقة التعريف</b></span>
+              <span class="login-input">
+                <svg aria-hidden="true"><use href="#user"></use></svg>
+                <input type="text" name="cnie" placeholder="Ex. AB123456" autocomplete="off" />
+              </span>
+            </label>
+
+            <label class="login-field">
+              <span>Captcha</span>
+              <span class="captcha-row">
+                <span class="captcha-code" aria-label="Code captcha">7K4P2</span>
+                <button class="captcha-refresh" type="button" aria-label="Actualiser le captcha">
+                  <svg aria-hidden="true"><use href="#refresh"></use></svg>
+                </button>
+              </span>
+              <span class="login-input">
+                <svg aria-hidden="true"><use href="#shield-check"></use></svg>
+                <input type="text" name="captcha" placeholder="Saisissez le code captcha" autocomplete="off" />
+              </span>
+            </label>
+
+            <button class="login-submit" type="submit">
+              <svg aria-hidden="true"><use href="#lock"></use></svg>
+              <span>Continuer</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="login-assurance" aria-label="Avantages du téléservice simple">
+          <article>
+            <svg aria-hidden="true"><use href="#shield-check"></use></svg>
+            <strong>Sécurisé</strong>
+            <span>Vos données sont protégées et confidentielles</span>
+          </article>
+          <article>
+            <svg aria-hidden="true"><use href="#clock"></use></svg>
+            <strong>Disponible 24/7</strong>
+            <span>Accédez à vos services à tout moment</span>
+          </article>
+          <article>
+            <svg aria-hidden="true"><use href="#phone-device"></use></svg>
+            <strong>Accessible</strong>
+            <span>Sur tous vos appareils partout</span>
+          </article>
+          <article>
+            <svg aria-hidden="true"><use href="#headphones"></use></svg>
+            <strong>Assistance</strong>
+            <span>Un support dédié pour vous accompagner</span>
+          </article>
+        </div>
+
+        <footer class="login-footer">
+          <p>© 2024 Direction Générale des Impôts - Tous droits réservés</p>
+          <nav aria-label="Liens légaux">
+            <a href="#">Mentions légales</a>
+            <a href="#">Protection des données</a>
+            <a href="#">Accessibilité</a>
+            <a href="#">Aide</a>
+          </nav>
+        </footer>
+      </section>
+
+      <aside class="login-visual" aria-label="Bâtiment de la Direction Générale des Impôts">
+        <img src="assets/images/connexion-building.png" alt="Façade du bâtiment de la Direction Générale des Impôts" />
+        <section class="simpl-info-card" aria-labelledby="simpl-info-title">
+          <h2 id="simpl-info-title">SIMPL-Identification en ligne</h2>
+          <p>
+            Cette fonctionnalité permet l’attribution en ligne au particulier d’un identifiant fiscal avec une adhésion simplifiée aux SIMPL et ce, en utilisant l’identité numérique et en déléguant l’identification du contribuable à la plateforme "tiers de confiance national".
+          </p>
+          <div class="simpl-info-actions">
+            <a class="simpl-primary-button" href="#">
+              <span>Accéder à SIMPL Adhésion</span>
+              <svg aria-hidden="true"><use href="#arrow-right"></use></svg>
+            </a>
+            <a class="simpl-secondary-button" href="#">
+              <span>Guide d'utilisation</span>
+            </a>
+            <a class="simpl-secondary-button" href="#">
+              <span>Guide d'identification via CNIE</span>
+            </a>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

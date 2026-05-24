@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Prototype statique du tableau de bord connecté de la Direction Générale des Impôts."
+    />
+    <title>Tableau de bord | Direction Générale des Impôts</title>
+    <link rel="stylesheet" href="css/style.css?v=header-logo" />
+  </head>
+  <body class="connected-dashboard-page">
+    <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="search" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v10h14V10M10 20v-6h4v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+      <symbol id="file-text" viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v5h5M9 13h6M9 17h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="wallet" viewBox="0 0 24 24"><path d="M4 7h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 14h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="17" cy="14" r="1" fill="currentColor"/></symbol>
+      <symbol id="badge-check" viewBox="0 0 24 24"><path d="m12 2 2.45 2.17 3.28-.25.52 3.25 2.61 1.98-1.45 2.94 1.45 2.94-2.61 1.98-.52 3.25-3.28-.25L12 22l-2.45-2.17-3.28.25-.52-3.25-2.61-1.98 1.45-2.94-1.45-2.94 2.61-1.98.52-3.25 3.28.25Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m8.5 12.4 2.1 2.1 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="calendar" viewBox="0 0 24 24"><path d="M7 2v4M17 2v4M4 9h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="4" y="5" width="16" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 13h3M13 13h3M8 17h3M13 17h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h5l2 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+      <symbol id="bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 21h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 7 9 7 9-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.1 9a3 3 0 1 1 5.16 2.07c-.8.78-1.76 1.27-2.1 2.43M12 17h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="settings" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8a3.5 3.5 0 0 0 0 7.5Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m19.4 15 .7 2-2.1 3.5-2.1-.4a8.4 8.4 0 0 1-1.8 1L13.4 23H9.5l-.7-2a8.3 8.3 0 0 1-1.8-1l-2.1.4L2.8 17l.7-2a8.5 8.5 0 0 1 0-2l-.7-2 2.1-3.5 2.1.4a8.3 8.3 0 0 1 1.8-1l.7-2h3.9l.7 2a8.4 8.4 0 0 1 1.8 1l2.1-.4L20.1 11l-.7 2a8.5 8.5 0 0 1 0 2Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+      <symbol id="star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+      <symbol id="shield-check" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m8.7 12 2.2 2.2 4.6-4.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="user" viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="download" viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4M5 21h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m22 2-11 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="bot" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3v4M8 12h.01M16 12h.01M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="car" viewBox="0 0 24 24"><path d="M5 12 7 6h10l2 6M5 12h14a2 2 0 0 1 2 2v4h-3M6 18H3v-4a2 2 0 0 1 2-2M7 18h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    </svg>
+
+    <main class="connected-shell">
+      <aside class="connected-sidebar">
+        <a class="connected-logo" href="index.html">
+          <img src="assets/images/dgi-logo-wordmark.svg" alt="Direction Générale des Impôts" />
+        </a>
+
+        <nav class="connected-nav" aria-label="Navigation Téléservice simple">
+          <a class="is-active" href="#"><svg aria-hidden="true"><use href="#home"></use></svg><span>Tableau de bord</span></a>
+          <a href="#"><svg aria-hidden="true"><use href="#file-text"></use></svg><span>Mes démarches</span></a>
+          <a href="#"><svg aria-hidden="true"><use href="#wallet"></use></svg><span>Mes paiements</span></a>
+          <a href="#"><svg aria-hidden="true"><use href="#badge-check"></use></svg><span>Mes attestations</span></a>
+          <a href="#"><svg aria-hidden="true"><use href="#calendar"></use></svg><span>Mes échéances</span></a>
+          <a href="#"><svg aria-hidden="true"><use href="#folder"></use></svg><span>Mes documents</span></a>
+          <a href="#"><svg aria-hidden="true"><use href="#settings"></use></svg><span>Réclamations</span></a>
+          <a href="#"><svg aria-hidden="true"><use href="#bell"></use></svg><span>Notifications</span><em>3</em></a>
+          <a href="#"><svg aria-hidden="true"><use href="#star"></use></svg><span>Mes favoris</span></a>
+          <a href="#"><svg aria-hidden="true"><use href="#user"></use></svg><span>Mon profil</span></a>
+          <a href="#"><svg aria-hidden="true"><use href="#settings"></use></svg><span>Paramètres</span></a>
+          <a href="#"><svg aria-hidden="true"><use href="#shield-check"></use></svg><span>Sécurité</span></a>
+        </nav>
+
+        <section class="connected-help-card">
+          <img src="assets/images/documentation-help-bot.png" alt="" />
+          <h2>Besoin d'aide ?</h2>
+          <p>Notre assistant IA est disponible 24h/24 pour vous aider.</p>
+          <a href="#">Discuter avec l'assistant <svg aria-hidden="true"><use href="#send"></use></svg></a>
+        </section>
+      </aside>
+
+      <section class="connected-main" aria-labelledby="dashboard-title">
+        <header class="connected-topbar">
+          <form class="connected-search" role="search">
+            <svg aria-hidden="true"><use href="#search"></use></svg>
+            <input type="search" placeholder="Rechercher un service, une démarche, une information..." />
+            <kbd>Ctrl + K</kbd>
+          </form>
+
+          <div class="connected-actions">
+            <button type="button" aria-label="Notifications"><svg aria-hidden="true"><use href="#bell"></use></svg><span>3</span></button>
+            <button type="button" aria-label="Messages"><svg aria-hidden="true"><use href="#mail"></use></svg></button>
+            <button type="button" aria-label="Aide"><svg aria-hidden="true"><use href="#help"></use></svg></button>
+            <div class="language-menu dashboard-language" data-language-menu>
+              <button class="language-trigger" type="button" aria-expanded="false" aria-haspopup="true" data-language-trigger>
+                FR
+                <svg aria-hidden="true"><use href="#chevron-down"></use></svg>
+              </button>
+              <div class="language-options" role="menu" aria-label="Changer la langue">
+                <a href="#" role="menuitem" lang="ar" dir="rtl">عربية</a>
+                <a href="#" role="menuitem" lang="es">ES</a>
+                <a href="#" role="menuitem" lang="en">EN</a>
+                <a href="#" role="menuitem" lang="zgh-Tfng">Amazigh</a>
+              </div>
+            </div>
+            <button class="connected-user" type="button">
+              <span><strong>Ahmed Benali</strong><small>Particulier</small></span>
+              <img src="assets/images/dashboard-avatar.png" alt="Ahmed Benali" />
+              <svg aria-hidden="true"><use href="#chevron-down"></use></svg>
+            </button>
+          </div>
+        </header>
+
+        <section class="dashboard-hero-card">
+          <div>
+            <h1 id="dashboard-title">Bonjour Ahmed <span aria-hidden="true">👋</span></h1>
+            <p>Bienvenue dans votre téléservice simple.<br />Retrouvez vos démarches, paiements, attestations et échéances fiscales.</p>
+          </div>
+          <aside>
+            <small>Dernière connexion</small>
+            <strong>12 mai 2024 à 09:41</strong>
+            <span><svg aria-hidden="true"><use href="#shield-check"></use></svg> Compte sécurisé</span>
+          </aside>
+        </section>
+
+        <section class="dashboard-kpi-grid" aria-label="Synthèse de votre situation">
+          <article class="dashboard-kpi blue"><span><svg aria-hidden="true"><use href="#calendar"></use></svg></span><small>Échéances à venir</small><strong>3</strong><p>Dans les 30 prochains jours</p><a href="#">Voir mes échéances <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></article>
+          <article class="dashboard-kpi green"><span><svg aria-hidden="true"><use href="#wallet"></use></svg></span><small>Montant à payer</small><strong>2 450,00 MAD</strong><p>À régler avant le 31/05/2024</p><a href="payer-vos-taxes.html">Payer maintenant <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></article>
+          <article class="dashboard-kpi purple"><span><svg aria-hidden="true"><use href="#folder"></use></svg></span><small>Démarches en cours</small><strong>2</strong><p>Suivi de vos demandes</p><a href="#">Voir mes démarches <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></article>
+          <article class="dashboard-kpi amber"><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><small>Attestations disponibles</small><strong>4</strong><p>Téléchargeables</p><a href="obtenir-attestation-fiscale.html">Voir mes attestations <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></article>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="dashboard-panel payments-panel">
+            <div class="connected-panel-heading">
+              <h2>Évolution de mes paiements <span>(MAD)</span></h2>
+              <button type="button">6 derniers mois</button>
+            </div>
+            <div class="payment-chart" aria-label="Graphique des paiements">
+              <span style="--h: 34%"><b>1 250</b><i>Déc. 2023</i></span>
+              <span style="--h: 54%"><b>2 840</b><i>Janv. 2024</i></span>
+              <span style="--h: 42%"><b>1 600</b><i>Févr. 2024</i></span>
+              <span style="--h: 68%"><b>3 420</b><i>Mars 2024</i></span>
+              <span style="--h: 82%"><b>4 120</b><i>Avr. 2024</i></span>
+              <span class="is-current" style="--h: 58%"><b>2 450</b><i>Mai 2024</i></span>
+            </div>
+            <footer><strong>Total payé sur 6 mois : 15 680,00 MAD</strong><a href="#">Voir tout l'historique <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></footer>
+          </article>
+
+          <article class="dashboard-panel split-panel">
+            <div class="connected-panel-heading">
+              <h2>Répartition de mes démarches</h2>
+            </div>
+            <div class="donut-wrap">
+              <div class="donut-chart"><strong>28</strong><span>Démarches<br />au total</span></div>
+              <ul class="legend-list">
+                <li><i class="blue-dot"></i><span>Paiements</span><b>10 (36%)</b></li>
+                <li><i class="purple-dot"></i><span>Attestations</span><b>6 (21%)</b></li>
+                <li><i class="gold-dot"></i><span>Déclarations</span><b>7 (25%)</b></li>
+                <li><i class="orange-dot"></i><span>Réclamations</span><b>3 (11%)</b></li>
+                <li><i class="lavender-dot"></i><span>Autres</span><b>2 (7%)</b></li>
+              </ul>
+            </div>
+            <footer><a href="#">Voir toutes mes démarches <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></footer>
+          </article>
+
+          <article class="dashboard-panel due-panel">
+            <div class="connected-panel-heading">
+              <h2><svg aria-hidden="true"><use href="#calendar"></use></svg> Mes échéances à venir</h2>
+              <a href="#">Voir calendrier <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+            </div>
+            <ol class="due-list">
+              <li><time><strong>31</strong><span>MAI</span></time><p><strong>Paiement du solde IR 2023</strong><span>Montant à payer : 1 250,00 MAD</span></p><em>Dans 8 jours</em></li>
+              <li><time><strong>15</strong><span>JUIN</span></time><p><strong>Paiement de la taxe d'habitation</strong><span>Montant à payer : 600,00 MAD</span></p><em>Dans 23 jours</em></li>
+              <li><time><strong>30</strong><span>JUIN</span></time><p><strong>Paiement de la vignette</strong><span>Montant à payer : 600,00 MAD</span></p><em>Dans 38 jours</em></li>
+            </ol>
+            <footer><a href="#">Voir toutes mes échéances <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></footer>
+          </article>
+
+          <article class="dashboard-panel progress-panel">
+            <h2>Avancement de mes demandes</h2>
+            <div class="request-list">
+              <p><span class="purple"><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Déclaration des revenus 2023</strong><small>Déposée le 10/05/2024</small><i style="--progress:70%"></i><b>70%</b></p>
+              <p><span class="orange"><svg aria-hidden="true"><use href="#shield-check"></use></svg></span><strong>Réclamation - Pénalité de retard</strong><small>Déposée le 02/05/2024</small><i style="--progress:45%"></i><b>45%</b></p>
+              <p><span class="blue"><svg aria-hidden="true"><use href="#badge-check"></use></svg></span><strong>Correction de déclaration IR</strong><small>Déposée le 30/04/2024</small><i style="--progress:30%"></i><b>30%</b></p>
+              <p><span class="green"><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Demande d'attestation fiscale</strong><small>Déposée le 15/05/2024</small><i style="--progress:100%"></i><b>Terminée</b></p>
+            </div>
+            <footer><a href="#">Voir toutes mes demandes <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></footer>
+          </article>
+
+          <article class="dashboard-panel calendar-panel">
+            <div class="connected-panel-heading"><h2>Calendrier fiscal</h2><span>Mai 2024</span></div>
+            <div class="mini-calendar">
+              <b>Lun</b><b>Mar</b><b>Mer</b><b>Jeu</b><b>Ven</b><b>Sam</b><b>Dim</b>
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+              <span>8</span><span>9</span><span>10</span><span>11</span><span class="event blue">12</span><span>13</span><span>14</span>
+              <span class="event gold">15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+              <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span class="event red">31</span>
+            </div>
+            <div class="calendar-legend"><span><i class="red-dot"></i>Échéance</span><span><i class="gold-dot"></i>Paiement</span><span><i class="blue-dot"></i>Rendez-vous</span><span><i class="green-dot"></i>Autre</span></div>
+          </article>
+
+          <article class="dashboard-panel notifications-panel">
+            <div class="connected-panel-heading"><h2>Notifications récentes</h2><a href="#">Voir tout <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></div>
+            <a href="#"><span class="green"><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Attestation disponible</strong><small>Votre attestation de situation fiscale est prête.</small><time>Il y a 1 heure</time></a>
+            <a href="#"><span class="amber"><svg aria-hidden="true"><use href="#calendar"></use></svg></span><strong>Échéance TVA approche</strong><small>Votre échéance TVA arrive à échéance dans 8 jours.</small><time>Il y a 3 heures</time></a>
+            <a href="#"><span class="blue"><svg aria-hidden="true"><use href="#badge-check"></use></svg></span><strong>Paiement confirmé</strong><small>Votre paiement de 1 200,00 MAD a été confirmé.</small><time>Il y a 1 jour</time></a>
+          </article>
+
+          <article class="dashboard-panel favorites-panel">
+            <div class="connected-panel-heading"><h2>Mes services favoris</h2><a href="#">Gérer</a></div>
+            <div class="favorite-grid">
+              <a href="payer-vos-taxes.html"><span class="green"><svg aria-hidden="true"><use href="#wallet"></use></svg></span>Payer mes taxes</a>
+              <a href="declarer-mes-impots.html"><span class="purple"><svg aria-hidden="true"><use href="#file-text"></use></svg></span>Déclarer mes impôts</a>
+              <a href="obtenir-attestation-fiscale.html"><span class="orange"><svg aria-hidden="true"><use href="#file-text"></use></svg></span>Attestation fiscale</a>
+              <a href="#"><span class="blue"><svg aria-hidden="true"><use href="#car"></use></svg></span>Vignette automobile</a>
+              <a href="prendre-rendez-vous.html"><span class="blue"><svg aria-hidden="true"><use href="#calendar"></use></svg></span>Prendre rendez-vous</a>
+              <a class="add" href="#"><span><svg aria-hidden="true"><use href="#plus"></use></svg></span>Ajouter un favori</a>
+            </div>
+          </article>
+
+          <article class="dashboard-panel documents-panel">
+            <div class="connected-panel-heading"><h2>Mes documents récents</h2><a href="#">Voir tous <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></div>
+            <a href="#"><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Attestation de situation fiscale.pdf</strong><small>Générée le 15/05/2024</small><svg aria-hidden="true"><use href="#download"></use></svg></a>
+            <a href="#"><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Quittance de paiement - IR 2023.pdf</strong><small>Générée le 28/02/2024</small><svg aria-hidden="true"><use href="#download"></use></svg></a>
+            <a href="#"><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Relevé fiscal 2023.pdf</strong><small>Générée le 12/01/2024</small><svg aria-hidden="true"><use href="#download"></use></svg></a>
+          </article>
+
+          <article class="dashboard-ai-card">
+            <div>
+              <h2>Assistant IA DGI</h2>
+              <p>Je peux vous aider à comprendre vos obligations fiscales, trouver un document ou expliquer une taxe.</p>
+              <label>
+                <svg aria-hidden="true"><use href="#search"></use></svg>
+                <input type="text" placeholder="Posez votre question..." />
+                <button type="button" aria-label="Envoyer"><svg aria-hidden="true"><use href="#send"></use></svg></button>
+              </label>
+            </div>
+            <img src="assets/images/documentation-help-bot.png" alt="" />
+          </article>
+        </section>
+
+        <aside class="dashboard-security-strip">
+          <span><svg aria-hidden="true"><use href="#shield-check"></use></svg></span>
+          <p><strong>Vos données sont sécurisées</strong> La DGI met tout en œuvre pour protéger vos informations et garantir la confidentialité de vos données fiscales.</p>
+          <a href="#">En savoir plus sur la sécurité <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+        </aside>
+      </section>
+    </main>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

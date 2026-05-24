@@ -7,15 +7,15 @@
       name="description"
       content="Prototype statique premium du portail de la Direction Générale des Impôts du Maroc."
     />
-    <title>Direction Générale des Impôts | Portail fiscal</title>
-        <link rel="alternate" hreflang="fr" href="index.html" />
-    <link rel="alternate" hreflang="en" href="en/index.html" />
-    <link rel="alternate" hreflang="es" href="es/index.html" />
-    <link rel="alternate" hreflang="ar" href="ar/index.html" />
-    <link rel="alternate" hreflang="zgh-Tfng" href="zgh/index.html" />
+    <title>Documentation &amp; Guides | Direction Générale des Impôts</title>
+            <link rel="alternate" hreflang="fr" href="documentation-guides.html" />
+    <link rel="alternate" hreflang="en" href="en/documentation-guides.html" />
+    <link rel="alternate" hreflang="es" href="es/documentation-guides.html" />
+    <link rel="alternate" hreflang="ar" href="ar/documentation-guides.html" />
+    <link rel="alternate" hreflang="zgh-Tfng" href="zgh/documentation-guides.html" />
     <link rel="stylesheet" href="css/style.css?v=header-logo" />
   </head>
-  <body>
+  <body class="documentation-page">
     <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
       <symbol id="search" viewBox="0 0 24 24">
         <path d="m21 21-4.35-4.35" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -36,9 +36,21 @@
       <symbol id="arrow-right" viewBox="0 0 24 24">
         <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </symbol>
+      <symbol id="send" viewBox="0 0 24 24">
+        <path d="m22 2-7 20-4-9-9-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M22 2 11 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
       <symbol id="file-text" viewBox="0 0 24 24">
         <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
         <path d="M14 2v5h5M9 13h6M9 17h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="pen-line" viewBox="0 0 24 24">
+        <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="folder" viewBox="0 0 24 24">
+        <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M3 10h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </symbol>
       <symbol id="wallet" viewBox="0 0 24 24">
         <path d="M4 7h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -65,6 +77,14 @@
       <symbol id="building" viewBox="0 0 24 24">
         <path d="M4 21h16M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="home" viewBox="0 0 24 24">
+        <path d="m3 11 9-8 9 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 10v10h14V10M10 20v-6h4v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="car" viewBox="0 0 24 24">
+        <path d="M5 12 7 6h10l2 6M4 12h16v6H4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M6 18v2M18 18v2M7 15h.01M17 15h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </symbol>
       <symbol id="briefcase" viewBox="0 0 24 24">
         <path d="M9 6V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -130,12 +150,12 @@
 
         <nav class="main-nav mega-nav" aria-label="Navigation principale" data-nav>
           <div class="nav-item">
-            <a class="nav-trigger" href="index.html" aria-current="page">Accueil</a>
+            <a class="nav-trigger" href="index.html">Accueil</a>
 
           </div>
 
           <div class="nav-item">
-            <a class="nav-trigger" href="#impots-procedures">Vos impôts &amp; procédures <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
+            <a class="nav-trigger" href="obtenir-attestation-fiscale.html">Vos impôts &amp; procédures <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
             <div class="mega-menu wide-menu" role="group" aria-label="Sous-menu Vos impôts et procédures">
               <div class="mega-menu-inner">
                 <div class="mega-menu-copy">
@@ -145,13 +165,13 @@
                 </div>
                 <div class="mega-link-grid dense-grid">
                   <a href="#"><strong>Foire aux questions</strong></a>
-                  <a href="documentation-guides.html"><strong>Formulaires fiscaux</strong></a>
+                  <a href="#"><strong>Formulaires fiscaux</strong></a>
                   <a href="mes-attestations.html"><strong>Mes attestations</strong></a>
                   <a href="vos-immatriculations.html"><strong>Mes immatriculations</strong></a>
                   <a href="#"><strong>Restitutions IR</strong></a>
                   <a href="#"><strong>Remboursements TVA</strong></a>
                   <a href="#"><strong>Autres demandes</strong></a>
-                  <a href="#echeances"><strong>Vos échéances fiscales</strong></a>
+                  <a href="#"><strong>Vos échéances fiscales</strong></a>
                   <a href="#"><strong>Vos réclamations</strong></a>
                   <a href="#"><strong>Catégorisations</strong></a>
                   <a href="declarer-mes-impots.html"><strong>Impôts sur le revenu</strong></a>
@@ -184,7 +204,7 @@
                   <a href="#"><strong>Organisation</strong></a>
                   <a href="#"><strong>Mot du directeur général</strong></a>
                   <a href="#"><strong>Organigramme</strong></a>
-                  <a href="#actualites"><strong>Actualités</strong></a>
+                  <a href="index.html#actualites"><strong>Actualités</strong></a>
                   <a href="#"><strong>Rapports d'activités</strong></a>
                   <a href="#"><strong>Objectifs stratégiques</strong></a>
                 </div>
@@ -193,7 +213,7 @@
           </div>
 
           <div class="nav-item">
-            <a class="nav-trigger" href="documentation-guides.html">Documentation <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
+            <a class="nav-trigger" href="documentation-guides.html" aria-current="page">Documentation <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
             <div class="mega-menu wide-menu" role="group" aria-label="Sous-menu Documentation">
               <div class="mega-menu-inner">
                 <div class="mega-menu-copy">
@@ -231,7 +251,7 @@
                 <div class="mega-link-grid">
                   <a href="#"><strong>Communiqués de presse</strong></a>
                   <a href="#"><strong>Médiathèque</strong><small>Photothèque</small></a>
-                  <a href="#actualites"><strong>Actualités</strong></a>
+                  <a href="#"><strong>Actualités</strong></a>
                 </div>
               </div>
             </div>
@@ -256,8 +276,7 @@
               </div>
             </div>
           </div>
-
-          </nav>
+        </nav>
 
         <div class="header-actions">
           <button class="icon-button" type="button" aria-label="Rechercher">
@@ -269,10 +288,10 @@
               <svg aria-hidden="true"><use href="#chevron-down"></use></svg>
             </button>
             <div class="language-options" role="menu" aria-label="Changer la langue">
-              <a href="ar/index.html" role="menuitem" lang="ar" dir="rtl">عربية</a>
-              <a href="es/index.html" role="menuitem" lang="es">ES</a>
-              <a href="en/index.html" role="menuitem" lang="en">EN</a>
-              <a href="zgh/index.html" role="menuitem" lang="zgh-Tfng">Amazigh</a>
+              <a href="ar/documentation-guides.html" role="menuitem" lang="ar" dir="rtl">عربية</a>
+              <a href="es/documentation-guides.html" role="menuitem" lang="es">ES</a>
+              <a href="en/documentation-guides.html" role="menuitem" lang="en">EN</a>
+              <a href="zgh/documentation-guides.html" role="menuitem" lang="zgh-Tfng">Amazigh</a>
             </div>
           </div>
           <a class="connected-button" href="espace-connecte.html">
@@ -283,298 +302,205 @@
       </div>
     </header>
 
-    <main>
-      <section class="hero pattern-section" aria-labelledby="hero-title">
-        <div class="container hero-grid">
-          <div class="hero-content">
-            <h1 id="hero-title">Simplifiez vos démarches fiscales</h1>
-            <p>
-              Des services modernes, sécurisés et accessibles pour vous accompagner au quotidien.
-            </p>
+    <main class="documentation-main declarer-main">
+      <section class="declare-hero documentation-hero pattern-section" aria-labelledby="documentation-title">
+        <div class="container declare-hero-shell">
+          <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a>
+            <span aria-hidden="true">/</span>
+            <span>Documentation &amp; Guides</span>
+          </nav>
 
-            <form class="hero-search" role="search" data-search-form>
-              <label class="sr-only" for="global-search">Rechercher un service fiscal</label>
-              <svg aria-hidden="true"><use href="#search"></use></svg>
-              <input
-                id="global-search"
-                type="search"
-                placeholder="Rechercher un service, une taxe, un formulaire, une attestation..."
-                autocomplete="off"
-                data-search-input
-              />
-              <button class="filter-button" type="button" aria-label="Filtres avancés">
-                <svg aria-hidden="true"><use href="#sliders"></use></svg>
-              </button>
+          <div class="declare-hero-grid">
+            <div class="declare-hero-copy">
+              <h1 id="documentation-title">Accédez facilement à la documentation fiscale</h1>
+              <p>Guides, formulaires, textes réglementaires et réponses à vos questions en un seul espace.</p>
+            </div>
+            <div class="declare-hero-image documentation-hero-image" aria-hidden="true">
+              <img src="assets/images/documentation-hero-devices.png" alt="" />
+            </div>
+          </div>
+
+          <form class="persona-search declare-search" role="search" data-search-form>
+            <label class="sr-only" for="documentation-search">Rechercher dans la documentation fiscale</label>
+            <svg aria-hidden="true"><use href="#search"></use></svg>
+            <input id="documentation-search" type="search" placeholder="Rechercher un guide, un formulaire ou une information fiscale..." data-search-input />
+            <button class="filter-button" type="button" aria-label="Filtres avancés"><svg aria-hidden="true"><use href="#sliders"></use></svg></button>
+          </form>
+
+          <div class="persona-suggestions declare-suggestions" aria-label="Suggestions populaires">
+            <span>Recherches populaires :</span>
+            <button type="button" data-suggestion="TVA">TVA</button>
+            <button type="button" data-suggestion="IR">IR</button>
+            <button type="button" data-suggestion="Vignette">Vignette</button>
+            <button type="button" data-suggestion="Attestation">Attestation</button>
+            <button type="button" data-suggestion="Revenus fonciers">Revenus fonciers</button>
+            <button type="button" data-suggestion="Taxe professionnelle">Taxe professionnelle</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="documentation-category-section pattern-section" aria-labelledby="docs-category-title">
+        <div class="container declaration-start-panel docs-category-panel">
+          <div class="panel-heading stacked-heading">
+            <h2 id="docs-category-title">Que recherchez-vous ?</h2>
+          </div>
+          <div class="payment-choice-grid docs-category-grid">
+            <a class="payment-choice-card docs-category-card" href="#">
+              <span class="icon-disc blue"><svg aria-hidden="true"><use href="#layers"></use></svg></span>
+              <strong>Guides pratiques</strong>
+              <small>Des guides simples pour comprendre et accomplir vos démarches fiscales.</small>
+              <em>Explorer <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+            <a class="payment-choice-card docs-category-card" href="#">
+              <span class="icon-disc green"><svg aria-hidden="true"><use href="#file-text"></use></svg></span>
+              <strong>Formulaires fiscaux</strong>
+              <small>Téléchargez les formulaires et modèles nécessaires à vos déclarations.</small>
+              <em>Explorer <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+            <a class="payment-choice-card docs-category-card" href="#">
+              <span class="icon-disc purple"><svg aria-hidden="true"><use href="#pen-line"></use></svg></span>
+              <strong>Textes législatifs</strong>
+              <small>Consultez les lois, décrets et textes réglementaires en vigueur.</small>
+              <em>Explorer <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+            <a class="payment-choice-card docs-category-card" href="#">
+              <span class="icon-disc amber"><svg aria-hidden="true"><use href="#help"></use></svg></span>
+              <strong>FAQ fiscales</strong>
+              <small>Trouvez rapidement des réponses aux questions les plus fréquentes.</small>
+              <em>Explorer <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+            <a class="payment-choice-card docs-category-card" href="#">
+              <span class="icon-disc teal"><svg aria-hidden="true"><use href="#building"></use></svg></span>
+              <strong>Simulateurs</strong>
+              <small>Estimez, calculez et simulez vos impôts et obligations fiscales.</small>
+              <em>Explorer <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+            <a class="payment-choice-card docs-category-card" href="#">
+              <span class="icon-disc blue"><svg aria-hidden="true"><use href="#send"></use></svg></span>
+              <strong>Circulaires &amp; notes</strong>
+              <small>Accédez aux circulaires, notes de service et communiqués officiels.</small>
+              <em>Explorer <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="docs-intelligence-section pattern-section" aria-label="Recherche intelligente et guides populaires">
+        <div class="container docs-intelligence-grid">
+          <article class="panel docs-search-panel">
+            <h2>Recherche intelligente</h2>
+            <p>Trouvez rapidement ce dont vous avez besoin grâce à notre moteur de recherche intelligent.</p>
+            <form class="docs-smart-search" role="search">
+              <label>
+                <svg aria-hidden="true"><use href="#search"></use></svg>
+                <input type="search" placeholder="Posez votre question ou saisissez un mot-clé..." />
+              </label>
+              <button type="button">Rechercher</button>
             </form>
-
-            <div class="suggestions" aria-label="Suggestions populaires">
-              <span>Suggestions populaires :</span>
-              <button type="button" data-suggestion="Déclaration IR">Déclaration IR</button>
-              <button type="button" data-suggestion="Attestation de régularité">Attestation de régularité</button>
-              <button type="button" data-suggestion="TVA">TVA</button>
-              <button type="button" data-suggestion="Paiement en ligne">Paiement en ligne</button>
-              <button type="button" data-suggestion="Compte fiscal">Compte fiscal</button>
+            <strong class="docs-suggest-title">Suggestions</strong>
+            <div class="docs-chip-row">
+              <button type="button">Déclaration IR</button>
+              <button type="button">Barème IR 2024</button>
+              <button type="button">Plafond TVA</button>
+              <button type="button">Amende fiscale</button>
+              <button type="button">Cotisation minimale</button>
             </div>
-          </div>
+          </article>
 
-          <div class="hero-media" aria-hidden="true">
-            <img src="assets/images/hero-building.png" alt="" />
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="quick-action-bar" aria-label="Accès rapides">
-            <a href="declarer-mes-impots.html" class="quick-action">
-              <span class="icon-disc blue">
-                <svg aria-hidden="true"><use href="#file-text"></use></svg>
-              </span>
-              <span>
-                <strong>Déclarer</strong>
-                <small>Mes déclarations</small>
-              </span>
-            </a>
-            <a href="payer-vos-taxes.html" class="quick-action">
-              <span class="icon-disc green">
-                <svg aria-hidden="true"><use href="#wallet"></use></svg>
-              </span>
-              <span>
-                <strong>Payer</strong>
-                <small>Mes impôts et taxes</small>
-              </span>
-            </a>
-            <a href="obtenir-attestation-fiscale.html" class="quick-action">
-              <span class="icon-disc purple">
-                <svg aria-hidden="true"><use href="#badge-check"></use></svg>
-              </span>
-              <span>
-                <strong>Attestation</strong>
-                <small>Demander une attestation</small>
-              </span>
-            </a>
-            <a href="prendre-rendez-vous.html" class="quick-action">
-              <span class="icon-disc gold">
-                <svg aria-hidden="true"><use href="#calendar"></use></svg>
-              </span>
-              <span>
-                <strong>Rendez-vous</strong>
-                <small>Prendre un rendez-vous</small>
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section pattern-section" id="declarer" aria-labelledby="want-title">
-        <div class="container">
-          <div class="section-heading">
-              <h2 id="want-title">Ce que je veux faire</h2>
-            <a href="#services" class="link-more">
-              Voir toutes les démarches
-              <svg aria-hidden="true"><use href="#arrow-right"></use></svg>
-            </a>
-          </div>
-
-          <div class="action-card-grid">
-            <a class="action-card" href="declarer-mes-impots.html">
-              <span class="icon-disc blue"><svg aria-hidden="true"><use href="#file-text"></use></svg></span>
-              <strong>J'ai vendu<br />ma maison</strong>
-            </a>
-            <a class="action-card" href="payer-vos-taxes.html">
-              <span class="icon-disc green"><svg aria-hidden="true"><use href="#wallet"></use></svg></span>
-              <strong>J'ai vendu<br />ma voiture</strong>
-            </a>
-            <a class="action-card" href="obtenir-attestation-fiscale.html">
-              <span class="icon-disc purple"><svg aria-hidden="true"><use href="#badge-check"></use></svg></span>
-              <strong>Obtenir une<br />attestation</strong>
-            </a>
-            <a class="action-card" href="#">
-              <span class="icon-disc amber"><svg aria-hidden="true"><use href="#claim"></use></svg></span>
-              <strong>Faire une<br />réclamation</strong>
-            </a>
-            <a class="action-card" href="prendre-rendez-vous.html">
-              <span class="icon-disc gold"><svg aria-hidden="true"><use href="#calendar"></use></svg></span>
-              <strong>Prendre un<br />rendez-vous</strong>
-            </a>
-            <a class="action-card" href="#">
-              <span class="icon-disc teal"><svg aria-hidden="true"><use href="#download-file"></use></svg></span>
-              <strong>Télécharger un<br />formulaire</strong>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section compact-section pattern-section" id="particulier" aria-labelledby="profile-title">
-        <div class="container">
-          <div class="section-heading">
-            <h2 id="profile-title">Qui je suis</h2>
-            <a href="#profils" class="link-more">
-              Voir tous les profils
-              <svg aria-hidden="true"><use href="#arrow-right"></use></svg>
-            </a>
-          </div>
-
-          <div class="profile-grid">
-            <a class="profile-card" href="particulier.html">
-              <img src="assets/images/profile-particulier.png" alt="Famille consultant les services fiscaux" />
-              <div class="profile-copy">
-                <span class="profile-icon blue"><svg aria-hidden="true"><use href="#file-text"></use></svg></span>
-                <strong>Particulier</strong>
-                <small>Vos services dédiés en tant que particulier</small>
-              </div>
-            </a>
-            <a class="profile-card" href="#" id="entreprise">
-              <img src="assets/images/profile-entreprise.png" alt="Immeuble moderne d'entreprise" />
-              <div class="profile-copy">
-                <span class="profile-icon green"><svg aria-hidden="true"><use href="#wallet"></use></svg></span>
-                <strong>Entreprise</strong>
-                <small>Vos services dédiés en tant qu'entreprise</small>
-              </div>
-            </a>
-            <a class="profile-card" href="#" id="professionnel">
-              <img src="assets/images/profile-professionnel.png" alt="Professionnel remplissant des documents" />
-              <div class="profile-copy">
-                <span class="profile-icon purple"><svg aria-hidden="true"><use href="#briefcase"></use></svg></span>
-                <strong>Professionnel /<br />Comptable</strong>
-                <small>Vos services dédiés en tant que professionnel</small>
-              </div>
-            </a>
-            <a class="profile-card" href="#" id="investisseur">
-              <img src="assets/images/profile-investisseur.png" alt="Quartier d'affaires" />
-              <div class="profile-copy">
-                <span class="profile-icon blue"><svg aria-hidden="true"><use href="#building"></use></svg></span>
-                <strong>Investisseur</strong>
-                <small>Vos services dédiés en tant qu'investisseur</small>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section dgi-numbers-section pattern-section" id="dgi-chiffres" aria-labelledby="dgi-numbers-title">
-        <div class="container">
-          <div class="dgi-numbers-box">
-            <div class="dgi-numbers-copy">
-              <span class="kicker">DGI en chiffres</span>
-              <h2 id="dgi-numbers-title">Un aperçu clair des services fiscaux.</h2>
-              <p>Quelques repères pour visualiser l'activité digitale, l'accompagnement des contribuables et la disponibilité des services en ligne.</p>
-            </div>
-            <div class="dgi-numbers-grid" aria-label="Indicateurs clés de la DGI">
-              <article class="dgi-number-card">
-                <span class="dgi-number-icon"><svg aria-hidden="true"><use href="#cloud-download"></use></svg></span>
-                <strong>18 M+</strong>
-                <small>opérations digitales réalisées chaque année</small>
-              </article>
-              <article class="dgi-number-card">
-                <span class="dgi-number-icon"><svg aria-hidden="true"><use href="#shield-check"></use></svg></span>
-                <strong>94%</strong>
-                <small>des démarches prioritaires disponibles en ligne</small>
-              </article>
-              <article class="dgi-number-card">
-                <span class="dgi-number-icon"><svg aria-hidden="true"><use href="#map"></use></svg></span>
-                <strong>150+</strong>
-                <small>points d'accueil et centres de services au Maroc</small>
-              </article>
-              <article class="dgi-number-card">
-                <span class="dgi-number-icon"><svg aria-hidden="true"><use href="#help"></use></svg></span>
-                <strong>24/7</strong>
-                <small>accès aux services, attestations et paiements en ligne</small>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section dashboard-section pattern-section" id="actualites" aria-label="Actualités et communiqués">
-        <div class="container dashboard-grid news-full-grid">
-          <article class="panel news-panel news-panel-wide">
+          <article class="panel docs-guides-panel">
             <div class="panel-heading">
-              <h2>Actualités &amp; communiqués</h2>
-              <a href="#" class="link-more small">Voir toutes les actualités <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+              <h2>Guides les plus consultés</h2>
+              <a class="link-more small" href="#">Voir tous les guides <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
             </div>
-            <div class="news-list">
-              <a class="news-item" href="#">
-                <img src="assets/images/news-finance-2024.png" alt="Loi de finances 2024" />
-                <span>
-                  <small>Communiqué</small>
-                  <strong>Loi de finances 2024 : les principales mesures fiscales</strong>
-                  <time datetime="2024-05-12">12 Mai 2024</time>
-                </span>
-              </a>
-              <a class="news-item" href="#">
-                <img src="assets/images/news-attestation.png" alt="Attestation fiscale en ligne" />
-                <span>
-                  <small>Nouveau service</small>
-                  <strong>Attestation de régularité fiscale en ligne désormais disponible</strong>
-                  <time datetime="2024-05-08">08 Mai 2024</time>
-                </span>
-              </a>
-              <a class="news-item" href="#">
-                <img src="assets/images/news-ir2024.png" alt="Déclaration en ligne" />
-                <span>
-                  <small>Campagne</small>
-                  <strong>IR 2024 : Déclarez en ligne en toute simplicité</strong>
-                  <time datetime="2024-05-03">03 Mai 2024</time>
-                </span>
-              </a>
+            <div class="docs-guide-list">
+              <a href="#"><img src="assets/images/particulier-news-payment.png" alt="" /><span><strong>Comment déclarer mes revenus ?</strong><small>Guide pratique pour la déclaration de l'impôt sur le Revenu.</small></span><em>PDF</em><b>2.1 Mo</b><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+              <a href="#"><img src="assets/images/particulier-news-loi.png" alt="" /><span><strong>Comment payer ma taxe en ligne ?</strong><small>Étapes détaillées pour effectuer vos paiements en ligne.</small></span><em>PDF</em><b>1.8 Mo</b><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+              <a href="#"><img src="assets/images/particulier-news-ir.png" alt="" /><span><strong>Comment obtenir une attestation fiscale ?</strong><small>Les démarches pour demander et télécharger vos attestations.</small></span><em>PDF</em><b>1.6 Mo</b><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+              <a href="#"><img src="assets/images/news-attestation.png" alt="" /><span><strong>Comment corriger une déclaration ?</strong><small>Procédure de rectification et pièces à fournir.</small></span><em>PDF</em><b>1.4 Mo</b><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section info-section pattern-section" id="documentation" aria-label="Échéances documentation et aide">
-        <div class="container info-grid">
-          <article class="panel deadlines" id="echeances">
-            <div class="panel-heading">
-              <h2>Échéances fiscales</h2>
-              <a href="#" class="link-more small">Voir le calendrier <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
-            </div>
-            <div class="deadline-list">
-              <a class="deadline-item" href="#">
-                <time datetime="2024-05-20"><strong>20</strong><span>MAI</span></time>
-                <span>Déclaration TVA - Avril 2024</span>
-                <em>J - 5</em>
-              </a>
-              <a class="deadline-item" href="#">
-                <time datetime="2024-05-31"><strong>31</strong><span>MAI</span></time>
-                <span>Paiement taxe professionnelle</span>
-                <em>J - 16</em>
-              </a>
-              <a class="deadline-item" href="#">
-                <time datetime="2024-06-15"><strong>15</strong><span>JUIN</span></time>
-                <span>Déclaration IR</span>
-                <em>J - 31</em>
-              </a>
-              <a class="deadline-item" href="#">
-                <time datetime="2024-06-30"><strong>30</strong><span>JUIN</span></time>
-                <span>Déclaration IS</span>
-                <em>J - 46</em>
-              </a>
-            </div>
-            <a class="soft-button" href="#">Voir toutes les échéances</a>
+      <section class="docs-forms-section pattern-section" aria-labelledby="docs-forms-title">
+        <div class="container declaration-start-panel docs-forms-panel">
+          <div class="panel-heading">
+            <h2 id="docs-forms-title">Formulaires fiscaux</h2>
+            <a class="link-more small" href="#">Voir tous les formulaires <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+          </div>
+          <div class="docs-form-grid">
+            <a class="docs-form-card" href="#"><span class="icon-disc green"><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Déclaration IR</strong><small>Formulaire de déclaration de l'impôt sur le revenu</small><em>PDF</em><b>1.2 Mo</b><time datetime="2024-05-12">MAJ : 12/05/2024</time><svg aria-hidden="true"><use href="#cloud-download"></use></svg></a>
+            <a class="docs-form-card" href="#"><span class="icon-disc blue"><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Déclaration TVA</strong><small>Formulaire de déclaration de la taxe sur la valeur ajoutée</small><em>PDF</em><b>1.1 Mo</b><time datetime="2024-05-10">MAJ : 10/05/2024</time><svg aria-hidden="true"><use href="#cloud-download"></use></svg></a>
+            <a class="docs-form-card" href="#"><span class="icon-disc teal"><svg aria-hidden="true"><use href="#pen-line"></use></svg></span><strong>Déclaration IS</strong><small>Formulaire de déclaration de l'impôt sur les sociétés</small><em>PDF</em><b>1.3 Mo</b><time datetime="2024-05-08">MAJ : 08/05/2024</time><svg aria-hidden="true"><use href="#cloud-download"></use></svg></a>
+            <a class="docs-form-card" href="#"><span class="icon-disc purple"><svg aria-hidden="true"><use href="#home"></use></svg></span><strong>Taxe d'habitation</strong><small>Formulaire de taxe d'habitation</small><em>PDF</em><b>950 Ko</b><time datetime="2024-05-05">MAJ : 05/05/2024</time><svg aria-hidden="true"><use href="#cloud-download"></use></svg></a>
+            <a class="docs-form-card" href="#"><span class="icon-disc amber"><svg aria-hidden="true"><use href="#building"></use></svg></span><strong>Revenus fonciers</strong><small>Déclaration des revenus fonciers</small><em>PDF</em><b>1.0 Mo</b><time datetime="2024-05-05">MAJ : 05/05/2024</time><svg aria-hidden="true"><use href="#cloud-download"></use></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="docs-filter-help-section pattern-section" aria-label="Filtrer et obtenir de l'aide">
+        <div class="container docs-filter-help-grid">
+          <article class="panel docs-filter-panel">
+            <h2>Filtrer les documents</h2>
+            <form class="docs-filter-form">
+              <label><span>Type de document</span><select><option>Tous les types</option><option>Guide pratique</option><option>Formulaire</option><option>Texte législatif</option></select></label>
+              <label><span>Catégorie fiscale</span><select><option>Toutes les catégories</option><option>Impôt sur le revenu</option><option>TVA</option><option>Taxes locales</option></select></label>
+              <label><span>Public concerné</span><select><option>Particulier</option><option>Entreprise</option><option>Professionnel</option></select></label>
+              <label><span>Langue</span><select><option>Français</option><option>عربية</option><option>English</option></select></label>
+              <label><span>Date de mise à jour</span><select><option>Toutes les dates</option><option>Cette semaine</option><option>Ce mois</option><option>Cette année</option></select></label>
+              <button class="docs-reset" type="reset">Réinitialiser</button>
+              <button class="docs-filter-submit" type="button">Filtrer les résultats</button>
+            </form>
           </article>
 
-          <article class="panel docs-panel">
-            <div class="panel-heading">
-              <h2>Guides &amp; documentation fiscale</h2>
-              <a href="#" class="link-more small">Voir toute la documentation <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+          <article class="panel docs-help-center-panel">
+            <div>
+              <h2>Centre d'aide</h2>
+              <div class="docs-help-list">
+                <a href="#"><span><svg aria-hidden="true"><use href="#bot"></use></svg></span><strong>Assistant IA</strong><small>Posez votre question à notre assistant virtuel disponible 24h/24.</small><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+                <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>FAQ</strong><small>Consultez les réponses aux questions fréquentes.</small><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+                <a href="tel:0801007000"><span><svg aria-hidden="true"><use href="#phone"></use></svg></span><strong>Centre d'appel</strong><small>080 100 70 00<br />Lun - Ven : 8h30 - 17h30</small><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+                <a href="#"><span><svg aria-hidden="true"><use href="#mail"></use></svg></span><strong>Nous contacter</strong><small>Par e-mail ou via le formulaire de contact.</small><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+              </div>
             </div>
-            <div class="doc-list">
-              <a href="#"><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Guides pratiques</strong><small>Trouvez des réponses à vos questions</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Textes législatifs &amp; réglementaires</strong><small>Consultez les lois, dahirs et circulaires</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#download-file"></use></svg></span><strong>Formulaires &amp; modèles</strong><small>Téléchargez les formulaires et modèles</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>Fiches questions / réponses</strong><small>Accédez aux réponses à vos questions</small></a>
-            </div>
+            <img src="assets/images/documentation-help-bot.png" alt="" />
           </article>
+        </div>
+      </section>
 
-          <aside class="panel help-panel" id="aide">
-            <h2>Besoin d'aide ?</h2>
-            <div class="help-list">
-              <a href="#"><span><svg aria-hidden="true"><use href="#bot"></use></svg></span><strong>Assistant virtuel</strong><small>Discutez avec notre assistant</small></a>
-              <a href="tel:0801007000"><span><svg aria-hidden="true"><use href="#phone"></use></svg></span><strong>Centre d'appel</strong><small>080 100 70 00<br />Lun - Ven : 8h30 - 17h30</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#mail"></use></svg></span><strong>Nous écrire</strong><small>via le formulaire de contact</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>FAQ</strong><small>Consultez les questions fréquentes</small></a>
-            </div>
-          </aside>
+      <section class="docs-regulatory-section pattern-section" aria-labelledby="docs-regulatory-title">
+        <div class="container declaration-start-panel docs-regulatory-panel">
+          <div class="panel-heading">
+            <h2 id="docs-regulatory-title">Actualités réglementaires</h2>
+            <a class="link-more small" href="#">Voir toutes les actualités <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+          </div>
+          <div class="docs-news-grid">
+            <a class="docs-reg-card" href="#"><img src="assets/images/news-finance-2024.png" alt="" /><span><em>Loi</em><strong>Loi de finances 2024</strong><small>Principales dispositions fiscales à retenir.</small><time datetime="2024-05-15">15 Mai 2024</time></span></a>
+            <a class="docs-reg-card" href="#"><img src="assets/images/particulier-news-payment.png" alt="" /><span><em>Circulaire</em><strong>Circulaire n° 792/2024</strong><small>Relative aux modalités de paiement de la taxe professionnelle.</small><time datetime="2024-05-08">08 Mai 2024</time></span></a>
+            <a class="docs-reg-card" href="#"><img src="assets/images/profile-investisseur.png" alt="" /><span><em>Note</em><strong>Note de service n° 15/2024</strong><small>Encadrement des attestations fiscales en ligne.</small><time datetime="2024-05-02">02 Mai 2024</time></span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="docs-downloads-section pattern-section" aria-label="Téléchargements rapides">
+        <div class="container">
+          <h2>Téléchargements rapides</h2>
+          <div class="docs-download-strip">
+            <a href="#"><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Guide de la télédéclaration<small>PDF</small></strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+            <a href="#"><span><svg aria-hidden="true"><use href="#building"></use></svg></span><strong>Barème de l'IR 2024<small>PDF</small></strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+            <a href="#"><span><svg aria-hidden="true"><use href="#calendar"></use></svg></span><strong>Calendrier fiscal 2024<small>PDF</small></strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+            <a href="#"><span><svg aria-hidden="true"><use href="#wallet"></use></svg></span><strong>Guide du paiement en ligne<small>PDF</small></strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+            <a href="#"><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Lexique fiscal<small>PDF</small></strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="docs-trust-section pattern-section" aria-label="Garanties documentaires">
+        <div class="container docs-trust-grid">
+          <article><span><svg aria-hidden="true"><use href="#shield-check"></use></svg></span><strong>Information fiable</strong><small>Contenu officiel de la DGI régulièrement mis à jour.</small></article>
+          <article><span><svg aria-hidden="true"><use href="#layers"></use></svg></span><strong>Documents sécurisés</strong><small>Téléchargements sûrs et vérifiés par la DGI.</small></article>
+          <article><span><svg aria-hidden="true"><use href="#user"></use></svg></span><strong>Accessible à tous</strong><small>Information claire, gratuite et accessible 24h/24 et 7j/7.</small></article>
         </div>
       </section>
 
@@ -584,11 +510,11 @@
             <span class="newsletter-icon"><svg aria-hidden="true"><use href="#mail"></use></svg></span>
             <div>
               <h2 id="newsletter-title">Restez informé de l'actualité fiscale</h2>
-              <p>Abonnez-vous à notre newsletter pour recevoir nos dernières actualités, communiqués et informations importantes.</p>
+              <p>Abonnez-vous à notre newsletter pour recevoir nos dernières actualités, alertes et informations importantes.</p>
             </div>
             <form class="newsletter-form">
-              <label class="sr-only" for="newsletter-email">Votre adresse e-mail</label>
-              <input id="newsletter-email" type="email" placeholder="Votre adresse e-mail" />
+              <label class="sr-only" for="documentation-newsletter-email">Votre adresse e-mail</label>
+              <input id="documentation-newsletter-email" type="email" placeholder="Votre adresse e-mail" />
               <button type="submit">S'abonner</button>
             </form>
           </div>

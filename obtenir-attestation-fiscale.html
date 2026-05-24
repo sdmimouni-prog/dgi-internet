@@ -7,15 +7,15 @@
       name="description"
       content="Prototype statique premium du portail de la Direction Générale des Impôts du Maroc."
     />
-    <title>Direction Générale des Impôts | Portail fiscal</title>
-        <link rel="alternate" hreflang="fr" href="index.html" />
-    <link rel="alternate" hreflang="en" href="en/index.html" />
-    <link rel="alternate" hreflang="es" href="es/index.html" />
-    <link rel="alternate" hreflang="ar" href="ar/index.html" />
-    <link rel="alternate" hreflang="zgh-Tfng" href="zgh/index.html" />
+    <title>Obtenir une attestation fiscale | Direction Générale des Impôts</title>
+        <link rel="alternate" hreflang="fr" href="obtenir-attestation-fiscale.html" />
+    <link rel="alternate" hreflang="en" href="en/obtenir-attestation-fiscale.html" />
+    <link rel="alternate" hreflang="es" href="es/obtenir-attestation-fiscale.html" />
+    <link rel="alternate" hreflang="ar" href="ar/obtenir-attestation-fiscale.html" />
+    <link rel="alternate" hreflang="zgh-Tfng" href="zgh/obtenir-attestation-fiscale.html" />
     <link rel="stylesheet" href="css/style.css?v=header-logo" />
   </head>
-  <body>
+  <body class="attestation-page">
     <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
       <symbol id="search" viewBox="0 0 24 24">
         <path d="m21 21-4.35-4.35" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -36,9 +36,21 @@
       <symbol id="arrow-right" viewBox="0 0 24 24">
         <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </symbol>
+      <symbol id="send" viewBox="0 0 24 24">
+        <path d="m22 2-7 20-4-9-9-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M22 2 11 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
       <symbol id="file-text" viewBox="0 0 24 24">
         <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
         <path d="M14 2v5h5M9 13h6M9 17h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="pen-line" viewBox="0 0 24 24">
+        <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="folder" viewBox="0 0 24 24">
+        <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M3 10h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </symbol>
       <symbol id="wallet" viewBox="0 0 24 24">
         <path d="M4 7h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -65,6 +77,14 @@
       <symbol id="building" viewBox="0 0 24 24">
         <path d="M4 21h16M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         <path d="M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="home" viewBox="0 0 24 24">
+        <path d="m3 11 9-8 9 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 10v10h14V10M10 20v-6h4v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="car" viewBox="0 0 24 24">
+        <path d="M5 12 7 6h10l2 6M4 12h16v6H4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M6 18v2M18 18v2M7 15h.01M17 15h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </symbol>
       <symbol id="briefcase" viewBox="0 0 24 24">
         <path d="M9 6V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -130,12 +150,12 @@
 
         <nav class="main-nav mega-nav" aria-label="Navigation principale" data-nav>
           <div class="nav-item">
-            <a class="nav-trigger" href="index.html" aria-current="page">Accueil</a>
+            <a class="nav-trigger" href="index.html">Accueil</a>
 
           </div>
 
           <div class="nav-item">
-            <a class="nav-trigger" href="#impots-procedures">Vos impôts &amp; procédures <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
+            <a class="nav-trigger" href="obtenir-attestation-fiscale.html" aria-current="page">Vos impôts &amp; procédures <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
             <div class="mega-menu wide-menu" role="group" aria-label="Sous-menu Vos impôts et procédures">
               <div class="mega-menu-inner">
                 <div class="mega-menu-copy">
@@ -145,13 +165,13 @@
                 </div>
                 <div class="mega-link-grid dense-grid">
                   <a href="#"><strong>Foire aux questions</strong></a>
-                  <a href="documentation-guides.html"><strong>Formulaires fiscaux</strong></a>
+                  <a href="#"><strong>Formulaires fiscaux</strong></a>
                   <a href="mes-attestations.html"><strong>Mes attestations</strong></a>
                   <a href="vos-immatriculations.html"><strong>Mes immatriculations</strong></a>
                   <a href="#"><strong>Restitutions IR</strong></a>
                   <a href="#"><strong>Remboursements TVA</strong></a>
                   <a href="#"><strong>Autres demandes</strong></a>
-                  <a href="#echeances"><strong>Vos échéances fiscales</strong></a>
+                  <a href="#"><strong>Vos échéances fiscales</strong></a>
                   <a href="#"><strong>Vos réclamations</strong></a>
                   <a href="#"><strong>Catégorisations</strong></a>
                   <a href="declarer-mes-impots.html"><strong>Impôts sur le revenu</strong></a>
@@ -184,7 +204,7 @@
                   <a href="#"><strong>Organisation</strong></a>
                   <a href="#"><strong>Mot du directeur général</strong></a>
                   <a href="#"><strong>Organigramme</strong></a>
-                  <a href="#actualites"><strong>Actualités</strong></a>
+                  <a href="index.html#actualites"><strong>Actualités</strong></a>
                   <a href="#"><strong>Rapports d'activités</strong></a>
                   <a href="#"><strong>Objectifs stratégiques</strong></a>
                 </div>
@@ -231,7 +251,7 @@
                 <div class="mega-link-grid">
                   <a href="#"><strong>Communiqués de presse</strong></a>
                   <a href="#"><strong>Médiathèque</strong><small>Photothèque</small></a>
-                  <a href="#actualites"><strong>Actualités</strong></a>
+                  <a href="#"><strong>Actualités</strong></a>
                 </div>
               </div>
             </div>
@@ -256,8 +276,7 @@
               </div>
             </div>
           </div>
-
-          </nav>
+        </nav>
 
         <div class="header-actions">
           <button class="icon-button" type="button" aria-label="Rechercher">
@@ -269,10 +288,10 @@
               <svg aria-hidden="true"><use href="#chevron-down"></use></svg>
             </button>
             <div class="language-options" role="menu" aria-label="Changer la langue">
-              <a href="ar/index.html" role="menuitem" lang="ar" dir="rtl">عربية</a>
-              <a href="es/index.html" role="menuitem" lang="es">ES</a>
-              <a href="en/index.html" role="menuitem" lang="en">EN</a>
-              <a href="zgh/index.html" role="menuitem" lang="zgh-Tfng">Amazigh</a>
+              <a href="ar/obtenir-attestation-fiscale.html" role="menuitem" lang="ar" dir="rtl">عربية</a>
+              <a href="es/obtenir-attestation-fiscale.html" role="menuitem" lang="es">ES</a>
+              <a href="en/obtenir-attestation-fiscale.html" role="menuitem" lang="en">EN</a>
+              <a href="zgh/obtenir-attestation-fiscale.html" role="menuitem" lang="zgh-Tfng">Amazigh</a>
             </div>
           </div>
           <a class="connected-button" href="espace-connecte.html">
@@ -283,298 +302,195 @@
       </div>
     </header>
 
-    <main>
-      <section class="hero pattern-section" aria-labelledby="hero-title">
-        <div class="container hero-grid">
-          <div class="hero-content">
-            <h1 id="hero-title">Simplifiez vos démarches fiscales</h1>
-            <p>
-              Des services modernes, sécurisés et accessibles pour vous accompagner au quotidien.
-            </p>
+    <main class="attestation-main declarer-main">
+      <section class="declare-hero attestation-hero pattern-section" aria-labelledby="attestation-title">
+        <div class="container declare-hero-shell">
+          <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a>
+            <span aria-hidden="true">/</span>
+            <a href="particulier.html">Particulier</a>
+            <span aria-hidden="true">/</span>
+            <span>Obtenir une attestation</span>
+          </nav>
 
-            <form class="hero-search" role="search" data-search-form>
-              <label class="sr-only" for="global-search">Rechercher un service fiscal</label>
-              <svg aria-hidden="true"><use href="#search"></use></svg>
-              <input
-                id="global-search"
-                type="search"
-                placeholder="Rechercher un service, une taxe, un formulaire, une attestation..."
-                autocomplete="off"
-                data-search-input
-              />
-              <button class="filter-button" type="button" aria-label="Filtres avancés">
-                <svg aria-hidden="true"><use href="#sliders"></use></svg>
-              </button>
-            </form>
-
-            <div class="suggestions" aria-label="Suggestions populaires">
-              <span>Suggestions populaires :</span>
-              <button type="button" data-suggestion="Déclaration IR">Déclaration IR</button>
-              <button type="button" data-suggestion="Attestation de régularité">Attestation de régularité</button>
-              <button type="button" data-suggestion="TVA">TVA</button>
-              <button type="button" data-suggestion="Paiement en ligne">Paiement en ligne</button>
-              <button type="button" data-suggestion="Compte fiscal">Compte fiscal</button>
+          <div class="declare-hero-grid">
+            <div class="declare-hero-copy">
+              <h1 id="attestation-title">Obtenez une attestation fiscale</h1>
+              <p>Accédez aux services d'attestation et de vérification documentaire en ligne, rapidement et en toute sécurité.</p>
             </div>
+            <div class="declare-hero-image attestation-hero-image" aria-hidden="true">
+              <img src="assets/images/attestation-hero-document.png" alt="" />
+            </div>
+            <aside class="attestation-secure-card" aria-label="Service sécurisé">
+              <span><svg aria-hidden="true"><use href="#shield-check"></use></svg></span>
+              <strong>Service 100% sécurisé</strong>
+              <small>Vos données sont protégées selon les normes en vigueur.</small>
+            </aside>
           </div>
 
-          <div class="hero-media" aria-hidden="true">
-            <img src="assets/images/hero-building.png" alt="" />
+          <form class="persona-search declare-search" role="search" data-search-form>
+            <label class="sr-only" for="attestation-search">Rechercher une attestation</label>
+            <svg aria-hidden="true"><use href="#search"></use></svg>
+            <input id="attestation-search" type="search" placeholder="Rechercher une attestation ou un justificatif..." data-search-input />
+            <button class="filter-button" type="button" aria-label="Filtres avancés"><svg aria-hidden="true"><use href="#sliders"></use></svg></button>
+          </form>
+
+          <div class="persona-suggestions declare-suggestions" aria-label="Suggestions populaires">
+            <span>Suggestions populaires :</span>
+            <button type="button" data-suggestion="Régularité fiscale">Régularité fiscale</button>
+            <button type="button" data-suggestion="Attestation IR">Attestation IR</button>
+            <button type="button" data-suggestion="Paiement taxe">Paiement taxe</button>
+            <button type="button" data-suggestion="Relevé fiscal">Relevé fiscal</button>
+            <button type="button" data-suggestion="Justificatif fiscal">Justificatif fiscal</button>
           </div>
         </div>
+      </section>
 
-        <div class="container">
-          <div class="quick-action-bar" aria-label="Accès rapides">
-            <a href="declarer-mes-impots.html" class="quick-action">
-              <span class="icon-disc blue">
-                <svg aria-hidden="true"><use href="#file-text"></use></svg>
-              </span>
-              <span>
-                <strong>Déclarer</strong>
-                <small>Mes déclarations</small>
-              </span>
+      <section class="declaration-start-section pattern-section" aria-labelledby="attestation-choice-title">
+        <div class="container declaration-start-panel">
+          <div class="panel-heading stacked-heading">
+            <h2 id="attestation-choice-title">Quelle attestation souhaitez-vous ?</h2>
+          </div>
+          <div class="payment-choice-grid attestation-choice-grid">
+            <a class="payment-choice-card attestation-choice-card" href="#">
+              <span class="icon-disc blue"><svg aria-hidden="true"><use href="#shield-check"></use></svg></span>
+              <strong>Attestation de régularité fiscale</strong>
+              <small>Atteste de votre situation fiscale régulière auprès de la DGI.</small>
+              <em>Accéder au service <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
             </a>
-            <a href="payer-vos-taxes.html" class="quick-action">
-              <span class="icon-disc green">
-                <svg aria-hidden="true"><use href="#wallet"></use></svg>
-              </span>
-              <span>
-                <strong>Payer</strong>
-                <small>Mes impôts et taxes</small>
-              </span>
+            <a class="payment-choice-card attestation-choice-card" href="#">
+              <span class="icon-disc green"><svg aria-hidden="true"><use href="#file-text"></use></svg></span>
+              <strong>Attestation de paiement</strong>
+              <small>Atteste que vos paiements ont été effectués auprès de la DGI.</small>
+              <em>Accéder au service <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
             </a>
-            <a href="obtenir-attestation-fiscale.html" class="quick-action">
-              <span class="icon-disc purple">
-                <svg aria-hidden="true"><use href="#badge-check"></use></svg>
-              </span>
-              <span>
-                <strong>Attestation</strong>
-                <small>Demander une attestation</small>
-              </span>
+            <a class="payment-choice-card attestation-choice-card" href="#">
+              <span class="icon-disc amber"><svg aria-hidden="true"><use href="#building"></use></svg></span>
+              <strong>Attestation taxe professionnelle</strong>
+              <small>Attestation relative à votre situation de taxe professionnelle.</small>
+              <em>Accéder au service <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
             </a>
-            <a href="prendre-rendez-vous.html" class="quick-action">
-              <span class="icon-disc gold">
-                <svg aria-hidden="true"><use href="#calendar"></use></svg>
-              </span>
-              <span>
-                <strong>Rendez-vous</strong>
-                <small>Prendre un rendez-vous</small>
-              </span>
+            <a class="payment-choice-card attestation-choice-card" href="#">
+              <span class="icon-disc purple"><svg aria-hidden="true"><use href="#user"></use></svg></span>
+              <strong>Attestation IR</strong>
+              <small>Atteste de votre situation au titre de l'impôt sur le revenu.</small>
+              <em>Accéder au service <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+            <a class="payment-choice-card attestation-choice-card" href="#">
+              <span class="icon-disc green"><svg aria-hidden="true"><use href="#home"></use></svg></span>
+              <strong>Relevé fiscal</strong>
+              <small>Document récapitulatif de vos principales informations fiscales.</small>
+              <em>Accéder au service <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+            <a class="payment-choice-card attestation-choice-card" href="#">
+              <span class="icon-disc blue"><svg aria-hidden="true"><use href="#download-file"></use></svg></span>
+              <strong>Justificatif fiscal</strong>
+              <small>Justificatif de vos obligations ou déclarations fiscales.</small>
+              <em>Accéder au service <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
             </a>
           </div>
         </div>
       </section>
 
-      <section class="section pattern-section" id="declarer" aria-labelledby="want-title">
-        <div class="container">
-          <div class="section-heading">
-              <h2 id="want-title">Ce que je veux faire</h2>
-            <a href="#services" class="link-more">
-              Voir toutes les démarches
-              <svg aria-hidden="true"><use href="#arrow-right"></use></svg>
-            </a>
+      <section class="attestation-verify-section pattern-section" aria-labelledby="attestation-verify-title">
+        <div class="container attestation-verify-panel">
+          <div class="attestation-verify-copy">
+            <h2 id="attestation-verify-title">Vérifier une attestation</h2>
+            <p>Vérifiez l'authenticité d'une attestation ou d'un justificatif émis par la DGI en quelques secondes.</p>
           </div>
-
-          <div class="action-card-grid">
-            <a class="action-card" href="declarer-mes-impots.html">
-              <span class="icon-disc blue"><svg aria-hidden="true"><use href="#file-text"></use></svg></span>
-              <strong>J'ai vendu<br />ma maison</strong>
-            </a>
-            <a class="action-card" href="payer-vos-taxes.html">
-              <span class="icon-disc green"><svg aria-hidden="true"><use href="#wallet"></use></svg></span>
-              <strong>J'ai vendu<br />ma voiture</strong>
-            </a>
-            <a class="action-card" href="obtenir-attestation-fiscale.html">
-              <span class="icon-disc purple"><svg aria-hidden="true"><use href="#badge-check"></use></svg></span>
-              <strong>Obtenir une<br />attestation</strong>
-            </a>
-            <a class="action-card" href="#">
-              <span class="icon-disc amber"><svg aria-hidden="true"><use href="#claim"></use></svg></span>
-              <strong>Faire une<br />réclamation</strong>
-            </a>
-            <a class="action-card" href="prendre-rendez-vous.html">
-              <span class="icon-disc gold"><svg aria-hidden="true"><use href="#calendar"></use></svg></span>
-              <strong>Prendre un<br />rendez-vous</strong>
-            </a>
-            <a class="action-card" href="#">
-              <span class="icon-disc teal"><svg aria-hidden="true"><use href="#download-file"></use></svg></span>
-              <strong>Télécharger un<br />formulaire</strong>
-            </a>
+          <form class="attestation-verify-form">
+            <label>
+              <span>Type de document</span>
+              <select>
+                <option>Sélectionner le type</option>
+                <option>Attestation de régularité fiscale</option>
+                <option>Attestation de paiement</option>
+                <option>Justificatif fiscal</option>
+              </select>
+            </label>
+            <label>
+              <span>Numéro de document / Référence</span>
+              <input type="text" placeholder="Ex. : 2024/AT/123456" />
+            </label>
+            <label>
+              <span>Code de vérification (QR / Code)</span>
+              <input type="text" placeholder="Saisir le code (facultatif)" />
+            </label>
+            <p><svg aria-hidden="true"><use href="#shield-check"></use></svg> La vérification est 100% sécurisée et confidentielle.</p>
+          </form>
+          <div class="attestation-verify-art" aria-hidden="true">
+            <span><svg><use href="#search"></use></svg></span>
           </div>
+          <button class="attestation-verify-button" type="button"><svg aria-hidden="true"><use href="#shield-check"></use></svg> Vérifier le document</button>
         </div>
       </section>
 
-      <section class="section compact-section pattern-section" id="particulier" aria-labelledby="profile-title">
-        <div class="container">
-          <div class="section-heading">
-            <h2 id="profile-title">Qui je suis</h2>
-            <a href="#profils" class="link-more">
-              Voir tous les profils
-              <svg aria-hidden="true"><use href="#arrow-right"></use></svg>
-            </a>
-          </div>
-
-          <div class="profile-grid">
-            <a class="profile-card" href="particulier.html">
-              <img src="assets/images/profile-particulier.png" alt="Famille consultant les services fiscaux" />
-              <div class="profile-copy">
-                <span class="profile-icon blue"><svg aria-hidden="true"><use href="#file-text"></use></svg></span>
-                <strong>Particulier</strong>
-                <small>Vos services dédiés en tant que particulier</small>
-              </div>
-            </a>
-            <a class="profile-card" href="#" id="entreprise">
-              <img src="assets/images/profile-entreprise.png" alt="Immeuble moderne d'entreprise" />
-              <div class="profile-copy">
-                <span class="profile-icon green"><svg aria-hidden="true"><use href="#wallet"></use></svg></span>
-                <strong>Entreprise</strong>
-                <small>Vos services dédiés en tant qu'entreprise</small>
-              </div>
-            </a>
-            <a class="profile-card" href="#" id="professionnel">
-              <img src="assets/images/profile-professionnel.png" alt="Professionnel remplissant des documents" />
-              <div class="profile-copy">
-                <span class="profile-icon purple"><svg aria-hidden="true"><use href="#briefcase"></use></svg></span>
-                <strong>Professionnel /<br />Comptable</strong>
-                <small>Vos services dédiés en tant que professionnel</small>
-              </div>
-            </a>
-            <a class="profile-card" href="#" id="investisseur">
-              <img src="assets/images/profile-investisseur.png" alt="Quartier d'affaires" />
-              <div class="profile-copy">
-                <span class="profile-icon blue"><svg aria-hidden="true"><use href="#building"></use></svg></span>
-                <strong>Investisseur</strong>
-                <small>Vos services dédiés en tant qu'investisseur</small>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section dgi-numbers-section pattern-section" id="dgi-chiffres" aria-labelledby="dgi-numbers-title">
-        <div class="container">
-          <div class="dgi-numbers-box">
-            <div class="dgi-numbers-copy">
-              <span class="kicker">DGI en chiffres</span>
-              <h2 id="dgi-numbers-title">Un aperçu clair des services fiscaux.</h2>
-              <p>Quelques repères pour visualiser l'activité digitale, l'accompagnement des contribuables et la disponibilité des services en ligne.</p>
-            </div>
-            <div class="dgi-numbers-grid" aria-label="Indicateurs clés de la DGI">
-              <article class="dgi-number-card">
-                <span class="dgi-number-icon"><svg aria-hidden="true"><use href="#cloud-download"></use></svg></span>
-                <strong>18 M+</strong>
-                <small>opérations digitales réalisées chaque année</small>
-              </article>
-              <article class="dgi-number-card">
-                <span class="dgi-number-icon"><svg aria-hidden="true"><use href="#shield-check"></use></svg></span>
-                <strong>94%</strong>
-                <small>des démarches prioritaires disponibles en ligne</small>
-              </article>
-              <article class="dgi-number-card">
-                <span class="dgi-number-icon"><svg aria-hidden="true"><use href="#map"></use></svg></span>
-                <strong>150+</strong>
-                <small>points d'accueil et centres de services au Maroc</small>
-              </article>
-              <article class="dgi-number-card">
-                <span class="dgi-number-icon"><svg aria-hidden="true"><use href="#help"></use></svg></span>
-                <strong>24/7</strong>
-                <small>accès aux services, attestations et paiements en ligne</small>
-              </article>
+      <section class="guided-section pattern-section" aria-labelledby="attestation-steps-title">
+        <div class="container guided-panel attestation-guided-panel">
+          <div class="guided-flow">
+            <h2 id="attestation-steps-title">Comment obtenir une attestation ?</h2>
+            <div class="steps-grid payment-steps-grid">
+              <article><b>1</b><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Choisir l'attestation</strong><small>Sélectionnez le type d'attestation ou de justificatif dont vous avez besoin.</small></article>
+              <article><b>2</b><span><svg aria-hidden="true"><use href="#user"></use></svg></span><strong>S'identifier ou saisir les références</strong><small>Connectez-vous ou renseignez les informations demandées pour accéder au service.</small></article>
+              <article><b>3</b><span><svg aria-hidden="true"><use href="#shield-check"></use></svg></span><strong>Vérifier les informations</strong><small>Contrôlez et validez les informations avant de générer le document.</small></article>
+              <article><b>4</b><span><svg aria-hidden="true"><use href="#cloud-download"></use></svg></span><strong>Télécharger le document</strong><small>Téléchargez votre attestation au format PDF et conservez-la ou imprimez-la.</small></article>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="section dashboard-section pattern-section" id="actualites" aria-label="Actualités et communiqués">
-        <div class="container dashboard-grid news-full-grid">
-          <article class="panel news-panel news-panel-wide">
-            <div class="panel-heading">
-              <h2>Actualités &amp; communiqués</h2>
-              <a href="#" class="link-more small">Voir toutes les actualités <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
-            </div>
-            <div class="news-list">
-              <a class="news-item" href="#">
-                <img src="assets/images/news-finance-2024.png" alt="Loi de finances 2024" />
-                <span>
-                  <small>Communiqué</small>
-                  <strong>Loi de finances 2024 : les principales mesures fiscales</strong>
-                  <time datetime="2024-05-12">12 Mai 2024</time>
-                </span>
-              </a>
-              <a class="news-item" href="#">
-                <img src="assets/images/news-attestation.png" alt="Attestation fiscale en ligne" />
-                <span>
-                  <small>Nouveau service</small>
-                  <strong>Attestation de régularité fiscale en ligne désormais disponible</strong>
-                  <time datetime="2024-05-08">08 Mai 2024</time>
-                </span>
-              </a>
-              <a class="news-item" href="#">
-                <img src="assets/images/news-ir2024.png" alt="Déclaration en ligne" />
-                <span>
-                  <small>Campagne</small>
-                  <strong>IR 2024 : Déclarez en ligne en toute simplicité</strong>
-                  <time datetime="2024-05-03">03 Mai 2024</time>
-                </span>
-              </a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section info-section pattern-section" id="documentation" aria-label="Échéances documentation et aide">
-        <div class="container info-grid">
-          <article class="panel deadlines" id="echeances">
-            <div class="panel-heading">
-              <h2>Échéances fiscales</h2>
-              <a href="#" class="link-more small">Voir le calendrier <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
-            </div>
-            <div class="deadline-list">
-              <a class="deadline-item" href="#">
-                <time datetime="2024-05-20"><strong>20</strong><span>MAI</span></time>
-                <span>Déclaration TVA - Avril 2024</span>
-                <em>J - 5</em>
-              </a>
-              <a class="deadline-item" href="#">
-                <time datetime="2024-05-31"><strong>31</strong><span>MAI</span></time>
-                <span>Paiement taxe professionnelle</span>
-                <em>J - 16</em>
-              </a>
-              <a class="deadline-item" href="#">
-                <time datetime="2024-06-15"><strong>15</strong><span>JUIN</span></time>
-                <span>Déclaration IR</span>
-                <em>J - 31</em>
-              </a>
-              <a class="deadline-item" href="#">
-                <time datetime="2024-06-30"><strong>30</strong><span>JUIN</span></time>
-                <span>Déclaration IS</span>
-                <em>J - 46</em>
-              </a>
-            </div>
-            <a class="soft-button" href="#">Voir toutes les échéances</a>
-          </article>
-
-          <article class="panel docs-panel">
-            <div class="panel-heading">
-              <h2>Guides &amp; documentation fiscale</h2>
-              <a href="#" class="link-more small">Voir toute la documentation <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
-            </div>
-            <div class="doc-list">
-              <a href="#"><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Guides pratiques</strong><small>Trouvez des réponses à vos questions</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Textes législatifs &amp; réglementaires</strong><small>Consultez les lois, dahirs et circulaires</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#download-file"></use></svg></span><strong>Formulaires &amp; modèles</strong><small>Téléchargez les formulaires et modèles</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>Fiches questions / réponses</strong><small>Accédez aux réponses à vos questions</small></a>
-            </div>
-          </article>
-
-          <aside class="panel help-panel" id="aide">
-            <h2>Besoin d'aide ?</h2>
-            <div class="help-list">
-              <a href="#"><span><svg aria-hidden="true"><use href="#bot"></use></svg></span><strong>Assistant virtuel</strong><small>Discutez avec notre assistant</small></a>
-              <a href="tel:0801007000"><span><svg aria-hidden="true"><use href="#phone"></use></svg></span><strong>Centre d'appel</strong><small>080 100 70 00<br />Lun - Ven : 8h30 - 17h30</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#mail"></use></svg></span><strong>Nous écrire</strong><small>via le formulaire de contact</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>FAQ</strong><small>Consultez les questions fréquentes</small></a>
-            </div>
+          <aside class="declare-help-card attestation-help-card">
+            <h3>Besoin d'aide ?</h3>
+            <p>Consultez nos guides pratiques ou contactez notre assistant virtuel.</p>
+            <a href="#">Voir l'aide en ligne <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+            <span><svg aria-hidden="true"><use href="#bot"></use></svg></span>
           </aside>
+        </div>
+      </section>
+
+      <section class="attestation-services-section pattern-section" aria-labelledby="attestation-services-title">
+        <div class="container declaration-start-panel attestation-services-panel">
+          <div class="panel-heading stacked-heading">
+            <h2 id="attestation-services-title">Nos services liés aux attestations</h2>
+          </div>
+          <div class="attestation-service-grid">
+            <a href="#"><span><svg aria-hidden="true"><use href="#cloud-download"></use></svg></span><strong>Télécharger une attestation</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+            <a href="#"><span><svg aria-hidden="true"><use href="#shield-check"></use></svg></span><strong>Vérifier un document</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+            <a href="#"><span><svg aria-hidden="true"><use href="#search"></use></svg></span><strong>Rechercher une référence</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+            <a href="#"><span><svg aria-hidden="true"><use href="#wallet"></use></svg></span><strong>Vérifier un paiement</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+            <a href="#"><span><svg aria-hidden="true"><use href="#download-file"></use></svg></span><strong>Télécharger un reçu</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="payment-info-section pattern-section" id="aide" aria-label="Questions fréquentes, actualités et assistance">
+        <div class="container payment-info-grid">
+          <article class="panel payment-faq-panel">
+            <div class="panel-heading"><h2>Questions fréquentes</h2><a href="#" class="link-more small">Voir toutes les questions <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></div>
+            <div class="doc-list">
+              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>Comment obtenir mon attestation en ligne ?</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>Quels sont les documents requis ?</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>Quelle est la durée de validité d'une attestation ?</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>Comment vérifier l'authenticité d'un document ?</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>Que faire si mon attestation est refusée ?</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+            </div>
+          </article>
+
+          <article class="panel news-panel payment-news-panel">
+            <div class="panel-heading"><h2>Actualités &amp; informations</h2><a href="#" class="link-more small">Voir toutes les actualités <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></div>
+            <div class="news-list">
+              <a class="news-item" href="#"><img src="assets/images/news-attestation.png" alt="" /><span><em>Actualité</em><strong>Nouvelles attestations disponibles en ligne</strong><time datetime="2024-05-12">12 Mai 2024</time></span></a>
+              <a class="news-item" href="#"><img src="assets/images/particulier-news-payment.png" alt="" /><span><em>Information</em><strong>Téléchargement d'attestations : nouveau service en ligne</strong><time datetime="2024-05-06">06 Mai 2024</time></span></a>
+              <a class="news-item" href="#"><img src="assets/images/particulier-news-ir.png" alt="" /><span><em>Rappel</em><strong>Validité des attestations fiscales : ce qu'il faut savoir</strong><time datetime="2024-05-02">02 Mai 2024</time></span></a>
+            </div>
+          </article>
+
+          <article class="panel help-panel payment-help-panel">
+            <h2>Besoin d'assistance ?</h2>
+            <div class="help-list">
+              <a href="#"><span><svg aria-hidden="true"><use href="#bot"></use></svg></span><strong>Assistant virtuel</strong><small>Discutez avec notre assistant 24h/24 - 7j/7</small></a>
+              <a href="tel:0801007000"><span><svg aria-hidden="true"><use href="#phone"></use></svg></span><strong>Centre d'appel</strong><small>080 100 70 00<br />Lun - Ven : 8h30 - 17h30</small></a>
+              <a href="#"><span><svg aria-hidden="true"><use href="#mail"></use></svg></span><strong>Nous contacter</strong><small>Par email ou via le formulaire de contact</small></a>
+              <a href="prendre-rendez-vous.html"><span><svg aria-hidden="true"><use href="#calendar"></use></svg></span><strong>Prendre rendez-vous</strong><small>Réservez un créneau avec nos services</small></a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -584,11 +500,11 @@
             <span class="newsletter-icon"><svg aria-hidden="true"><use href="#mail"></use></svg></span>
             <div>
               <h2 id="newsletter-title">Restez informé de l'actualité fiscale</h2>
-              <p>Abonnez-vous à notre newsletter pour recevoir nos dernières actualités, communiqués et informations importantes.</p>
+              <p>Abonnez-vous à notre newsletter pour recevoir nos dernières actualités, alertes et informations importantes.</p>
             </div>
             <form class="newsletter-form">
-              <label class="sr-only" for="newsletter-email">Votre adresse e-mail</label>
-              <input id="newsletter-email" type="email" placeholder="Votre adresse e-mail" />
+              <label class="sr-only" for="attestation-newsletter-email">Votre adresse e-mail</label>
+              <input id="attestation-newsletter-email" type="email" placeholder="Votre adresse e-mail" />
               <button type="submit">S'abonner</button>
             </form>
           </div>

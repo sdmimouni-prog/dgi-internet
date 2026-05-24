@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Prototype statique premium du portail de la Direction Générale des Impôts du Maroc."
+    />
+    <title>Prendre rendez-vous | Direction Générale des Impôts</title>
+        <link rel="alternate" hreflang="fr" href="prendre-rendez-vous.html" />
+    <link rel="alternate" hreflang="en" href="en/prendre-rendez-vous.html" />
+    <link rel="alternate" hreflang="es" href="es/prendre-rendez-vous.html" />
+    <link rel="alternate" hreflang="ar" href="ar/prendre-rendez-vous.html" />
+    <link rel="alternate" hreflang="zgh-Tfng" href="zgh/prendre-rendez-vous.html" />
+    <link rel="stylesheet" href="css/style.css?v=header-logo" />
+  </head>
+  <body class="rendezvous-page">
+    <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="search" viewBox="0 0 24 24">
+        <path d="m21 21-4.35-4.35" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+      <symbol id="sliders" viewBox="0 0 24 24">
+        <path d="M4 7h8M16 7h4M4 17h4M12 17h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="14" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="2"/>
+        <circle cx="10" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+      <symbol id="user" viewBox="0 0 24 24">
+        <path d="M20 21a8 8 0 0 0-16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+      </symbol>
+      <symbol id="chevron-down" viewBox="0 0 24 24">
+        <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="arrow-right" viewBox="0 0 24 24">
+        <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="send" viewBox="0 0 24 24">
+        <path d="m22 2-7 20-4-9-9-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M22 2 11 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="file-text" viewBox="0 0 24 24">
+        <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M14 2v5h5M9 13h6M9 17h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="pen-line" viewBox="0 0 24 24">
+        <path d="M12 20h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="folder" viewBox="0 0 24 24">
+        <path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M3 10h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="wallet" viewBox="0 0 24 24">
+        <path d="M4 7h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16 14h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="17" cy="14" r="1" fill="currentColor"/>
+      </symbol>
+      <symbol id="badge-check" viewBox="0 0 24 24">
+        <path d="m12 2 2.45 2.17 3.28-.25.52 3.25 2.61 1.98-1.45 2.94 1.45 2.94-2.61 1.98-.52 3.25-3.28-.25L12 22l-2.45-2.17-3.28.25-.52-3.25-2.61-1.98 1.45-2.94-1.45-2.94 2.61-1.98.52-3.25 3.28.25Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="m8.5 12.4 2.1 2.1 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="calendar" viewBox="0 0 24 24">
+        <path d="M7 2v4M17 2v4M4 9h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <rect x="4" y="5" width="16" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M8 13h3M13 13h3M8 17h3M13 17h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="claim" viewBox="0 0 24 24">
+        <path d="M12 3 5 6v5c0 4.55 2.9 8.73 7 10 4.1-1.27 7-5.45 7-10V6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M9 12h6M12 9v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="download-file" viewBox="0 0 24 24">
+        <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M14 2v5h5M12 11v6M9 14l3 3 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="building" viewBox="0 0 24 24">
+        <path d="M4 21h16M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9 8h1M14 8h1M9 12h1M14 12h1M9 16h1M14 16h1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="home" viewBox="0 0 24 24">
+        <path d="m3 11 9-8 9 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 10v10h14V10M10 20v-6h4v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="car" viewBox="0 0 24 24">
+        <path d="M5 12 7 6h10l2 6M4 12h16v6H4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M6 18v2M18 18v2M7 15h.01M17 15h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="briefcase" viewBox="0 0 24 24">
+        <path d="M9 6V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <rect x="3" y="6" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M3 12h18M12 11v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="cloud-download" viewBox="0 0 24 24">
+        <path d="M18 17a4 4 0 0 0 .5-7.97A6 6 0 0 0 6.7 8.2 4.5 4.5 0 0 0 7 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 12v8M9 17l3 3 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="shield-check" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="m8.7 12 2.2 2.2 4.6-4.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="m3 7 9 7 9-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="phone" viewBox="0 0 24 24">
+        <path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.72 19.72 0 0 1-8.6-3.07 19.4 19.4 0 0 1-6-6A19.72 19.72 0 0 1 2.15 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.29 1.71.5 2.61.62A2 2 0 0 1 22 16.9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="help" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M9.1 9a3 3 0 1 1 5.16 2.07c-.8.78-1.76 1.27-2.1 2.43M12 17h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="bot" viewBox="0 0 24 24">
+        <rect x="4" y="7" width="16" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 3v4M8 12h.01M16 12h.01M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="whatsapp" viewBox="0 0 24 24">
+        <path d="M12.05 3.4a8.55 8.55 0 0 0-7.36 12.9l-1.05 3.88 3.98-1.04a8.55 8.55 0 1 0 4.43-15.74Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M8.85 8.25c.2-.45.4-.46.58-.46h.48c.15 0 .38.05.58.28.2.23.76.75.76 1.83 0 1.08-.79 2.12-.9 2.27-.11.15-1.52 2.43 3.7 3.98.43.13.76.1 1.05-.06.32-.18 1.02-.87 1.16-1.42.14-.55.14-1.02.1-1.12-.05-.1-.18-.16-.38-.26l-1.38-.68c-.2-.1-.34-.15-.48.15-.14.3-.55.68-.67.82-.12.13-.25.15-.45.05a5.73 5.73 0 0 1-1.68-1.03 6.26 6.26 0 0 1-1.16-1.45c-.12-.2-.01-.31.09-.41.09-.09.2-.24.3-.36.1-.12.13-.2.2-.35.07-.15.04-.28-.02-.38l-.62-1.49c-.16-.38-.32-.32-.45-.33h-.38c-.14 0-.34.05-.52.26Z" fill="currentColor"/>
+      </symbol>
+      <symbol id="map" viewBox="0 0 24 24">
+        <path d="m9 18-6 3V6l6-3 6 3 6-3v15l-6 3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M9 3v15M15 6v15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="menu" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="x" viewBox="0 0 24 24">
+        <path d="m18 6-12 12M6 6l12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="globe" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="layers" viewBox="0 0 24 24">
+        <path d="m12 2 9 5-9 5-9-5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="m3 12 9 5 9-5M3 17l9 5 9-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+    </svg>
+
+    <header class="site-header" data-header>
+      <div class="container header-shell">
+        <a class="brand" href="index.html" aria-label="Accueil DGI">
+          <img src="assets/images/dgi-logo-official.png" alt="Direction Générale des Impôts" />
+        </a>
+
+        <button class="icon-button menu-toggle" type="button" aria-label="Ouvrir le menu" data-menu-toggle>
+          <svg aria-hidden="true"><use href="#menu"></use></svg>
+        </button>
+
+        <nav class="main-nav mega-nav" aria-label="Navigation principale" data-nav>
+          <div class="nav-item">
+            <a class="nav-trigger" href="index.html">Accueil</a>
+
+          </div>
+
+          <div class="nav-item">
+            <a class="nav-trigger" href="prendre-rendez-vous.html" aria-current="page">Vos impôts &amp; procédures <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
+            <div class="mega-menu wide-menu" role="group" aria-label="Sous-menu Vos impôts et procédures">
+              <div class="mega-menu-inner">
+                <div class="mega-menu-copy">
+                  <span>Démarches</span>
+                  <strong>Vos impôts &amp; procédures</strong>
+                  <p>Guides, formulaires, échéances et procédures par type d'impôt.</p>
+                </div>
+                <div class="mega-link-grid dense-grid">
+                  <a href="#"><strong>Foire aux questions</strong></a>
+                  <a href="#"><strong>Formulaires fiscaux</strong></a>
+                  <a href="mes-attestations.html"><strong>Mes attestations</strong></a>
+                  <a href="vos-immatriculations.html"><strong>Mes immatriculations</strong></a>
+                  <a href="#"><strong>Restitutions IR</strong></a>
+                  <a href="#"><strong>Remboursements TVA</strong></a>
+                  <a href="#"><strong>Autres demandes</strong></a>
+                  <a href="#"><strong>Vos échéances fiscales</strong></a>
+                  <a href="#"><strong>Vos réclamations</strong></a>
+                  <a href="#"><strong>Catégorisations</strong></a>
+                  <a href="declarer-mes-impots.html"><strong>Impôts sur le revenu</strong></a>
+                  <a href="#"><strong>Impôts sur les sociétés</strong></a>
+                  <a href="#"><strong>Taxe sur la valeur ajoutée</strong></a>
+                  <a href="#"><strong>Droits d'enregistrement</strong></a>
+                  <a href="#"><strong>Droits de timbre</strong></a>
+                  <a href="#"><strong>TSAVA</strong></a>
+                  <a href="#"><strong>Contribution sociale de solidarité</strong></a>
+                  <a href="#"><strong>Taxe d'habitation</strong></a>
+                  <a href="#"><strong>Taxe de services communaux</strong></a>
+                  <a href="#"><strong>Taxe professionnelle</strong></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a class="nav-trigger" href="#nous-connaitre">Nous connaître <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
+            <div class="mega-menu" role="group" aria-label="Sous-menu Nous connaître">
+              <div class="mega-menu-inner">
+                <div class="mega-menu-copy">
+                  <span>Institution</span>
+                  <strong>Nous connaître</strong>
+                  <p>Missions, organisation, valeurs et orientations stratégiques de la DGI.</p>
+                </div>
+                <div class="mega-link-grid">
+                  <a href="#"><strong>Missions</strong></a>
+                  <a href="#"><strong>Valeurs</strong></a>
+                  <a href="#"><strong>Organisation</strong></a>
+                  <a href="#"><strong>Mot du directeur général</strong></a>
+                  <a href="#"><strong>Organigramme</strong></a>
+                  <a href="index.html#actualites"><strong>Actualités</strong></a>
+                  <a href="#"><strong>Rapports d'activités</strong></a>
+                  <a href="#"><strong>Objectifs stratégiques</strong></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a class="nav-trigger" href="documentation-guides.html">Documentation <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
+            <div class="mega-menu wide-menu" role="group" aria-label="Sous-menu Documentation">
+              <div class="mega-menu-inner">
+                <div class="mega-menu-copy">
+                  <span>Ressources</span>
+                  <strong>Documentation</strong>
+                  <p>Textes de référence, fiscalité internationale, notes et rapports.</p>
+                </div>
+                <div class="mega-link-grid dense-grid">
+                  <a href="#"><strong>Fiscalité internationale</strong></a>
+                  <a href="#"><strong>Taux de change</strong></a>
+                  <a href="#"><strong>Code général des impôts</strong></a>
+                  <a href="#"><strong>Taxe sur les contrats d'assurances</strong></a>
+                  <a href="#"><strong>Taxes locales</strong></a>
+                  <a href="#"><strong>Décrets et arrêtés</strong></a>
+                  <a href="#"><strong>Notes circulaires</strong></a>
+                  <a href="#"><strong>Conventions et partenariats</strong></a>
+                  <a href="#"><strong>Questions de principe</strong></a>
+                  <a href="#"><strong>Charte des contribuables</strong></a>
+                  <a href="#"><strong>Prix de transfert</strong></a>
+                  <a href="#"><strong>Rapports sur les dépenses fiscales</strong></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a class="nav-trigger" href="#presse">Presse <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
+            <div class="mega-menu" role="group" aria-label="Sous-menu Presse">
+              <div class="mega-menu-inner">
+                <div class="mega-menu-copy">
+                  <span>Presse</span>
+                  <strong>Communiqués &amp; médias</strong>
+                  <p>Retrouvez les communiqués, contenus média et actualités institutionnelles.</p>
+                </div>
+                <div class="mega-link-grid">
+                  <a href="#"><strong>Communiqués de presse</strong></a>
+                  <a href="#"><strong>Médiathèque</strong><small>Photothèque</small></a>
+                  <a href="#"><strong>Actualités</strong></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item">
+            <a class="nav-trigger" href="#contact">Contact <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
+            <div class="mega-menu" role="group" aria-label="Sous-menu Contact">
+              <div class="mega-menu-inner">
+                <div class="mega-menu-copy">
+                  <span>Contact</span>
+                  <strong>Nous joindre</strong>
+                  <p>Canaux d'assistance, suggestions, annuaire et centre d'appel.</p>
+                </div>
+                <div class="mega-link-grid">
+                  <a href="#"><strong>Nous contacter</strong></a>
+                  <a href="#"><strong>Vos suggestions</strong></a>
+                  <a href="#"><strong>Sondages</strong></a>
+                  <a href="#"><strong>Annuaire</strong></a>
+                  <a href="#aide"><strong>Centre d'appel</strong></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div class="header-actions">
+          <button class="icon-button" type="button" aria-label="Rechercher">
+            <svg aria-hidden="true"><use href="#search"></use></svg>
+          </button>
+          <div class="language-menu" data-language-menu>
+            <button class="language-trigger" type="button" aria-expanded="false" aria-haspopup="true" data-language-trigger>
+              FR
+              <svg aria-hidden="true"><use href="#chevron-down"></use></svg>
+            </button>
+            <div class="language-options" role="menu" aria-label="Changer la langue">
+              <a href="ar/prendre-rendez-vous.html" role="menuitem" lang="ar" dir="rtl">عربية</a>
+              <a href="es/prendre-rendez-vous.html" role="menuitem" lang="es">ES</a>
+              <a href="en/prendre-rendez-vous.html" role="menuitem" lang="en">EN</a>
+              <a href="zgh/prendre-rendez-vous.html" role="menuitem" lang="zgh-Tfng">Amazigh</a>
+            </div>
+          </div>
+          <a class="connected-button" href="espace-connecte.html">
+            <span>Téléservices</span>
+            <svg aria-hidden="true"><use href="#user"></use></svg>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="rendezvous-main declarer-main">
+      <section class="declare-hero rendezvous-hero pattern-section" aria-labelledby="rendezvous-title">
+        <div class="container declare-hero-shell">
+          <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a>
+            <span aria-hidden="true">/</span>
+            <a href="particulier.html">Particulier</a>
+            <span aria-hidden="true">/</span>
+            <span>Prendre rendez-vous</span>
+          </nav>
+
+          <div class="declare-hero-grid">
+            <div class="declare-hero-copy">
+              <h1 id="rendezvous-title">Prenez rendez-vous avec nos services</h1>
+              <p>Choisissez le service dont vous avez besoin, le centre DGI le plus proche et le créneau qui vous convient.</p>
+            </div>
+            <div class="declare-hero-image rendezvous-hero-image" aria-hidden="true">
+              <img src="assets/images/rendezvous-hero-advisor.png" alt="" />
+            </div>
+          </div>
+
+          <form class="persona-search declare-search" role="search" data-search-form>
+            <label class="sr-only" for="rendezvous-search">Rechercher un service ou un centre DGI</label>
+            <svg aria-hidden="true"><use href="#search"></use></svg>
+            <input id="rendezvous-search" type="search" placeholder="Rechercher un service ou un centre DGI..." data-search-input />
+            <button class="filter-button" type="button" aria-label="Filtres avancés"><svg aria-hidden="true"><use href="#sliders"></use></svg></button>
+          </form>
+
+          <div class="persona-suggestions declare-suggestions" aria-label="Suggestions populaires">
+            <span>Suggestions populaires :</span>
+            <button type="button" data-suggestion="Déclaration fiscale">Déclaration fiscale</button>
+            <button type="button" data-suggestion="Réclamation">Réclamation</button>
+            <button type="button" data-suggestion="Attestation">Attestation</button>
+            <button type="button" data-suggestion="Assistance paiement">Assistance paiement</button>
+            <button type="button" data-suggestion="Régularisation">Régularisation</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="declaration-start-section pattern-section" aria-labelledby="rendezvous-service-title">
+        <div class="container declaration-start-panel">
+          <div class="panel-heading stacked-heading">
+            <h2 id="rendezvous-service-title">Pour quel service souhaitez-vous un rendez-vous ?</h2>
+          </div>
+          <div class="payment-choice-grid rendezvous-service-grid">
+            <a class="payment-choice-card rendezvous-service-card" href="#">
+              <span class="icon-disc blue"><svg aria-hidden="true"><use href="#calendar"></use></svg></span>
+              <strong>Déclaration fiscale</strong>
+              <small>Obtenez de l'aide pour vos déclarations et obligations fiscales.</small>
+              <em>Continuer <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+            <a class="payment-choice-card rendezvous-service-card" href="#">
+              <span class="icon-disc green"><svg aria-hidden="true"><use href="#claim"></use></svg></span>
+              <strong>Réclamation</strong>
+              <small>Déposez une réclamation ou faites le suivi d'un dossier.</small>
+              <em>Continuer <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+            <a class="payment-choice-card rendezvous-service-card" href="#">
+              <span class="icon-disc purple"><svg aria-hidden="true"><use href="#wallet"></use></svg></span>
+              <strong>Assistance paiement</strong>
+              <small>Obtenez de l'aide concernant vos paiements et échéances.</small>
+              <em>Continuer <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+            <a class="payment-choice-card rendezvous-service-card" href="#">
+              <span class="icon-disc amber"><svg aria-hidden="true"><use href="#file-text"></use></svg></span>
+              <strong>Attestation</strong>
+              <small>Obtenez une attestation ou un justificatif fiscal.</small>
+              <em>Continuer <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+            <a class="payment-choice-card rendezvous-service-card" href="#">
+              <span class="icon-disc teal"><svg aria-hidden="true"><use href="#badge-check"></use></svg></span>
+              <strong>Régularisation</strong>
+              <small>Régularisez votre situation fiscale ou dossier.</small>
+              <em>Continuer <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+            <a class="payment-choice-card rendezvous-service-card" href="#">
+              <span class="icon-disc purple"><svg aria-hidden="true"><use href="#briefcase"></use></svg></span>
+              <strong>Accompagnement entreprise</strong>
+              <small>Bénéficiez d'un accompagnement dédié pour votre entreprise.</small>
+              <em>Continuer <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="rendezvous-booking-section pattern-section" aria-label="Choisir un centre et un créneau">
+        <div class="container rendezvous-booking-grid">
+          <article class="panel rendezvous-centers-panel">
+            <h2>Choisir un centre DGI</h2>
+            <div class="rendezvous-center-tools">
+              <label>
+                <span class="sr-only">Rechercher une ville ou un centre</span>
+                <svg aria-hidden="true"><use href="#search"></use></svg>
+                <input type="search" placeholder="Rechercher une ville ou un centre..." />
+              </label>
+              <button type="button"><svg aria-hidden="true"><use href="#map"></use></svg> Me localiser</button>
+            </div>
+            <div class="rendezvous-center-layout">
+              <img class="rendezvous-map" src="assets/images/rendezvous-map.png" alt="Carte des centres DGI au Maroc" />
+              <div class="rendezvous-center-list" aria-label="Centres DGI disponibles">
+                <a class="is-active" href="#">
+                  <span><svg aria-hidden="true"><use href="#map"></use></svg></span>
+                  <strong>Rabat - Agdal<small>Av. Annakhil, Hay Riad<br />10100 Rabat</small></strong>
+                  <em>1.2 km <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+                </a>
+                <a href="#">
+                  <span><svg aria-hidden="true"><use href="#map"></use></svg></span>
+                  <strong>Casablanca - Maarif<small>Bd. Bir Anzarane, Maarif<br />20100 Casablanca</small></strong>
+                  <em>87 km <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+                </a>
+                <a href="#">
+                  <span><svg aria-hidden="true"><use href="#map"></use></svg></span>
+                  <strong>Marrakech - Guéliz<small>Av. Mohammed VI, Guéliz<br />40000 Marrakech</small></strong>
+                  <em>245 km <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+                </a>
+                <a href="#">
+                  <span><svg aria-hidden="true"><use href="#map"></use></svg></span>
+                  <strong>Tanger<small>Rue d'Espagne, Centre-ville<br />90000 Tanger</small></strong>
+                  <em>312 km <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+                </a>
+              </div>
+            </div>
+            <a class="rendezvous-panel-link" href="#">Voir tous les centres <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+          </article>
+
+          <article class="panel rendezvous-slot-panel">
+            <h2>Choisir un créneau</h2>
+            <div class="rendezvous-calendar-head">
+              <button type="button" aria-label="Semaine précédente"><svg aria-hidden="true"><use href="#chevron-down"></use></svg></button>
+              <strong>Mai 2026</strong>
+              <button type="button" aria-label="Semaine suivante"><svg aria-hidden="true"><use href="#chevron-down"></use></svg></button>
+            </div>
+            <div class="rendezvous-days" aria-label="Jours disponibles">
+              <button type="button"><small>Lun</small><strong>19</strong></button>
+              <button type="button"><small>Mar</small><strong>20</strong></button>
+              <button class="is-active" type="button"><small>Mer</small><strong>21</strong></button>
+              <button type="button"><small>Jeu</small><strong>22</strong></button>
+              <button type="button"><small>Ven</small><strong>23</strong></button>
+              <button type="button"><small>Sam</small><strong>24</strong></button>
+              <button type="button"><small>Dim</small><strong>25</strong></button>
+            </div>
+            <div class="rendezvous-times" aria-label="Créneaux horaires">
+              <button type="button">08:30</button>
+              <button type="button">09:00</button>
+              <button type="button">09:30</button>
+              <button type="button">10:00</button>
+              <button type="button">10:30</button>
+              <button type="button">11:00</button>
+              <button type="button">11:30</button>
+              <button type="button">14:00</button>
+              <button type="button">14:30</button>
+              <button class="is-active" type="button">15:00</button>
+              <button type="button">15:30</button>
+              <button type="button">16:00</button>
+              <button type="button">16:30</button>
+              <button type="button">17:00</button>
+              <button type="button">17:30</button>
+            </div>
+            <div class="rendezvous-legend">
+              <span><i class="available"></i> Disponible</span>
+              <span><i class="limited"></i> Peu de disponibilités</span>
+              <span><i class="full"></i> Complet</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="rendezvous-prep-section pattern-section" aria-label="Préparation du rendez-vous">
+        <div class="container rendezvous-prep-grid">
+          <article class="panel rendezvous-documents-panel">
+            <h2>Documents à préparer</h2>
+            <p>Pour gagner du temps, préparez les documents suivants :</p>
+            <div class="rendezvous-document-list">
+              <a href="#"><span><svg aria-hidden="true"><use href="#wallet"></use></svg></span><strong>Carte Nationale d'Identité (CIN)<small>En cours de validité</small></strong></a>
+              <a href="#"><span><svg aria-hidden="true"><use href="#badge-check"></use></svg></span><strong>Référence fiscale<small>Identifiant ou numéro d'article d'imposition</small></strong></a>
+              <a href="#"><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Documents liés à votre demande<small>Formulaires, déclarations, justificatifs...</small></strong></a>
+              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>Tout autre document utile<small>Selon la nature de votre rendez-vous</small></strong></a>
+            </div>
+            <a class="rendezvous-panel-link" href="#">Voir la liste complète des documents <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+          </article>
+
+          <article class="panel rendezvous-summary-panel">
+            <h2>Récapitulatif de votre rendez-vous</h2>
+            <ul class="rendezvous-summary-list">
+              <li><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Service<small>Déclaration fiscale</small></strong><a href="#">Modifier</a></li>
+              <li><span><svg aria-hidden="true"><use href="#map"></use></svg></span><strong>Centre<small>Rabat - Agdal</small></strong><a href="#">Modifier</a></li>
+              <li><span><svg aria-hidden="true"><use href="#calendar"></use></svg></span><strong>Date<small>Mercredi 21 Mai 2026</small></strong><a href="#">Modifier</a></li>
+              <li><span><svg aria-hidden="true"><use href="#phone"></use></svg></span><strong>Heure<small>15:00</small></strong><a href="#">Modifier</a></li>
+            </ul>
+            <button class="rendezvous-confirm-button" type="button"><svg aria-hidden="true"><use href="#calendar"></use></svg> Confirmer le rendez-vous</button>
+            <small class="rendezvous-secure-note"><svg aria-hidden="true"><use href="#shield-check"></use></svg> Vos données sont sécurisées</small>
+          </article>
+
+          <aside class="panel rendezvous-confirm-panel">
+            <h2>Confirmation immédiate</h2>
+            <span class="rendezvous-envelope"><svg aria-hidden="true"><use href="#badge-check"></use></svg></span>
+            <p>Vous recevrez une confirmation par e-mail et SMS avec tous les détails de votre rendez-vous.</p>
+            <ul>
+              <li>Rappel automatique avant votre RDV</li>
+              <li>Possibilité de modifier ou d'annuler</li>
+              <li>Service gratuit et sécurisé</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="rendezvous-how-section pattern-section" aria-label="Fonctionnement et assistance">
+        <div class="container rendezvous-how-grid">
+          <article class="panel rendezvous-how-panel">
+            <h2>Comment ça fonctionne ?</h2>
+            <div class="rendezvous-mini-steps">
+              <article><b>1</b><span><svg aria-hidden="true"><use href="#calendar"></use></svg></span><strong>Choisir le service</strong><small>Sélectionnez le service dont vous avez besoin.</small></article>
+              <article><b>2</b><span><svg aria-hidden="true"><use href="#map"></use></svg></span><strong>Sélectionner le centre</strong><small>Choisissez le centre DGI le plus proche.</small></article>
+              <article><b>3</b><span><svg aria-hidden="true"><use href="#phone"></use></svg></span><strong>Choisir le créneau</strong><small>Sélectionnez le jour et l'heure qui vous conviennent.</small></article>
+              <article><b>4</b><span><svg aria-hidden="true"><use href="#mail"></use></svg></span><strong>Recevoir la confirmation</strong><small>Recevez votre confirmation par e-mail et SMS.</small></article>
+            </div>
+          </article>
+          <article class="panel rendezvous-help-panel">
+            <h2>Besoin d'aide ?</h2>
+            <div class="rendezvous-help-strip">
+              <a href="#"><span><svg aria-hidden="true"><use href="#bot"></use></svg></span><strong>Assistant virtuel</strong></a>
+              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>FAQ rendez-vous</strong></a>
+              <a href="tel:0801007000"><span><svg aria-hidden="true"><use href="#phone"></use></svg></span><strong>Centre d'appel<br />080 100 70 00</strong></a>
+              <a href="#"><span><svg aria-hidden="true"><use href="#mail"></use></svg></span><strong>Nous contacter</strong></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="payment-info-section pattern-section" id="aide" aria-label="Questions fréquentes, actualités et conseils">
+        <div class="container payment-info-grid rendezvous-info-grid">
+          <article class="panel payment-faq-panel">
+            <div class="panel-heading"><h2>Questions fréquentes</h2><a href="#" class="link-more small">Voir toutes les questions <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></div>
+            <div class="doc-list">
+              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>Comment modifier ou annuler un rendez-vous ?</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>Puis-je prendre rendez-vous pour quelqu'un d'autre ?</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>Que se passe-t-il si je ne peux pas me présenter ?</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>Puis-je me présenter sans rendez-vous ?</strong><svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+            </div>
+          </article>
+
+          <article class="panel news-panel payment-news-panel">
+            <div class="panel-heading"><h2>Actualités &amp; informations</h2><a href="#" class="link-more small">Voir toutes les actualités <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a></div>
+            <div class="news-list">
+              <a class="news-item" href="#"><img src="assets/images/particulier-news-payment.png" alt="" /><span><em>Nouveau</em><strong>Nouveaux créneaux disponibles dans plusieurs centres DGI</strong><time datetime="2024-05-12">12 Mai 2024</time></span></a>
+              <a class="news-item" href="#"><img src="assets/images/particulier-news-loi.png" alt="" /><span><em>Information</em><strong>Campagne fiscale 2026 : prenez rendez-vous dès maintenant</strong><time datetime="2024-05-06">06 Mai 2024</time></span></a>
+              <a class="news-item" href="#"><img src="assets/images/particulier-news-ir.png" alt="" /><span><em>Information</em><strong>Horaires exceptionnels pendant la période fiscale</strong><time datetime="2024-05-02">02 Mai 2024</time></span></a>
+            </div>
+          </article>
+
+          <article class="panel rendezvous-tips-panel">
+            <h2>Conseils pratiques</h2>
+            <ul class="rendezvous-tips-list">
+              <li><span><svg aria-hidden="true"><use href="#calendar"></use></svg></span>Arrivez 10 minutes avant votre rendez-vous</li>
+              <li><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span>Préparez vos documents à l'avance</li>
+              <li><span><svg aria-hidden="true"><use href="#mail"></use></svg></span>Vérifiez votre e-mail avant le RDV</li>
+              <li><span><svg aria-hidden="true"><use href="#shield-check"></use></svg></span>Respectez les mesures sanitaires</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="newsletter-section" id="newsletter" aria-labelledby="newsletter-title">
+        <div class="container">
+          <div class="newsletter-card">
+            <span class="newsletter-icon"><svg aria-hidden="true"><use href="#mail"></use></svg></span>
+            <div>
+              <h2 id="newsletter-title">Restez informé de l'actualité fiscale</h2>
+              <p>Abonnez-vous à notre newsletter pour recevoir nos dernières actualités, alertes et informations importantes.</p>
+            </div>
+            <form class="newsletter-form">
+              <label class="sr-only" for="rendezvous-newsletter-email">Votre adresse e-mail</label>
+              <input id="rendezvous-newsletter-email" type="email" placeholder="Votre adresse e-mail" />
+              <button type="submit">S'abonner</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer pattern-section">
+      <div class="container footer-grid">
+        <section class="footer-brand" aria-label="Direction Générale des Impôts">
+          <img src="assets/images/dgi-logo-footer.png" alt="Direction Générale des Impôts" />
+          <p>
+            La Direction Générale des Impôts assure pour une fiscalité moderne, équitable et au service du développement économique du Royaume.
+          </p>
+          <div class="social-links" aria-label="Reseaux sociaux">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="YouTube">yt</a>
+            <a href="#" aria-label="X">x</a>
+            <a href="#" aria-label="Facebook">f</a>
+          </div>
+        </section>
+
+        <section>
+          <h2>Liens utiles</h2>
+          <a href="#">Plan du site</a>
+          <a href="#">Non à la corruption</a>
+          <a href="#">Marchés publics</a>
+          <a href="#">Recrutement</a>
+          <a href="#">Glossaire</a>
+          <a href="#">Accessibilité</a>
+        </section>
+
+        <section>
+          <h2>Documentation</h2>
+          <a href="documentation-guides.html">Guides pratiques</a>
+          <a href="documentation-guides.html">Formulaires &amp; modèles</a>
+          <a href="documentation-guides.html">Textes législatifs</a>
+          <a href="#">Données &amp; statistiques</a>
+          <a href="#">Fiches pratiques</a>
+        </section>
+
+        <section>
+          <h2>Informations</h2>
+          <a href="#">A propos de la DGI</a>
+          <a href="#">Nos missions</a>
+          <a href="#">Nos engagements</a>
+          <a href="#">Partenaires</a>
+          <a href="#">Contact</a>
+        </section>
+
+        <section class="app-download">
+          <h2>Téléchargez notre application</h2>
+          <img class="store-badge" src="assets/images/store-google.png" alt="Disponible sur Google Play" />
+          <img class="store-badge" src="assets/images/store-apple.png" alt="Télécharger dans l'App Store" />
+        </section>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>© 2024 Direction Générale des Impôts - Tous droits réservés</p>
+        <nav aria-label="Liens legaux">
+          <a href="#">Mentions legales</a>
+          <a href="#">Données personnelles</a>
+          <a href="#">Accessibilite</a>
+        </nav>
+        <span>Royaume du Maroc</span>
+      </div>
+    </footer>
+
+    <a class="whatsapp-chatbot" href="#" aria-label="Ouvrir le chatbot WhatsApp" title="Chatbot WhatsApp">
+      <img src="assets/images/whatsapp-chatbot-icon.png" alt="" />
+    </a>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

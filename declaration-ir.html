@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Choix du profil pour la déclaration IR." />
+    <title>Déclaration IR | Direction Générale des Impôts</title>
+    <link rel="stylesheet" href="css/style.css?v=header-logo" />
+  </head>
+  <body class="declarer-page declaration-ir-page">
+    <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="search" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="sliders" viewBox="0 0 24 24"><path d="M4 7h8M16 7h4M4 17h4M12 17h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="10" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="user" viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="briefcase" viewBox="0 0 24 24"><path d="M9 6V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="6" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 11v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="x" viewBox="0 0 24 24"><path d="m18 6-12 12M6 6l12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    </svg>
+
+    <header class="site-header" data-header>
+      <div class="container header-shell">
+        <a class="brand" href="index.html" aria-label="Accueil DGI">
+          <img src="assets/images/dgi-logo-official.png" alt="Direction Générale des Impôts" />
+        </a>
+        <button class="icon-button menu-toggle" type="button" aria-label="Ouvrir le menu" data-menu-toggle>
+          <svg aria-hidden="true"><use href="#menu"></use></svg>
+        </button>
+        <nav class="main-nav mega-nav" aria-label="Navigation principale" data-nav>
+          <div class="nav-item"><a class="nav-trigger" href="index.html">Accueil</a></div>
+
+          <div class="nav-item">
+            <a class="nav-trigger" href="declarer-mes-impots.html" aria-current="page">Vos impôts &amp; procédures <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
+            <div class="mega-menu wide-menu" role="group" aria-label="Sous-menu Vos impôts et procédures">
+              <div class="mega-menu-inner">
+                <div class="mega-menu-copy">
+                  <span>Démarches</span>
+                  <strong>Vos impôts &amp; procédures</strong>
+                  <p>Guides, formulaires, échéances et procédures par type d'impôt.</p>
+                </div>
+                <div class="mega-link-grid dense-grid">
+                  <a href="mes-attestations.html"><strong>Mes attestations</strong></a>
+                  <a href="vos-immatriculations.html"><strong>Mes immatriculations</strong></a>
+                  <a href="declarer-mes-impots.html"><strong>Impôts sur le revenu</strong></a>
+                  <a href="#"><strong>Impôts sur les sociétés</strong></a>
+                  <a href="#"><strong>Taxe sur la valeur ajoutée</strong></a>
+                  <a href="#"><strong>Taxe professionnelle</strong></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="nav-item"><a class="nav-trigger" href="index.html#nous-connaitre">Nous connaître <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a></div>
+
+          <div class="nav-item"><a class="nav-trigger" href="documentation-guides.html">Documentation <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a></div>
+
+          <div class="nav-item"><a class="nav-trigger" href="index.html#presse">Presse <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a></div>
+
+          <div class="nav-item"><a class="nav-trigger" href="index.html#contact">Contact <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a></div>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-button" type="button" aria-label="Rechercher"><svg aria-hidden="true"><use href="#search"></use></svg></button>
+          <div class="language-menu" data-language-menu>
+            <button class="language-trigger" type="button" aria-expanded="false" aria-haspopup="true" data-language-trigger>
+              FR
+              <svg aria-hidden="true"><use href="#chevron-down"></use></svg>
+            </button>
+            <div class="language-options" role="menu" aria-label="Changer la langue">
+              <a href="ar/declarer-mes-impots.html" role="menuitem" lang="ar" dir="rtl">عربية</a>
+              <a href="es/declarer-mes-impots.html" role="menuitem" lang="es">ES</a>
+              <a href="en/declarer-mes-impots.html" role="menuitem" lang="en">EN</a>
+              <a href="zgh/declarer-mes-impots.html" role="menuitem" lang="zgh-Tfng">Amazigh</a>
+            </div>
+          </div>
+          <a class="connected-button" href="espace-connecte.html"><span>Téléservices</span><svg aria-hidden="true"><use href="#user"></use></svg></a>
+        </div>
+      </div>
+    </header>
+
+    <main class="declarer-main">
+      <section class="declare-hero declaration-ir-hero pattern-section" aria-labelledby="declaration-ir-title">
+        <div class="container declare-hero-shell">
+          <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a>
+            <span aria-hidden="true">/</span>
+            <a href="declarer-mes-impots.html">Déclarer mes impôts</a>
+            <span aria-hidden="true">/</span>
+            <span>Déclaration IR</span>
+          </nav>
+          <div class="declare-hero-grid">
+            <div class="declare-hero-copy">
+              <h1 id="declaration-ir-title">Déclaration IR</h1>
+              <p>Choisissez votre espace afin de poursuivre la déclaration de l'impôt sur le revenu.</p>
+            </div>
+            <div class="declare-hero-image" aria-hidden="true">
+              <img src="assets/images/declarer-hero-couple.png" alt="" />
+            </div>
+          </div>
+          <form class="persona-search declare-search" role="search" data-search-form>
+            <label class="sr-only" for="declaration-ir-search">Rechercher une déclaration IR</label>
+            <svg aria-hidden="true"><use href="#search"></use></svg>
+            <input id="declaration-ir-search" type="search" placeholder="Rechercher une déclaration, un formulaire ou une démarche..." data-search-input />
+            <button class="filter-button" type="button" aria-label="Filtres avancés"><svg aria-hidden="true"><use href="#sliders"></use></svg></button>
+          </form>
+        </div>
+      </section>
+
+      <section class="declaration-ir-choice-section pattern-section" aria-labelledby="declaration-ir-choice-title">
+        <div class="container declaration-start-panel">
+          <div class="panel-heading stacked-heading">
+            <h2 id="declaration-ir-choice-title">Vous êtes ?</h2>
+            <p>Sélectionnez le profil correspondant à votre déclaration.</p>
+          </div>
+          <div class="registration-profile-grid ir-profile-grid">
+            <a class="registration-profile-card" href="#">
+              <img src="assets/images/profile-particulier.png" alt="" />
+              <span class="icon-disc blue"><svg aria-hidden="true"><use href="#user"></use></svg></span>
+              <strong>Particuliers</strong>
+              <small>Accéder au parcours de déclaration IR pour les particuliers.</small>
+              <em>Choisir <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+            <a class="registration-profile-card" href="#">
+              <img src="assets/images/profile-professionnel.png" alt="" />
+              <span class="icon-disc gold"><svg aria-hidden="true"><use href="#briefcase"></use></svg></span>
+              <strong>Professionnel</strong>
+              <small>Accéder au parcours de déclaration IR pour les professionnels.</small>
+              <em>Choisir <svg aria-hidden="true"><use href="#arrow-right"></use></svg></em>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer pattern-section">
+      <div class="container footer-grid">
+        <section class="footer-brand" aria-label="Direction Générale des Impôts">
+          <img src="assets/images/dgi-logo-footer.png" alt="Direction Générale des Impôts" />
+          <p>
+            La Direction Générale des Impôts assure pour une fiscalité moderne, équitable et au service du développement économique du Royaume.
+          </p>
+          <div class="social-links" aria-label="Reseaux sociaux">
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="YouTube">yt</a>
+            <a href="#" aria-label="X">x</a>
+            <a href="#" aria-label="Facebook">f</a>
+          </div>
+        </section>
+
+        <section>
+          <h2>Liens utiles</h2>
+          <a href="#">Plan du site</a>
+          <a href="#">Non à la corruption</a>
+          <a href="#">Marchés publics</a>
+          <a href="#">Recrutement</a>
+          <a href="#">Glossaire</a>
+          <a href="#">Accessibilité</a>
+        </section>
+
+        <section>
+          <h2>Documentation</h2>
+          <a href="documentation-guides.html">Guides pratiques</a>
+          <a href="documentation-guides.html">Formulaires &amp; modèles</a>
+          <a href="documentation-guides.html">Textes législatifs</a>
+          <a href="#">Données &amp; statistiques</a>
+          <a href="#">Fiches pratiques</a>
+        </section>
+
+        <section>
+          <h2>Informations</h2>
+          <a href="#">A propos de la DGI</a>
+          <a href="#">Nos missions</a>
+          <a href="#">Nos engagements</a>
+          <a href="#">Partenaires</a>
+          <a href="#">Contact</a>
+        </section>
+
+        <section class="app-download">
+          <h2>Téléchargez notre application</h2>
+          <img class="store-badge" src="assets/images/store-google.png" alt="Disponible sur Google Play" />
+          <img class="store-badge" src="assets/images/store-apple.png" alt="Télécharger dans l'App Store" />
+        </section>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>© 2024 Direction Générale des Impôts - Tous droits réservés</p>
+        <nav aria-label="Liens legaux">
+          <a href="#">Mentions legales</a>
+          <a href="#">Données personnelles</a>
+          <a href="#">Accessibilite</a>
+        </nav>
+        <span>Royaume du Maroc</span>
+      </div>
+    </footer>
+
+    <a class="whatsapp-chatbot" href="#" aria-label="Ouvrir le chatbot WhatsApp" title="Chatbot WhatsApp">
+      <img src="assets/images/whatsapp-chatbot-icon.png" alt="" />
+    </a>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

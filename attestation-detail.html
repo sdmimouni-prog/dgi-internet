@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Détail d'une attestation fiscale et pièces exigées." />
+    <title>Détail attestation | Direction Générale des Impôts</title>
+    <link rel="stylesheet" href="css/style.css?v=header-logo" />
+  </head>
+  <body class="certificate-detail-page">
+    <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="search" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="user" viewBox="0 0 24 24"><path d="M20 21a8 8 0 0 0-16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="file-text" viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v5h5M9 13h6M9 17h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="download-file" viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 2v5h5M12 11v6M9 14l3 3 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="shield-check" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m8.7 12 2.2 2.2 4.6-4.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 7 9 7 9-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.72 19.72 0 0 1-8.6-3.07 19.4 19.4 0 0 1-6-6A19.72 19.72 0 0 1 2.15 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.29 1.71.5 2.61.62A2 2 0 0 1 22 16.9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+      <symbol id="calendar" viewBox="0 0 24 24"><path d="M7 2v4M17 2v4M4 9h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="4" y="5" width="16" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="x" viewBox="0 0 24 24"><path d="m18 6-12 12M6 6l12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    </svg>
+
+    <header class="site-header" data-header>
+      <div class="container header-shell">
+        <a class="brand" href="index.html" aria-label="Accueil DGI"><img src="assets/images/dgi-logo-official.png" alt="Direction Générale des Impôts" /></a>
+        <button class="icon-button menu-toggle" type="button" aria-label="Ouvrir le menu" data-menu-toggle><svg aria-hidden="true"><use href="#menu"></use></svg></button>
+        <nav class="main-nav mega-nav" aria-label="Navigation principale" data-nav>
+          <div class="nav-item"><a class="nav-trigger" href="index.html">Accueil</a></div>
+
+          <div class="nav-item"><a class="nav-trigger" href="mes-attestations.html" aria-current="page">Vos impôts &amp; procédures <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
+            <div class="mega-menu wide-menu" role="group" aria-label="Sous-menu Vos impôts et procédures"><div class="mega-menu-inner"><div class="mega-menu-copy"><span>Démarches</span><strong>Vos impôts &amp; procédures</strong><p>Guides, formulaires, échéances et procédures par type d'impôt.</p></div><div class="mega-link-grid dense-grid"><a href="documentation-guides.html"><strong>Formulaires fiscaux</strong></a><a href="mes-attestations.html"><strong>Mes attestations</strong></a><a href="vos-immatriculations.html"><strong>Mes immatriculations</strong></a><a href="declarer-mes-impots.html"><strong>Impôts sur le revenu</strong></a><a href="#"><strong>Taxe professionnelle</strong></a></div></div></div>
+          </div>
+
+          <div class="nav-item"><a class="nav-trigger" href="index.html#nous-connaitre">Nous connaître <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a></div>
+
+          <div class="nav-item"><a class="nav-trigger" href="documentation-guides.html">Documentation <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a></div>
+
+          <div class="nav-item"><a class="nav-trigger" href="index.html#presse">Presse <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a></div>
+
+          <div class="nav-item"><a class="nav-trigger" href="index.html#contact">Contact <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a></div>
+        </nav>
+        <div class="header-actions"><button class="icon-button" type="button" aria-label="Rechercher"><svg aria-hidden="true"><use href="#search"></use></svg></button><a class="connected-button" href="espace-connecte.html"><span>Téléservices</span><svg aria-hidden="true"><use href="#user"></use></svg></a></div>
+      </div>
+    </header>
+
+    <main class="certificate-detail-main">
+      <section class="certificate-detail-hero pattern-section" aria-labelledby="detail-title">
+        <div class="container certificate-detail-shell">
+          <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><a href="mes-attestations.html">Mes attestations</a><span aria-hidden="true">/</span><span>Détail</span></nav>
+          <div class="certificate-detail-grid">
+            <div>
+              <span class="detail-kicker">Attestation</span>
+              <h1 id="detail-title" data-attestation-title>Attestation de revenu.</h1>
+              <p>Consultez les pièces exigées, accédez à la plateforme SIMPL ou téléchargez le modèle correspondant.</p>
+              <div class="certificate-action-row">
+                <a class="certificate-action primary" href="#pieces-demandees"><svg aria-hidden="true"><use href="#file-text"></use></svg> Pièces demandées</a>
+                <a class="certificate-action" href="connexion.html"><svg aria-hidden="true"><use href="#shield-check"></use></svg> Accéder à la plateforme SIMPL</a>
+                <a class="certificate-action" href="#"><svg aria-hidden="true"><use href="#download-file"></use></svg> Télécharger le modèle</a>
+              </div>
+            </div>
+            <img src="assets/images/attestation-hero-document.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section class="certificate-requirements-section pattern-section" id="pieces-demandees">
+        <div class="container certificate-requirements-panel">
+          <h2>Pièces exigées</h2>
+          <div class="requirements-grid">
+            <article>
+              <h3>Pour les demandes électroniques</h3>
+              <ol><li>Une demande sur le portail de la Direction Générale des Impôts, au niveau de l'espace TELESERVICES SIMPL - vos attestations.</li></ol>
+            </article>
+            <article>
+              <h3>Pour les demandes physiques</h3>
+              <h4>Cas des contribuables soumis à la déclaration annuelle du revenu global</h4>
+              <ol><li>La demande, formulaire modèle AAP049.</li><li>Une copie de la CNI ou de la carte de séjour.</li></ol>
+              <h4>Cas des contribuables non soumis à la déclaration annuelle du revenu global</h4>
+              <ol><li>La demande, formulaire modèle AAP049.</li><li>Une copie de la CNI ou de la carte de séjour.</li><li>Une attestation de salaire ou une attestation de pension de retraite, de l'année précédente.</li></ol>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="certificate-steps-section pattern-section" aria-labelledby="steps-title">
+        <div class="container">
+          <div class="panel-heading stacked-heading"><h2 id="steps-title">Comment obtenir votre attestation ?</h2></div>
+          <div class="certificate-step-grid">
+            <article><b>1</b><strong>Adhésion</strong><span>Créez ou confirmez votre accès aux services SIMPL.</span></article>
+            <article><b>2</b><strong>Chercher son attestation</strong><span>Utilisez la recherche ou la famille d'attestations adaptée.</span></article>
+            <article><b>3</b><strong>Accéder à l'espace SIMPL</strong><span>Connectez-vous avec vos identifiants sécurisés.</span></article>
+            <article><b>4</b><strong>Faire la demande</strong><span>Déposez la demande, suivez son traitement et téléchargez le document.</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="certificate-support-section pattern-section" aria-label="Aide et services utiles">
+        <div class="container certificate-support-grid">
+          <a href="tel:0801007000"><span><svg aria-hidden="true"><use href="#phone"></use></svg></span><strong>Centre d'appel</strong><small>080 100 70 00<br />Assistance et orientation.</small></a>
+          <a href="newsletter.html"><span><svg aria-hidden="true"><use href="#mail"></use></svg></span><strong>Newsletter</strong><small>Recevez les nouveautés liées aux attestations.</small></a>
+          <a href="index.html#echeances"><span><svg aria-hidden="true"><use href="#calendar"></use></svg></span><strong>Vos échéances fiscales</strong><small>Suivez les dates importantes de vos démarches.</small></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer pattern-section">
+      <div class="container footer-bottom">
+        <p>© 2024 Direction Générale des Impôts - Tous droits réservés</p>
+        <nav aria-label="Liens legaux"><a href="#">Mentions legales</a><a href="#">Données personnelles</a><a href="#">Accessibilite</a></nav>
+        <span>Royaume du Maroc</span>
+      </div>
+    </footer>
+
+    <script src="js/app.js?v=attestation-detail"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 76" role="img" aria-labelledby="title">
+  <title id="title">Direction Générale des Impôts</title>
+  <defs>
+    <clipPath id="diamondClip">
+      <polygon points="37 4 70 37 37 70 4 37"/>
+    </clipPath>
+  </defs>
+  <g fill="#ffffff" clip-path="url(#diamondClip)">
+    <rect x="32" y="3" width="44" height="4" rx="2"/>
+    <rect x="27" y="10" width="52" height="4" rx="2"/>
+    <rect x="22" y="17" width="63" height="4" rx="2"/>
+    <rect x="17" y="24" width="72" height="4" rx="2"/>
+    <rect x="11" y="31" width="86" height="4" rx="2"/>
+    <rect x="5" y="38" width="92" height="4" rx="2"/>
+    <rect x="11" y="45" width="78" height="4" rx="2"/>
+    <rect x="18" y="52" width="65" height="4" rx="2"/>
+    <rect x="25" y="59" width="52" height="4" rx="2"/>
+    <rect x="32" y="66" width="38" height="4" rx="2"/>
+  </g>
+  <g fill="#ffffff">
+    <text x="90" y="22" font-family="Arial, Tahoma, sans-serif" font-size="14" font-weight="700">المديرية العامة للضرائب</text>
+    <text x="90" y="43" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800" letter-spacing=".2">DIRECTION GÉNÉRALE DES IMPÔTS</text>
+    <text x="90" y="60" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="700" letter-spacing=".6">ROYAUME DU MAROC</text>
+  </g>
+</svg>
