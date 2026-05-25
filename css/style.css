@@ -1488,13 +1488,13 @@ body.about-page .site-footer .container {
 }
 
 .about-international-inner {
-  height: 168px;
-  min-height: 168px;
+  height: 186px;
+  min-height: 186px;
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
   gap: 45px;
   align-items: center;
-  padding: 23px 0 21px;
+  padding: 27px 0 25px;
 }
 
 .about-international-copy h2 {
@@ -1545,8 +1545,8 @@ body.about-page .site-footer .container {
 }
 
 .about-cta {
-  height: 106px;
-  min-height: 106px;
+  height: 145px;
+  min-height: 145px;
   display: flex;
   align-items: start;
   overflow: hidden;
@@ -1561,7 +1561,7 @@ body.about-page .site-footer .container {
 
 .about-cta-card {
   width: min(315px, 100%);
-  margin-top: 8px;
+  margin-top: 22px;
   transform: none;
   display: grid;
   grid-template-columns: 34px minmax(0, 1fr);
