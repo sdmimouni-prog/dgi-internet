@@ -25,6 +25,135 @@ const attestationTitle = document.querySelector("[data-attestation-title]");
 const simplIrTrigger = document.querySelector("[data-simpl-ir-trigger]");
 const simplIrPanel = document.querySelector("[data-simpl-ir-panel]");
 
+const languageConfig = {
+  fr: {
+    label: "FR",
+    htmlLang: "fr",
+    dir: "",
+    connected: "Téléservices",
+    menu: "Changer la langue",
+    options: { fr: "FR", ar: "عربية", es: "ES", en: "EN", zgh: "Amazigh" },
+  },
+  ar: {
+    label: "عربية",
+    htmlLang: "ar",
+    dir: "rtl",
+    connected: "الفضاء المتصل",
+    menu: "تغيير اللغة",
+    options: { fr: "الفرنسية", ar: "عربية", es: "الإسبانية", en: "الإنجليزية", zgh: "الأمازيغية" },
+  },
+  es: {
+    label: "ES",
+    htmlLang: "es",
+    dir: "",
+    connected: "Área conectada",
+    menu: "Cambiar idioma",
+    options: { fr: "FR", ar: "عربية", es: "ES", en: "EN", zgh: "Amazigh" },
+  },
+  en: {
+    label: "EN",
+    htmlLang: "en",
+    dir: "",
+    connected: "Connected area",
+    menu: "Change language",
+    options: { fr: "FR", ar: "عربية", es: "ES", en: "EN", zgh: "Amazigh" },
+  },
+  zgh: {
+    label: "ⵜⴰⵎⴰⵣⵉⵖⵜ",
+    htmlLang: "zgh-Tfng",
+    dir: "",
+    connected: "ⴰⵙⵉⵔⴰ ⵉⵇⵇⵏⵏ",
+    menu: "ⵙⵏⴼⵍ ⵜⵓⵜⵍⴰⵢⵜ",
+    options: { fr: "FR", ar: "عربية", es: "ES", en: "EN", zgh: "Amazigh" },
+  },
+};
+
+const languageFolders = new Set(["ar", "es", "en", "zgh"]);
+const languageOrder = ["fr", "ar", "es", "en", "zgh"];
+const translatedPages = new Set([
+  "index.html",
+  "declarer-mes-impots.html",
+  "documentation-guides.html",
+  "obtenir-attestation-fiscale.html",
+  "particulier.html",
+  "payer-vos-taxes.html",
+  "prendre-rendez-vous.html",
+]);
+
+const getPageLanguage = () => {
+  const segments = window.location.pathname.split("/").filter(Boolean);
+  const folder = segments[0];
+
+  if (languageFolders.has(folder)) {
+    return folder;
+  }
+
+  const pageLang = document.documentElement.lang.toLowerCase();
+  if (pageLang.startsWith("ar")) return "ar";
+  if (pageLang.startsWith("es")) return "es";
+  if (pageLang.startsWith("en")) return "en";
+  if (pageLang.startsWith("zgh")) return "zgh";
+  return "fr";
+};
+
+const getLocalizedPageName = () => {
+  const segments = window.location.pathname.split("/").filter(Boolean);
+  const pathSegments = languageFolders.has(segments[0]) ? segments.slice(1) : segments;
+  return pathSegments.join("/") || "index.html";
+};
+
+const getLanguageHref = (language, pageName, isInLanguageFolder) => {
+  const prefix = language === "fr" ? "" : `${language}/`;
+  const path = `${prefix}${pageName}`;
+  return isInLanguageFolder ? `../${path}` : path;
+};
+
+const syncLanguageSwitcher = () => {
+  if (!languageTrigger || !languageMenu) return;
+
+  const currentLanguage = getPageLanguage();
+  const config = languageConfig[currentLanguage] || languageConfig.fr;
+  const pageName = getLocalizedPageName();
+  const languagePageName = translatedPages.has(pageName) ? pageName : "index.html";
+  const isInLanguageFolder = languageFolders.has(window.location.pathname.split("/").filter(Boolean)[0]);
+  const icon = languageTrigger.querySelector("svg")?.cloneNode(true);
+
+  document.documentElement.lang = config.htmlLang;
+  if (config.dir) {
+    document.documentElement.dir = config.dir;
+    languageTrigger.dir = config.dir;
+  } else {
+    document.documentElement.removeAttribute("dir");
+    languageTrigger.removeAttribute("dir");
+  }
+
+  languageTrigger.textContent = config.label;
+  if (icon) {
+    languageTrigger.append(" ", icon);
+  }
+
+  const connectedLabel = document.querySelector(".connected-button span");
+  if (connectedLabel) {
+    connectedLabel.textContent = config.connected;
+  }
+
+  const options = languageMenu.querySelector(".language-options");
+  if (!options) return;
+
+  options.setAttribute("aria-label", config.menu);
+  options.replaceChildren();
+  languageOrder.forEach((language) => {
+    const item = document.createElement("a");
+    item.href = getLanguageHref(language, languagePageName, isInLanguageFolder);
+    item.setAttribute("role", "menuitem");
+    item.lang = language === "zgh" ? "zgh-Tfng" : language;
+    item.textContent = config.options[language];
+    if (language === "ar") item.dir = "rtl";
+    if (language === currentLanguage) item.setAttribute("aria-current", "page");
+    options.append(item);
+  });
+};
+
 const setHeaderState = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 12);
 };
@@ -40,6 +169,8 @@ const closeLanguageMenu = () => {
   languageMenu?.classList.remove("is-open");
   languageTrigger?.setAttribute("aria-expanded", "false");
 };
+
+syncLanguageSwitcher();
 
 window.addEventListener("scroll", setHeaderState, { passive: true });
 setHeaderState();
