@@ -852,6 +852,10 @@ svg {
   padding: 30px 0;
 }
 
+.blank-main {
+  min-height: 520px;
+}
+
 .compact-section {
   padding-top: 20px;
 }

@@ -74,6 +74,7 @@ const translatedPages = new Set([
   "index.html",
   "declarer-mes-impots.html",
   "documentation-guides.html",
+  "nous-connaitre.html",
   "obtenir-attestation-fiscale.html",
   "particulier.html",
   "payer-vos-taxes.html",
