@@ -357,6 +357,35 @@ svg {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+@media (min-width: 941px) {
+  .mega-menu[aria-label="Sous-menu Nous connaître"] {
+    width: min(1040px, calc(100vw - 124px));
+  }
+
+  .mega-menu[aria-label="Sous-menu Nous connaître"] .mega-menu-inner {
+    grid-template-columns: minmax(260px, 0.32fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .mega-menu[aria-label="Sous-menu Nous connaître"] .mega-menu-copy {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .mega-menu[aria-label="Sous-menu Nous connaître"] .mega-link-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: minmax(82px, 1fr);
+  }
+
+  .mega-menu[aria-label="Sous-menu Nous connaître"] .mega-link-grid a {
+    min-height: 82px;
+    padding: 14px 16px;
+  }
+}
+
 .mega-link-grid a {
   min-height: 58px;
   display: flex;
