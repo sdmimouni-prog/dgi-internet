@@ -859,8 +859,8 @@ svg {
 body.about-page {
   --about-header-height: 75px;
   --page-gutter: max(62px, calc((100vw - var(--container)) / 2));
-  --about-section-gutter: clamp(36px, 6.6vw, 68px);
-  --about-card-gutter: clamp(30px, 4vw, 48px);
+  --about-section-gutter: clamp(32px, 4vw, 48px);
+  --about-card-gutter: clamp(26px, 3.5vw, 40px);
   background: #f8fbff;
 }
 
@@ -1107,6 +1107,16 @@ body.about-page .site-footer .container {
   width: 17px;
   height: 17px;
   color: var(--blue-700);
+}
+
+.about-mission,
+.about-kpis,
+.about-digital,
+.about-timeline,
+.about-international,
+.about-cta {
+  width: min(calc(100% - 124px), var(--container));
+  margin-inline: auto;
 }
 
 .about-mission {
@@ -1718,6 +1728,15 @@ body.about-page .whatsapp-chatbot {
     width: min(calc(100% - 72px), var(--container));
   }
 
+  .about-mission,
+  .about-kpis,
+  .about-digital,
+  .about-timeline,
+  .about-international,
+  .about-cta {
+    width: min(calc(100% - 72px), var(--container));
+  }
+
   .about-anchors {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     min-height: 146px;
@@ -1847,6 +1866,15 @@ body.about-page .whatsapp-chatbot {
 
   body.about-page .about-main .container,
   body.about-page .site-footer .container {
+    width: min(calc(100% - 40px), var(--container));
+  }
+
+  .about-mission,
+  .about-kpis,
+  .about-digital,
+  .about-timeline,
+  .about-international,
+  .about-cta {
     width: min(calc(100% - 40px), var(--container));
   }
 
