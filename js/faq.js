@@ -622,9 +622,83 @@ const faqItems = [
 
 const faqList = document.querySelector("[data-faq-list]");
 const faqSearch = document.querySelector("[data-faq-search]");
+const faqSearchForm = document.querySelector("[data-faq-top-search-form]");
+const faqFilterForm = document.querySelector("[data-faq-filter-form]");
+const faqFilterSelects = document.querySelectorAll("[data-faq-filter]");
 const faqResultCount = document.querySelector("[data-faq-result-count]");
 const faqTotalCount = document.querySelector("[data-faq-count]");
+const faqCurrentPage = document.querySelector("[data-faq-current-page]");
+const faqPageSize = document.querySelector("[data-faq-page-size]");
+const faqPageRange = document.querySelector("[data-faq-page-range]");
+const faqPagination = document.querySelector("[data-faq-pagination]");
 const faqEmpty = document.querySelector("[data-faq-empty]");
+const faqQuickButtons = document.querySelectorAll("[data-faq-quick], [data-faq-sidebar-filter]");
+
+const faqItemsPerPage = 10;
+let faqState = {
+  currentPage: 1,
+  filteredItems: faqItems,
+};
+
+const filterKeywordMap = {
+  impot: {
+    "Contribution sociale de solidarite": ["contribution sociale", "solidarite", "css"],
+    "Droits denregistrement": ["droits d enregistrement", "droit d enregistrement", "enregistrement"],
+    "Impot sur le revenu": ["impot sur le revenu", "revenu", "profit foncier", "ir "],
+    "Impot sur les societes": ["impot sur les societes", "societes", "societe", "entreprise", "is "],
+    "Taxe dhabitation": ["taxe d habitation", "taxe habitation", "habitation", "th"],
+    "Taxe de services communaux": ["taxe de services communaux", "services communaux", "tsc"],
+    TVA: ["tva", "taxe sur la valeur ajoutee"],
+  },
+  theme: {
+    Abattement: ["abattement"],
+    Attestation: ["attestation"],
+    "Base imposable": ["base imposable", "chiffre d affaires imposable"],
+    "Champ dapplication": ["champ d application", "hors champ", "passible", "non soumis"],
+    Declarations: ["declaration", "declarer", "declaratives"],
+    Deduction: ["deduction", "deductible", "droit a deduction", "recuperer"],
+    Exoneration: ["exoneration", "exonere", "exoneree", "sans tva"],
+    Paiement: ["paiement", "payer", "versement"],
+    Restitution: ["restitution", "remboursement", "rembourse"],
+    "Retenue a la source": ["retenue a la source", "retenues a la source"],
+    Sanction: ["sanction", "penalite", "majoration", "hors delai", "tardif"],
+    Taux: ["taux", "20%", "15%", "14%", "10%", "17,5%", "1,5%"],
+    Taxation: ["taxation", "taxable", "imposable", "passible"],
+  },
+  concerned_person: {
+    Association: ["association", "associations", "utilite publique"],
+    "Personnes Etrangeres": ["etranger", "etrangeres", "non resident", "non-resident", "ambassade", "diplomate"],
+    "Personnes morales": ["societe", "societes", "entreprise", "sarl", "sa", "succursale", "personne morale"],
+    "Personnes physiques": ["particulier", "personne physique", "personnes physiques", "medecin", "contribuable"],
+  },
+  activite_ou_operation: {
+    Achat: ["achat", "achats", "acheter"],
+    Aquisition: ["acquisition", "aquisition", "acquerent"],
+    "Cessation d activite": ["cessation", "radiation", "dissolution", "liquidation"],
+    Cession: ["cession", "vente", "ceder", "vendu"],
+    "Creation de societe": ["creation", "creee", "nouvellement creee", "sarl"],
+    Demarche: ["demarche", "procedure", "deposer", "documents", "pieces"],
+    "Elevage autruches": ["autruches", "elevage"],
+    Habitation: ["habitation", "logement", "habiter", "villa"],
+    Hotellerie: ["hotel", "hotelier", "hotellerie"],
+    Importation: ["importation", "importe", "douane"],
+    "Livraison a soi meme": ["livraison a soi meme", "construction"],
+    Location: ["location", "louer", "bail"],
+    "Prestation de service": ["prestation", "service", "services"],
+    "Transfert de siege social": ["transfert", "siege social"],
+  },
+};
+
+const quickFilterMap = {
+  TVA: { name: "impot", value: "TVA" },
+  "Taxe sur la valeur ajoutée": { name: "impot", value: "TVA" },
+  "Impôt sur les sociétés": { name: "impot", value: "Impot sur les societes" },
+  Exonération: { name: "theme", value: "Exoneration" },
+  "Retenue à la source": { name: "theme", value: "Retenue a la source" },
+  "Cession": { name: "activite_ou_operation", value: "Cession" },
+  "Cessation d'activité": { name: "activite_ou_operation", value: "Cessation d activite" },
+  "Personnes morales": { name: "concerned_person", value: "Personnes morales" },
+};
 
 const normalizeFaqText = (value) =>
   value
@@ -633,11 +707,109 @@ const normalizeFaqText = (value) =>
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/<[^>]*>/g, " ");
 
+const getItemHaystack = (item) => {
+  if (!item.normalizedHaystack) {
+    item.normalizedHaystack = normalizeFaqText([item.question, item.answer, ...(item.tags || [])].join(" "));
+  }
+  return item.normalizedHaystack;
+};
+
+const getSelectedFilters = () =>
+  [...faqFilterSelects].reduce((filters, select) => {
+    if (select.value) filters[select.dataset.faqFilter] = select.value;
+    return filters;
+  }, {});
+
+const matchesFilterValue = (item, filterName, filterValue) => {
+  if (!filterValue) return true;
+  const haystack = getItemHaystack(item);
+  const keywords = filterKeywordMap[filterName]?.[filterValue] || [filterValue];
+  return keywords.some((keyword) => haystack.includes(normalizeFaqText(keyword)));
+};
+
+const getFilteredItems = () => {
+  const query = normalizeFaqText(faqSearch?.value.trim() || "");
+  const selectedFilters = getSelectedFilters();
+
+  return faqItems.filter((item) => {
+    const haystack = getItemHaystack(item);
+    const matchesQuery = !query || haystack.includes(query);
+    const matchesSelects = Object.entries(selectedFilters).every(([name, value]) =>
+      matchesFilterValue(item, name, value)
+    );
+
+    return matchesQuery && matchesSelects;
+  });
+};
+
+const getPageCount = (items) => Math.max(1, Math.ceil(items.length / faqItemsPerPage));
+
+const getPaginationPages = (currentPage, pageCount) => {
+  const pages = new Set([1, pageCount, currentPage - 1, currentPage, currentPage + 1]);
+  return [...pages]
+    .filter((page) => page >= 1 && page <= pageCount)
+    .sort((a, b) => a - b);
+};
+
+const renderPagination = (items) => {
+  if (!faqPagination) return;
+
+  const pageCount = getPageCount(items);
+  faqPagination.replaceChildren();
+  if (items.length <= faqItemsPerPage) return;
+
+  const createButton = (label, page, options = {}) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = label;
+    button.dataset.faqPage = String(page);
+    if (options.current) button.setAttribute("aria-current", "page");
+    if (options.disabled) button.disabled = true;
+    if (options.label) button.setAttribute("aria-label", options.label);
+    return button;
+  };
+
+  faqPagination.append(
+    createButton("Précédent", faqState.currentPage - 1, {
+      disabled: faqState.currentPage === 1,
+      label: "Page précédente",
+    })
+  );
+
+  let lastPage = 0;
+  getPaginationPages(faqState.currentPage, pageCount).forEach((page) => {
+    if (page - lastPage > 1) {
+      const ellipsis = document.createElement("span");
+      ellipsis.textContent = "...";
+      faqPagination.append(ellipsis);
+    }
+    faqPagination.append(
+      createButton(String(page), page, {
+        current: page === faqState.currentPage,
+        label: `Page ${page}`,
+      })
+    );
+    lastPage = page;
+  });
+
+  faqPagination.append(
+    createButton("Suivant", faqState.currentPage + 1, {
+      disabled: faqState.currentPage === pageCount,
+      label: "Page suivante",
+    })
+  );
+};
+
 const renderFaqItems = (items) => {
   if (!faqList) return;
 
+  const pageCount = getPageCount(items);
+  faqState.currentPage = Math.min(Math.max(1, faqState.currentPage), pageCount);
+  const startIndex = (faqState.currentPage - 1) * faqItemsPerPage;
+  const pageItems = items.slice(startIndex, startIndex + faqItemsPerPage);
+
   faqList.replaceChildren(
-    ...items.map((item, index) => {
+    ...pageItems.map((item, index) => {
       const details = document.createElement("details");
       details.className = "faq-item";
       if (index === 0) details.open = true;
@@ -666,21 +838,79 @@ const renderFaqItems = (items) => {
   );
 
   if (faqResultCount) faqResultCount.textContent = String(items.length);
+  if (faqCurrentPage) faqCurrentPage.textContent = String(faqState.currentPage);
+  if (faqPageSize) faqPageSize.textContent = String(faqItemsPerPage);
+  if (faqPageRange) {
+    const firstItem = items.length ? startIndex + 1 : 0;
+    const lastItem = Math.min(startIndex + faqItemsPerPage, items.length);
+    faqPageRange.textContent = items.length
+      ? `Affichage des questions ${firstItem} à ${lastItem} sur ${items.length}.`
+      : "Aucune question ne correspond aux critères sélectionnés.";
+  }
   if (faqEmpty) faqEmpty.hidden = items.length > 0;
+  renderPagination(items);
 };
 
-const filterFaqItems = () => {
-  const query = normalizeFaqText(faqSearch?.value.trim() || "");
-  const filteredItems = query
-    ? faqItems.filter((item) => {
-        const haystack = normalizeFaqText([item.question, item.answer, ...(item.tags || [])].join(" "));
-        return haystack.includes(query);
-      })
-    : faqItems;
+const updateFaqResults = ({ resetPage = true } = {}) => {
+  faqState.filteredItems = getFilteredItems();
+  if (resetPage) faqState.currentPage = 1;
+  renderFaqItems(faqState.filteredItems);
+};
 
-  renderFaqItems(filteredItems);
+const applyQuickFilter = (value) => {
+  const config = quickFilterMap[value];
+  faqSearch.value = "";
+  faqFilterForm?.reset();
+
+  if (config) {
+    const select = document.querySelector(`[data-faq-filter="${config.name}"]`);
+    if (select) select.value = config.value;
+  } else {
+    faqSearch.value = value;
+  }
+
+  updateFaqResults();
 };
 
 if (faqTotalCount) faqTotalCount.textContent = String(faqItems.length);
+if (faqPageSize) faqPageSize.textContent = String(faqItemsPerPage);
+
 renderFaqItems(faqItems);
-faqSearch?.addEventListener("input", filterFaqItems);
+
+faqSearchForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  updateFaqResults();
+});
+
+faqSearch?.addEventListener("input", () => updateFaqResults());
+
+faqFilterForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  updateFaqResults();
+});
+
+faqFilterForm?.addEventListener("reset", () => {
+  window.setTimeout(() => {
+    if (faqSearch) faqSearch.value = "";
+    updateFaqResults();
+  }, 0);
+});
+
+faqFilterSelects.forEach((select) => {
+  select.addEventListener("change", () => updateFaqResults());
+});
+
+faqQuickButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    applyQuickFilter(button.dataset.faqQuick || button.dataset.faqSidebarFilter || "");
+  });
+});
+
+faqPagination?.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-faq-page]");
+  if (!button || button.disabled) return;
+
+  faqState.currentPage = Number(button.dataset.faqPage) || 1;
+  renderFaqItems(faqState.filteredItems);
+  document.querySelector(".faq-filter-panel")?.scrollIntoView({ behavior: "smooth", block: "start" });
+});

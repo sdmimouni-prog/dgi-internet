@@ -280,47 +280,167 @@
       </div>
     </header>
 
-    <main class="faq-main" id="faq" aria-label="Foire aux questions">
-      <section class="faq-hero pattern-section" aria-labelledby="faq-title">
-        <div class="container faq-hero-grid">
-          <div class="faq-hero-copy">
-            <span class="faq-eyebrow">Contact</span>
-            <h1 id="faq-title">Foire aux questions</h1>
-            <p>Retrouvez les réponses aux questions fiscales les plus fréquentes : TVA, IS, IR, enregistrement, exonérations, démarches et obligations déclaratives.</p>
+    <main class="declarer-main faq-main" id="faq" aria-label="Foire aux questions">
+      <section class="declare-hero faq-declare-hero pattern-section" aria-labelledby="faq-title">
+        <div class="container declare-hero-shell">
+          <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a>
+            <span aria-hidden="true">/</span>
+            <a href="index.html#contact">Contact</a>
+            <span aria-hidden="true">/</span>
+            <span>FAQ</span>
+          </nav>
+
+          <div class="declare-hero-grid">
+            <div class="declare-hero-copy">
+              <h1 id="faq-title">Foire aux questions fiscales</h1>
+              <p>Recherchez une réponse par impôt, thème, profil ou opération pour trouver rapidement l'information utile à votre démarche.</p>
+            </div>
+            <div class="declare-hero-image faq-hero-image" aria-hidden="true">
+              <img src="assets/images/declarer-hero-couple.png" alt="" />
+            </div>
           </div>
-          <div class="faq-hero-panel" aria-label="Résumé FAQ">
-            <strong data-faq-count>80</strong>
-            <span>questions disponibles</span>
-            <p>Utilisez la recherche pour filtrer rapidement les réponses par mot-clé, impôt ou démarche.</p>
+
+          <form class="persona-search declare-search faq-top-search" role="search" data-faq-top-search-form>
+            <label class="sr-only" for="faq-search">Rechercher dans la FAQ</label>
+            <svg aria-hidden="true"><use href="#search"></use></svg>
+            <input id="faq-search" type="search" placeholder="Rechercher par mot-clé : TVA, exonération, cession..." autocomplete="off" data-faq-search />
+            <button class="filter-button" type="submit" aria-label="Lancer la recherche"><svg aria-hidden="true"><use href="#sliders"></use></svg></button>
+          </form>
+
+          <div class="persona-suggestions declare-suggestions faq-suggestions" aria-label="Suggestions populaires">
+            <span>Suggestions populaires :</span>
+            <button type="button" data-faq-quick="TVA">TVA</button>
+            <button type="button" data-faq-quick="Exonération">Exonération</button>
+            <button type="button" data-faq-quick="Impôt sur les sociétés">Impôt sur les sociétés</button>
+            <button type="button" data-faq-quick="Retenue à la source">Retenue à la source</button>
+            <button type="button" data-faq-quick="Cession">Cession</button>
           </div>
         </div>
       </section>
 
       <section class="faq-content" aria-label="Questions fréquentes">
         <div class="container faq-layout">
-          <aside class="faq-sidebar" aria-label="Recherche FAQ">
-            <div class="faq-search-card">
-              <label for="faq-search">Rechercher dans la FAQ</label>
-              <div class="faq-search-field">
-                <svg aria-hidden="true"><use href="#search"></use></svg>
-                <input id="faq-search" type="search" placeholder="TVA, IS, exonération..." autocomplete="off" data-faq-search />
+          <aside class="faq-sidebar" aria-label="Aide et raccourcis FAQ">
+            <div class="faq-sidebar-card faq-overview-card">
+              <span>Base FAQ</span>
+              <strong><span data-faq-count>80</span> questions</strong>
+              <p><span data-faq-result-count>80</span> résultats trouvés</p>
+              <div class="faq-mini-stat-grid" aria-label="Résumé de consultation">
+                <span>Page <strong data-faq-current-page>1</strong></span>
+                <span><strong data-faq-page-size>10</strong> par page</span>
               </div>
-              <p><span data-faq-result-count>80</span> réponses affichées</p>
             </div>
+
+            <div class="faq-sidebar-card">
+              <span>Accès rapides</span>
+              <div class="faq-quick-list">
+                <button type="button" data-faq-sidebar-filter="TVA">Taxe sur la valeur ajoutée</button>
+                <button type="button" data-faq-sidebar-filter="Exonération">Exonération</button>
+                <button type="button" data-faq-sidebar-filter="Cessation d'activité">Cessation d'activité</button>
+                <button type="button" data-faq-sidebar-filter="Personnes morales">Personnes morales</button>
+              </div>
+            </div>
+
             <div class="faq-help-card" id="aide">
               <span>Besoin d'aide ?</span>
               <strong>Centre d'appel</strong>
               <a href="tel:0801007000">080 100 70 00</a>
             </div>
+
+            <div class="faq-sidebar-card faq-doc-card">
+              <span>Documents utiles</span>
+              <a href="documentation-guides.html">Formulaires fiscaux</a>
+              <a href="declarer-mes-impots.html">Déclarer mes impôts</a>
+              <a href="payer-vos-taxes.html">Payer mes impôts</a>
+            </div>
           </aside>
 
           <div class="faq-list-wrap">
+            <section class="faq-filter-panel" aria-labelledby="faq-filter-title">
+              <div class="panel-heading stacked-heading">
+                <h2 id="faq-filter-title">Filtrer les questions</h2>
+                <p>Affinez les réponses par impôt, thème, personne concernée ou opération.</p>
+              </div>
+              <form class="faq-filter-form" data-faq-filter-form>
+                <div class="faq-select-field">
+                  <label for="impot">Impôts</label>
+                  <select name="impot" id="impot" data-faq-filter="impot">
+                    <option value="">Impôts</option>
+                    <option value="Contribution sociale de solidarite">Contribution sociale de solidarité</option>
+                    <option value="Droits denregistrement">Droits d'enregistrement</option>
+                    <option value="Impot sur le revenu">Impôt sur le revenu</option>
+                    <option value="Impot sur les societes">Impôt sur les sociétés</option>
+                    <option value="Taxe dhabitation">Taxe d'habitation</option>
+                    <option value="Taxe de services communaux">Taxe de services communaux</option>
+                    <option value="TVA">Taxe sur la valeur ajoutée</option>
+                  </select>
+                </div>
+
+                <div class="faq-select-field">
+                  <label for="theme">Thème</label>
+                  <select name="theme" id="theme" data-faq-filter="theme">
+                    <option value="">Thème</option>
+                    <option value="Abattement">Abattement</option>
+                    <option value="Attestation">Attestation</option>
+                    <option value="Base imposable">Base imposable</option>
+                    <option value="Champ dapplication">Champ d’application</option>
+                    <option value="Declarations">Déclarations</option>
+                    <option value="Deduction">Déduction</option>
+                    <option value="Exoneration">Exonération</option>
+                    <option value="Paiement">Paiement</option>
+                    <option value="Restitution">Restitution</option>
+                    <option value="Retenue a la source">Retenue à la source</option>
+                    <option value="Sanction">Sanction</option>
+                    <option value="Taux">Taux</option>
+                    <option value="Taxation">Taxation</option>
+                  </select>
+                </div>
+
+                <div class="faq-select-field">
+                  <label for="concerned_person">Personnes concernées</label>
+                  <select name="concerned_person" id="concerned_person" data-faq-filter="concerned_person">
+                    <option value="">Personnes concernées</option>
+                    <option value="Association">Association</option>
+                    <option value="Personnes Etrangeres">Personnes Etrangères</option>
+                    <option value="Personnes morales">Personnes morales</option>
+                    <option value="Personnes physiques">Personnes physiques</option>
+                  </select>
+                </div>
+
+                <div class="faq-select-field">
+                  <label for="activite_ou_operation">Activité ou Opération</label>
+                  <select name="activite_ou_operation" id="activite_ou_operation" data-faq-filter="activite_ou_operation">
+                    <option value="">Activité ou Opération</option>
+                    <option value="Achat">Achat</option>
+                    <option value="Aquisition">Aquisition</option>
+                    <option value="Cessation d activite">Cessation d'activité</option>
+                    <option value="Cession">Cession</option>
+                    <option value="Creation de societe">Création de société</option>
+                    <option value="Demarche">Démarche</option>
+                    <option value="Elevage autruches">Elevage autruches</option>
+                    <option value="Habitation">Habitation</option>
+                    <option value="Hotellerie">Hôtellerie</option>
+                    <option value="Importation">Importation</option>
+                    <option value="Livraison a soi meme">Livraison à soi même</option>
+                    <option value="Location">Location</option>
+                    <option value="Prestation de service">Prestation de service</option>
+                    <option value="Transfert de siege social">Transfert de siège social</option>
+                  </select>
+                </div>
+
+                <button class="faq-filter-submit" type="submit">Recherche</button>
+                <button class="faq-filter-reset" type="reset" data-faq-reset>Réinitialiser</button>
+              </form>
+            </section>
+
             <div class="faq-list-heading">
               <span>Questions fréquentes</span>
-              <p>Les réponses ci-dessous reprennent les cas fournis et les présentent dans un format consultable.</p>
+              <p data-faq-page-range>Affichage des questions 1 à 10.</p>
             </div>
             <div class="faq-list" data-faq-list></div>
             <p class="faq-empty" data-faq-empty hidden>Aucune question ne correspond à votre recherche.</p>
+            <nav class="faq-pagination" aria-label="Pagination FAQ" data-faq-pagination></nav>
           </div>
         </div>
       </section>
