@@ -3335,7 +3335,7 @@ body.about-page .whatsapp-chatbot {
 }
 
 .call-center-hero .declare-hero-shell {
-  min-height: 330px;
+  min-height: 248px;
 }
 
 .call-center-hero .declare-hero-copy h1 {
@@ -3350,6 +3350,10 @@ body.about-page .whatsapp-chatbot {
   top: -44px;
   width: 430px;
   height: 252px;
+}
+
+.call-center-content {
+  padding-top: 0;
 }
 
 .call-center-wrap {
