@@ -18,7 +18,7 @@ const contactRecommendations = {
     title: "Assistance téléservices",
     body: "Pour une connexion bloquée, un paiement rejeté, une déclaration ou une attestation non générée, préparez une capture d'écran et la référence de transaction.",
     primary: ["Voir l'assistance", "#teleservices"],
-    secondary: ["Centre d'appel", "#aide"],
+    secondary: ["Centre d'appel", "centre-appel.html"],
   },
   reclamation: {
     title: "Réclamation fiscale",
@@ -42,7 +42,7 @@ const contactRecommendations = {
     title: "FAQ et centre d'appel",
     body: "Pour une question fiscale générale, consultez d'abord la FAQ. Si la réponse n'y figure pas, le centre d'appel peut vous orienter.",
     primary: ["Consulter la FAQ", "faq.html"],
-    secondary: ["Centre d'appel", "#aide"],
+    secondary: ["Centre d'appel", "centre-appel.html"],
   },
   technique: {
     title: "Webmaster du portail",

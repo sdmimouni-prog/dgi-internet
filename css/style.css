@@ -3330,6 +3330,316 @@ body.about-page .whatsapp-chatbot {
   background: transparent;
 }
 
+.call-center-main {
+  color: var(--navy-900);
+}
+
+.call-center-hero .declare-hero-shell {
+  min-height: 330px;
+}
+
+.call-center-hero .declare-hero-copy h1 {
+  max-width: 620px;
+}
+
+.call-center-hero .declare-hero-copy p {
+  max-width: 620px;
+}
+
+.call-center-hero-image {
+  top: -44px;
+  width: 430px;
+  height: 252px;
+}
+
+.call-center-wrap {
+  display: grid;
+  gap: 18px;
+}
+
+.call-center-side-number strong {
+  font-size: 23px;
+}
+
+.call-center-quick-list a {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  color: var(--navy-900);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  font-size: 12px;
+  font-weight: 900;
+  transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.call-center-quick-list a:hover {
+  color: var(--blue-700);
+  border-color: rgba(18, 63, 156, 0.28);
+  transform: translateY(-1px);
+}
+
+.call-center-primary-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 18px;
+  align-items: stretch;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(244, 248, 255, 0.96)),
+    var(--pattern) right center / 680px auto repeat;
+  box-shadow: 0 18px 42px rgba(3, 21, 66, 0.08);
+}
+
+.call-center-copy span,
+.call-center-check-card span {
+  display: block;
+  color: var(--gold-600);
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.call-center-copy h2,
+.call-center-check-card h2 {
+  margin: 10px 0 0;
+  color: var(--navy-900);
+  font-size: 30px;
+  line-height: 1.08;
+  font-weight: 900;
+}
+
+.call-center-copy p,
+.call-center-check-card p {
+  max-width: 720px;
+  margin: 14px 0 0;
+  color: #344065;
+  font-size: 14px;
+  line-height: 1.68;
+  font-weight: 650;
+}
+
+.call-center-phone-panel {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  padding: 24px;
+  color: var(--white);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(0, 20, 67, 0.98), rgba(18, 63, 156, 0.9)),
+    var(--pattern) center / 480px auto repeat;
+  box-shadow: var(--shadow-sm);
+}
+
+.call-center-phone-panel span,
+.call-center-info-grid article > span,
+.call-center-topic-list article > span,
+.call-center-channel-grid a > span {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+}
+
+.call-center-phone-panel span {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.call-center-phone-panel strong {
+  margin-top: 16px;
+  font-size: 26px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.call-center-phone-panel small {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.call-center-phone-panel a {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 18px;
+  padding: 0 15px;
+  color: var(--navy-900);
+  border-radius: var(--radius);
+  background: var(--gold-600);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.call-center-info-grid,
+.call-center-topic-list,
+.call-center-channel-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.call-center-info-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.call-center-info-grid article,
+.call-center-topic-list article,
+.call-center-channel-grid a,
+.call-center-check-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.call-center-info-grid article,
+.call-center-topic-list article,
+.call-center-channel-grid a {
+  padding: 20px;
+}
+
+.call-center-info-grid article > span,
+.call-center-topic-list article > span,
+.call-center-channel-grid a > span {
+  color: var(--blue-700);
+  background: var(--blue-100);
+}
+
+.call-center-info-grid h2 {
+  margin: 16px 0 0;
+  color: var(--navy-900);
+  font-size: 18px;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+.call-center-info-grid p,
+.call-center-topic-list p,
+.call-center-channel-grid small {
+  margin: 10px 0 0;
+  color: #3b4667;
+  font-size: 12px;
+  line-height: 1.55;
+  font-weight: 650;
+}
+
+.call-center-note {
+  color: var(--gold-600) !important;
+  font-weight: 900 !important;
+}
+
+.call-center-section {
+  scroll-margin-top: 120px;
+}
+
+.call-center-heading {
+  margin-bottom: 14px;
+}
+
+.call-center-topic-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.call-center-topic-list strong,
+.call-center-channel-grid strong {
+  display: block;
+  margin-top: 16px;
+  color: var(--navy-900);
+  font-size: 16px;
+  line-height: 1.18;
+  font-weight: 900;
+}
+
+.call-center-check-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 22px;
+  padding: 24px;
+}
+
+.call-center-check-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.call-center-check-card li {
+  position: relative;
+  padding-left: 22px;
+  color: #344065;
+  font-size: 13px;
+  line-height: 1.52;
+  font-weight: 750;
+}
+
+.call-center-check-card li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--gold-600);
+}
+
+.call-center-channel-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.call-center-channel-grid a {
+  color: inherit;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.call-center-channel-grid a:hover {
+  border-color: rgba(217, 155, 22, 0.55);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1120px) {
+  .call-center-primary-card,
+  .call-center-check-card {
+    grid-template-columns: 1fr;
+  }
+
+  .call-center-channel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .call-center-info-grid,
+  .call-center-topic-list,
+  .call-center-channel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .call-center-primary-card,
+  .call-center-check-card,
+  .call-center-info-grid article,
+  .call-center-topic-list article,
+  .call-center-channel-grid a {
+    padding: 18px;
+  }
+
+  .call-center-copy h2,
+  .call-center-check-card h2 {
+    font-size: 24px;
+  }
+}
+
 .contact-main {
   color: var(--navy-900);
 }
