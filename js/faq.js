@@ -621,8 +621,6 @@ const faqItems = [
 ];
 
 const faqList = document.querySelector("[data-faq-list]");
-const faqSearch = document.querySelector("[data-faq-search]");
-const faqSearchForm = document.querySelector("[data-faq-top-search-form]");
 const faqFilterForm = document.querySelector("[data-faq-filter-form]");
 const faqFilterSelects = document.querySelectorAll("[data-faq-filter]");
 const faqResultCount = document.querySelector("[data-faq-result-count]");
@@ -632,7 +630,7 @@ const faqPageSize = document.querySelector("[data-faq-page-size]");
 const faqPageRange = document.querySelector("[data-faq-page-range]");
 const faqPagination = document.querySelector("[data-faq-pagination]");
 const faqEmpty = document.querySelector("[data-faq-empty]");
-const faqQuickButtons = document.querySelectorAll("[data-faq-quick], [data-faq-sidebar-filter]");
+const faqQuickButtons = document.querySelectorAll("[data-faq-sidebar-filter]");
 
 const faqItemsPerPage = 10;
 let faqState = {
@@ -728,17 +726,14 @@ const matchesFilterValue = (item, filterName, filterValue) => {
 };
 
 const getFilteredItems = () => {
-  const query = normalizeFaqText(faqSearch?.value.trim() || "");
   const selectedFilters = getSelectedFilters();
 
   return faqItems.filter((item) => {
-    const haystack = getItemHaystack(item);
-    const matchesQuery = !query || haystack.includes(query);
     const matchesSelects = Object.entries(selectedFilters).every(([name, value]) =>
       matchesFilterValue(item, name, value)
     );
 
-    return matchesQuery && matchesSelects;
+    return matchesSelects;
   });
 };
 
@@ -821,17 +816,6 @@ const renderFaqItems = (items) => {
       answer.className = "faq-answer";
       answer.innerHTML = item.answer;
 
-      if (item.tags?.length) {
-        const tags = document.createElement("div");
-        tags.className = "faq-tags";
-        item.tags.forEach((tag) => {
-          const pill = document.createElement("span");
-          pill.textContent = tag;
-          tags.append(pill);
-        });
-        answer.append(tags);
-      }
-
       details.append(summary, answer);
       return details;
     })
@@ -859,14 +843,11 @@ const updateFaqResults = ({ resetPage = true } = {}) => {
 
 const applyQuickFilter = (value) => {
   const config = quickFilterMap[value];
-  faqSearch.value = "";
   faqFilterForm?.reset();
 
   if (config) {
     const select = document.querySelector(`[data-faq-filter="${config.name}"]`);
     if (select) select.value = config.value;
-  } else {
-    faqSearch.value = value;
   }
 
   updateFaqResults();
@@ -877,13 +858,6 @@ if (faqPageSize) faqPageSize.textContent = String(faqItemsPerPage);
 
 renderFaqItems(faqItems);
 
-faqSearchForm?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  updateFaqResults();
-});
-
-faqSearch?.addEventListener("input", () => updateFaqResults());
-
 faqFilterForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   updateFaqResults();
@@ -891,7 +865,6 @@ faqFilterForm?.addEventListener("submit", (event) => {
 
 faqFilterForm?.addEventListener("reset", () => {
   window.setTimeout(() => {
-    if (faqSearch) faqSearch.value = "";
     updateFaqResults();
   }, 0);
 });
