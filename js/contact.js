@@ -5,7 +5,6 @@ const contactRecommendation = document.querySelector("[data-contact-recommendati
 const agencySearch = document.querySelector("[data-agency-search]");
 const agencyItems = document.querySelectorAll("[data-agency-city]");
 const agencyCount = document.querySelector("[data-agency-count]");
-const contactDirectory = document.querySelector("[data-contact-directory]");
 const feedbackForm = document.querySelector("[data-contact-feedback-form]");
 
 const contactRecommendations = {
@@ -13,7 +12,7 @@ const contactRecommendations = {
     title: "Espace connecté DGI",
     body: "Pour une demande liée à votre dossier fiscal, connectez-vous à votre espace afin de sécuriser l'échange et de suivre votre demande.",
     primary: ["Accéder à mon espace", "espace-connecte.html"],
-    secondary: ["Trouver un bureau de la DGI", "#annuaire"],
+    secondary: ["Trouver un bureau", "#annuaire"],
   },
   teleservices: {
     title: "Assistance téléservices",
@@ -25,7 +24,7 @@ const contactRecommendations = {
     title: "Réclamation fiscale",
     body: "Pour contester une situation fiscale ou suivre une réclamation, préparez l'identifiant fiscal, la période concernée et les pièces justificatives.",
     primary: ["Préparer ma réclamation", "#reclamations"],
-    secondary: ["Trouver un bureau de la DGI", "#annuaire"],
+    secondary: ["Trouver une direction", "#annuaire"],
   },
   attestation: {
     title: "Attestations et documents",
@@ -37,7 +36,7 @@ const contactRecommendations = {
     title: "Rendez-vous DGI",
     body: "Si votre demande nécessite un accompagnement en agence, planifiez un rendez-vous et choisissez le centre le plus proche.",
     primary: ["Prendre rendez-vous", "prendre-rendez-vous.html"],
-    secondary: ["Trouver un bureau de la DGI", "#annuaire"],
+    secondary: ["Voir l'annuaire", "#annuaire"],
   },
   general: {
     title: "FAQ et centre d'appel",
@@ -64,7 +63,7 @@ const renderRecommendation = () => {
     <p>${recommendation.body}</p>
     <div class="contact-recommendation-actions">
       <a href="${recommendation.primary[1]}">${recommendation.primary[0]} <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
-      <a href="${recommendation.secondary[1]}" ${recommendation.secondary[1] === "#annuaire" ? "data-office-finder-link" : ""}>${recommendation.secondary[0]}</a>
+      <a href="${recommendation.secondary[1]}">${recommendation.secondary[0]}</a>
     </div>
   `;
 };
@@ -92,17 +91,6 @@ contactRouter?.addEventListener("submit", (event) => {
 contactProfile?.addEventListener("change", renderRecommendation);
 contactTopic?.addEventListener("change", renderRecommendation);
 agencySearch?.addEventListener("input", filterAgencies);
-
-document.addEventListener("click", (event) => {
-  const link = event.target.closest("[data-office-finder-link]");
-  if (!link || !contactDirectory) return;
-  event.preventDefault();
-  history.replaceState(null, "", "#annuaire");
-  contactDirectory.scrollIntoView({ behavior: "smooth", block: "start" });
-  contactDirectory.classList.add("is-highlighted");
-  window.setTimeout(() => agencySearch?.focus({ preventScroll: true }), 550);
-  window.setTimeout(() => contactDirectory.classList.remove("is-highlighted"), 1800);
-});
 
 feedbackForm?.addEventListener("submit", (event) => {
   event.preventDefault();
