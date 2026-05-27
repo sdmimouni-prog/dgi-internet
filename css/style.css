@@ -3681,9 +3681,9 @@ body.about-page .whatsapp-chatbot {
 .contact-router {
   position: relative;
   z-index: 4;
-  width: min(820px, 100%);
+  width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) auto;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(280px, 1.1fr) minmax(220px, auto);
   gap: 10px;
   align-items: end;
   margin-top: 12px;
