@@ -4410,8 +4410,13 @@ body.office-finder-open {
   border: 0;
 }
 
+.office-map.is-zoomed .office-pin {
+  display: none;
+}
+
 .office-pin {
   position: absolute;
+  z-index: 2;
   width: 18px;
   height: 18px;
   display: grid;

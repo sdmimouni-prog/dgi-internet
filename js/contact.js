@@ -17,6 +17,7 @@ const officeReset = document.querySelector("[data-office-reset]");
 const officeActiveLabel = document.querySelector("[data-office-active-label]");
 
 const connectedSpaceUrl = "https://dgiinternet.vercel.app/espace-connecte.html";
+const moroccoMapEmbedUrl = "https://www.google.com/maps?hl=fr&ll=28.5,-9.7&z=5&output=embed";
 
 const dgiOffices = [
   { id: "casablanca", city: "Casablanca", direction: "Direction Régionale de Casablanca", manager: "Btissam CHARAFEDDINE", email: "b.charafeddine@tax.gov.ma", phone: "06 73 99 56 18", x: 31, y: 34.5 },
@@ -112,10 +113,10 @@ const getOfficeHaystack = (office) =>
 
 const getPhoneHref = (phone) => `tel:${phone.replace(/\s/g, "")}`;
 
-const getGoogleMapsEmbedUrl = (office) => {
-  const query = office ? `${office.direction}, ${office.city}, Maroc` : "Maroc";
-  return `https://www.google.com/maps?q=${encodeURIComponent(query)}&hl=fr&z=${office ? 13 : 6}&output=embed`;
-};
+const getGoogleMapsEmbedUrl = (office) =>
+  office
+    ? `https://www.google.com/maps?q=${encodeURIComponent(`${office.direction}, ${office.city}, Maroc`)}&hl=fr&z=13&output=embed`
+    : moroccoMapEmbedUrl;
 
 const getGoogleMapsUrl = (office) => {
   const query = `${office.direction}, ${office.city}, Maroc`;
@@ -151,14 +152,30 @@ const renderOfficeDetail = (office) => {
   `;
 };
 
-const setActiveOffice = (officeId) => {
+const renderOfficeOverview = () => {
+  document.querySelectorAll("[data-office-pin], [data-office-item]").forEach((element) => {
+    element.classList.remove("is-active");
+  });
+  if (officeActiveLabel) officeActiveLabel.textContent = "Maroc";
+  if (officeMapFrame && officeMapFrame.getAttribute("src") !== moroccoMapEmbedUrl) {
+    officeMapFrame.src = moroccoMapEmbedUrl;
+  }
+  officeMap?.classList.remove("is-zoomed");
+  if (officeTooltip) officeTooltip.hidden = true;
+  if (officeDetail) {
+    officeDetail.innerHTML = `
+      <span>Vue nationale</span>
+      <h3>Bureaux de la DGI au Maroc</h3>
+      <p>Sélectionnez une ville dans la liste ou cliquez sur un pin pour afficher ses coordonnées et zoomer dans Google Maps.</p>
+    `;
+  }
+};
+
+const previewOffice = (officeId) => {
   const office = dgiOffices.find((item) => item.id === officeId) || dgiOffices[0];
   document.querySelectorAll("[data-office-pin], [data-office-item]").forEach((element) => {
     element.classList.toggle("is-active", element.dataset.officeId === office.id);
   });
-  if (officeMapFrame) {
-    officeMapFrame.src = getGoogleMapsEmbedUrl(office);
-  }
   if (officeTooltip) {
     officeTooltip.hidden = false;
     officeTooltip.style.left = `${office.x}%`;
@@ -170,8 +187,17 @@ const setActiveOffice = (officeId) => {
   renderOfficeDetail(office);
 };
 
+const setActiveOffice = (officeId) => {
+  const office = dgiOffices.find((item) => item.id === officeId) || dgiOffices[0];
+  previewOffice(office.id);
+  officeMap?.classList.add("is-zoomed");
+  if (officeMapFrame) {
+    officeMapFrame.src = getGoogleMapsEmbedUrl(office);
+  }
+};
+
 const renderOfficePins = () => {
-  if (!officeMap || officeMapFrame) return;
+  if (!officeMap) return;
   dgiOffices.forEach((office) => {
     const pin = document.createElement("button");
     pin.type = "button";
@@ -182,8 +208,8 @@ const renderOfficePins = () => {
     pin.style.top = `${office.y}%`;
     pin.setAttribute("aria-label", `${office.city} - ${office.direction}`);
     pin.innerHTML = `<span>${office.city}</span>`;
-    pin.addEventListener("mouseenter", () => setActiveOffice(office.id));
-    pin.addEventListener("focus", () => setActiveOffice(office.id));
+    pin.addEventListener("mouseenter", () => previewOffice(office.id));
+    pin.addEventListener("focus", () => previewOffice(office.id));
     pin.addEventListener("click", () => setActiveOffice(office.id));
     officeMap.append(pin);
   });
@@ -210,8 +236,8 @@ const renderOfficeList = (items = dgiOffices) => {
     .join("");
 
   officeList.querySelectorAll("[data-office-item]").forEach((item) => {
-    item.addEventListener("mouseenter", () => setActiveOffice(item.dataset.officeId));
-    item.addEventListener("focus", () => setActiveOffice(item.dataset.officeId));
+    item.addEventListener("mouseenter", () => previewOffice(item.dataset.officeId));
+    item.addEventListener("focus", () => previewOffice(item.dataset.officeId));
     item.addEventListener("click", () => setActiveOffice(item.dataset.officeId));
   });
 };
@@ -224,7 +250,11 @@ const filterOffices = () => {
     pin.hidden = !results.some((office) => office.id === pin.dataset.officeId);
   });
   renderOfficeList(results);
-  setActiveOffice(results[0]?.id || dgiOffices[0].id);
+  if (query && results.length) {
+    setActiveOffice(results[0].id);
+  } else {
+    renderOfficeOverview();
+  }
 };
 
 const openOfficeFinder = (event) => {
@@ -232,6 +262,7 @@ const openOfficeFinder = (event) => {
   if (!officeFinder) return;
   officeFinder.hidden = false;
   document.body.classList.add("office-finder-open");
+  if (officeSearch) officeSearch.value = "";
   window.setTimeout(() => officeSearch?.focus(), 60);
   filterOffices();
 };
@@ -280,4 +311,4 @@ feedbackForm?.addEventListener("submit", (event) => {
 renderRecommendation();
 renderOfficePins();
 renderOfficeList();
-setActiveOffice(dgiOffices[0].id);
+renderOfficeOverview();
