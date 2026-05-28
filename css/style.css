@@ -4606,7 +4606,105 @@ body.survey-modal-open {
 }
 
 .reclamation-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
   margin-bottom: 18px;
+}
+
+.reclamations-page .survey-hero-shell {
+  min-height: 320px;
+}
+
+.reclamations-page .survey-layout {
+  grid-template-columns: 1fr;
+}
+
+.reclamations-page .survey-list-wrap {
+  order: 1;
+}
+
+.reclamations-page .survey-side-panel {
+  position: static;
+  order: 2;
+  display: grid;
+  grid-template-columns: minmax(180px, 0.34fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  padding: 22px 24px;
+}
+
+.reclamations-page .survey-side-panel h2 {
+  margin-bottom: 0;
+}
+
+.reclamations-page .survey-side-panel p {
+  margin-top: 0;
+}
+
+.reclamations-page .survey-side-panel ul {
+  grid-column: 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: -4px;
+}
+
+.reclamation-card {
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  align-content: stretch;
+  padding: 24px;
+}
+
+.reclamation-card > div:last-child {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.reclamation-card .survey-card-icon {
+  width: 56px;
+  height: 56px;
+}
+
+.reclamation-card .survey-card-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.reclamation-card h3 {
+  margin-top: 8px;
+  font-size: 21px;
+  line-height: 1.1;
+}
+
+.reclamation-card p {
+  margin-top: 9px;
+  font-size: 12px;
+  line-height: 1.45;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.reclamation-card dl {
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.reclamation-card dl div {
+  min-height: 34px;
+  padding: 5px 9px;
+}
+
+.reclamation-card dt {
+  font-size: 9px;
+}
+
+.reclamation-card dd {
+  font-size: 11px;
 }
 
 .reclamation-action {
@@ -4624,6 +4722,7 @@ body.survey-modal-open {
   font-size: 12px;
   font-weight: 900;
   text-decoration: none;
+  align-self: flex-start;
   box-shadow: 0 12px 26px rgba(0, 20, 67, 0.16);
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
@@ -5248,6 +5347,20 @@ body.office-finder-open {
     border-bottom: 0;
   }
 
+  .reclamation-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reclamations-page .survey-side-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .reclamations-page .survey-side-panel ul {
+    grid-column: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 0;
+  }
+
   .contact-before-card {
     padding: 20px;
   }
@@ -5345,6 +5458,28 @@ body.office-finder-open {
 
   .reclamation-form-panel {
     padding: 18px;
+  }
+
+  .reclamation-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reclamation-card {
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+    padding: 20px;
+  }
+
+  .reclamation-card h3 {
+    font-size: 21px;
+  }
+
+  .reclamation-card p {
+    -webkit-line-clamp: 2;
+  }
+
+  .reclamations-page .survey-side-panel ul {
+    grid-template-columns: 1fr;
   }
 
   .reclamation-form-grid {
