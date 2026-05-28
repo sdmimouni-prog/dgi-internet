@@ -5,17 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Prototype statique premium du portail de la Direction Générale des Impôts du Maroc."
+      content="Sondages DGI : participez aux questionnaires en cours pour améliorer les services fiscaux et les canaux d'information."
     />
-    <title>Direction Générale des Impôts | Portail fiscal</title>
-        <link rel="alternate" hreflang="fr" href="index.html" />
-    <link rel="alternate" hreflang="en" href="en/index.html" />
-    <link rel="alternate" hreflang="es" href="es/index.html" />
-    <link rel="alternate" hreflang="ar" href="ar/index.html" />
-    <link rel="alternate" hreflang="zgh-Tfng" href="zgh/index.html" />
-    <link rel="stylesheet" href="css/style.css?v=header-logo" />
+    <title>Sondages | Direction Générale des Impôts</title>
+        <link rel="alternate" hreflang="fr" href="sondages.html" />
+    <link rel="stylesheet" href="css/style.css?v=sondages-v1" />
   </head>
-  <body>
+  <body class="contact-page surveys-page">
     <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
       <symbol id="search" viewBox="0 0 24 24">
         <path d="m21 21-4.35-4.35" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -32,6 +28,9 @@
       </symbol>
       <symbol id="chevron-down" viewBox="0 0 24 24">
         <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="close" viewBox="0 0 24 24">
+        <path d="m18 6-12 12M6 6l12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </symbol>
       <symbol id="arrow-right" viewBox="0 0 24 24">
         <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -130,7 +129,7 @@
 
         <nav class="main-nav mega-nav" aria-label="Navigation principale" data-nav>
           <div class="nav-item">
-            <a class="nav-trigger" href="index.html" aria-current="page">Accueil</a>
+            <a class="nav-trigger" href="index.html">Accueil</a>
 
           </div>
 
@@ -238,7 +237,7 @@
           </div>
 
           <div class="nav-item">
-            <a class="nav-trigger" href="contact.html">Contact <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
+            <a class="nav-trigger" href="contact.html" aria-current="page">Contact <svg aria-hidden="true"><use href="#chevron-down"></use></svg></a>
             <div class="mega-menu" role="group" aria-label="Sous-menu Contact">
               <div class="mega-menu-inner">
                 <div class="mega-menu-copy">
@@ -249,7 +248,7 @@
                 <div class="mega-link-grid">
                   <a href="contact.html"><strong>Nous contacter</strong></a>
                   <a href="contact.html#suggestions"><strong>Vos suggestions</strong></a>
-                  <a href="sondages.html"><strong>Sondages</strong></a>
+                  <a href="sondages.html" aria-current="page"><strong>Sondages</strong></a>
                   <a href="centre-appel.html"><strong>Centre d'appel</strong></a>
                   <a href="faq.html"><strong>FAQ</strong><small>Questions fréquentes</small></a>
                 </div>
@@ -283,320 +282,91 @@
       </div>
     </header>
 
-    <main>
-      <section class="hero pattern-section" aria-labelledby="hero-title">
-        <div class="container hero-grid">
-          <div class="hero-content">
-            <h1 id="hero-title">Simplifiez vos démarches fiscales</h1>
-            <p>
-              Des services modernes, sécurisés et accessibles pour vous accompagner au quotidien.
-            </p>
+    <main class="contact-main declarer-main surveys-main" aria-label="Sondages DGI">
+      <section class="declare-hero contact-hero survey-hero pattern-section" aria-labelledby="surveys-title">
+        <div class="container declare-hero-shell contact-hero-shell survey-hero-shell">
+          <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a>
+            <span aria-hidden="true">/</span>
+            <a href="contact.html">Contact</a>
+            <span aria-hidden="true">/</span>
+            <span>Sondages</span>
+          </nav>
 
-            <form class="hero-search" role="search" data-search-form>
-              <label class="sr-only" for="global-search">Rechercher un service fiscal</label>
-              <svg aria-hidden="true"><use href="#search"></use></svg>
-              <input
-                id="global-search"
-                type="search"
-                placeholder="Rechercher un service, une taxe, un formulaire, une attestation..."
-                autocomplete="off"
-                data-search-input
-              />
-              <button class="filter-button" type="button" aria-label="Filtres avancés">
-                <svg aria-hidden="true"><use href="#sliders"></use></svg>
-              </button>
-            </form>
-
-            <div class="suggestions" aria-label="Suggestions populaires">
-              <span>Suggestions populaires :</span>
-              <button type="button" data-suggestion="Déclaration IR">Déclaration IR</button>
-              <button type="button" data-suggestion="Attestation de régularité">Attestation de régularité</button>
-              <button type="button" data-suggestion="TVA">TVA</button>
-              <button type="button" data-suggestion="Paiement en ligne">Paiement en ligne</button>
-              <button type="button" data-suggestion="Compte fiscal">Compte fiscal</button>
+          <div class="declare-hero-grid contact-hero-grid">
+            <div class="declare-hero-copy contact-hero-copy">
+              <h1 id="surveys-title">Votre avis aide la DGI à mieux vous servir</h1>
+              <p>Participez aux sondages en cours sur le centre d'information téléphonique et les moyens d'information fiscale.</p>
+            </div>
+            <div class="declare-hero-image contact-hero-image survey-hero-image" aria-hidden="true">
+              <img src="assets/images/rendezvous-hero-advisor.png" alt="" />
             </div>
           </div>
 
-          <div class="hero-media" aria-hidden="true">
-            <img src="assets/images/hero-building.png" alt="" />
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="quick-action-bar" aria-label="Accès rapides">
-            <a href="declarer-mes-impots.html" class="quick-action">
-              <span class="icon-disc blue">
-                <svg aria-hidden="true"><use href="#file-text"></use></svg>
-              </span>
-              <span>
-                <strong>Déclarer</strong>
-                <small>Mes déclarations</small>
-              </span>
-            </a>
-            <a href="payer-vos-taxes.html" class="quick-action">
-              <span class="icon-disc green">
-                <svg aria-hidden="true"><use href="#wallet"></use></svg>
-              </span>
-              <span>
-                <strong>Payer</strong>
-                <small>Mes impôts et taxes</small>
-              </span>
-            </a>
-            <a href="obtenir-attestation-fiscale.html" class="quick-action">
-              <span class="icon-disc purple">
-                <svg aria-hidden="true"><use href="#badge-check"></use></svg>
-              </span>
-              <span>
-                <strong>Attestation</strong>
-                <small>Demander une attestation</small>
-              </span>
-            </a>
-            <a href="prendre-rendez-vous.html" class="quick-action">
-              <span class="icon-disc gold">
-                <svg aria-hidden="true"><use href="#calendar"></use></svg>
-              </span>
-              <span>
-                <strong>Rendez-vous</strong>
-                <small>Prendre un rendez-vous</small>
-              </span>
-            </a>
+          <div class="survey-hero-strip" aria-label="Résumé des sondages">
+            <span><strong>2</strong> sondages en cours</span>
+            <span><strong>2 min</strong> par questionnaire</span>
+            <span><strong>Anonyme</strong> sans mot de passe</span>
           </div>
         </div>
       </section>
 
-      <section class="section pattern-section" id="declarer" aria-labelledby="want-title">
-        <div class="container">
-          <div class="section-heading">
-              <h2 id="want-title">Ce que je veux faire</h2>
-            <a href="#services" class="link-more">
-              Voir toutes les démarches
-              <svg aria-hidden="true"><use href="#arrow-right"></use></svg>
-            </a>
-          </div>
-
-          <div class="action-card-grid">
-            <a class="action-card" href="declarer-mes-impots.html">
-              <span class="icon-disc blue"><svg aria-hidden="true"><use href="#file-text"></use></svg></span>
-              <strong>J'ai vendu<br />ma maison</strong>
-            </a>
-            <a class="action-card" href="payer-vos-taxes.html">
-              <span class="icon-disc green"><svg aria-hidden="true"><use href="#wallet"></use></svg></span>
-              <strong>J'ai vendu<br />ma voiture</strong>
-            </a>
-            <a class="action-card" href="obtenir-attestation-fiscale.html">
-              <span class="icon-disc purple"><svg aria-hidden="true"><use href="#badge-check"></use></svg></span>
-              <strong>Obtenir une<br />attestation</strong>
-            </a>
-            <a class="action-card" href="#">
-              <span class="icon-disc amber"><svg aria-hidden="true"><use href="#claim"></use></svg></span>
-              <strong>Faire une<br />réclamation</strong>
-            </a>
-            <a class="action-card" href="prendre-rendez-vous.html">
-              <span class="icon-disc gold"><svg aria-hidden="true"><use href="#calendar"></use></svg></span>
-              <strong>Prendre un<br />rendez-vous</strong>
-            </a>
-            <a class="action-card" href="#">
-              <span class="icon-disc teal"><svg aria-hidden="true"><use href="#download-file"></use></svg></span>
-              <strong>Télécharger un<br />formulaire</strong>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section compact-section pattern-section" id="particulier" aria-labelledby="profile-title">
-        <div class="container">
-          <div class="section-heading">
-            <h2 id="profile-title">Qui je suis</h2>
-            <a href="#profils" class="link-more">
-              Voir tous les profils
-              <svg aria-hidden="true"><use href="#arrow-right"></use></svg>
-            </a>
-          </div>
-
-          <div class="profile-grid">
-            <a class="profile-card" href="particulier.html">
-              <img src="assets/images/profile-particulier.png" alt="Famille consultant les services fiscaux" />
-              <div class="profile-copy">
-                <span class="profile-icon blue"><svg aria-hidden="true"><use href="#file-text"></use></svg></span>
-                <strong>Particulier</strong>
-                <small>Vos services dédiés en tant que particulier</small>
-              </div>
-            </a>
-            <a class="profile-card" href="#" id="entreprise">
-              <img src="assets/images/profile-entreprise.png" alt="Immeuble moderne d'entreprise" />
-              <div class="profile-copy">
-                <span class="profile-icon green"><svg aria-hidden="true"><use href="#wallet"></use></svg></span>
-                <strong>Entreprise</strong>
-                <small>Vos services dédiés en tant qu'entreprise</small>
-              </div>
-            </a>
-            <a class="profile-card" href="#" id="professionnel">
-              <img src="assets/images/profile-professionnel.png" alt="Professionnel remplissant des documents" />
-              <div class="profile-copy">
-                <span class="profile-icon purple"><svg aria-hidden="true"><use href="#briefcase"></use></svg></span>
-                <strong>Professionnel /<br />Comptable</strong>
-                <small>Vos services dédiés en tant que professionnel</small>
-              </div>
-            </a>
-            <a class="profile-card" href="#" id="investisseur">
-              <img src="assets/images/profile-investisseur.png" alt="Quartier d'affaires" />
-              <div class="profile-copy">
-                <span class="profile-icon blue"><svg aria-hidden="true"><use href="#building"></use></svg></span>
-                <strong>Investisseur</strong>
-                <small>Vos services dédiés en tant qu'investisseur</small>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section dgi-numbers-section pattern-section" id="dgi-chiffres" aria-labelledby="dgi-numbers-title">
-        <div class="container">
-          <div class="dgi-numbers-box">
-            <div class="dgi-numbers-copy">
-              <span class="kicker">DGI en chiffres</span>
-              <h2 id="dgi-numbers-title">Un aperçu clair des services fiscaux.</h2>
-              <p>Quelques repères pour visualiser l'activité digitale, l'accompagnement des contribuables et la disponibilité des services en ligne.</p>
-            </div>
-            <div class="dgi-numbers-grid" aria-label="Indicateurs clés de la DGI">
-              <article class="dgi-number-card">
-                <span class="dgi-number-icon"><svg aria-hidden="true"><use href="#cloud-download"></use></svg></span>
-                <strong>18 M+</strong>
-                <small>opérations digitales réalisées chaque année</small>
-              </article>
-              <article class="dgi-number-card">
-                <span class="dgi-number-icon"><svg aria-hidden="true"><use href="#shield-check"></use></svg></span>
-                <strong>94%</strong>
-                <small>des démarches prioritaires disponibles en ligne</small>
-              </article>
-              <article class="dgi-number-card">
-                <span class="dgi-number-icon"><svg aria-hidden="true"><use href="#map"></use></svg></span>
-                <strong>150+</strong>
-                <small>points d'accueil et centres de services au Maroc</small>
-              </article>
-              <article class="dgi-number-card">
-                <span class="dgi-number-icon"><svg aria-hidden="true"><use href="#help"></use></svg></span>
-                <strong>24/7</strong>
-                <small>accès aux services, attestations et paiements en ligne</small>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section dashboard-section pattern-section" id="actualites" aria-label="Actualités et communiqués">
-        <div class="container dashboard-grid news-full-grid">
-          <article class="panel news-panel news-panel-wide">
-            <div class="panel-heading">
-              <h2>Actualités &amp; communiqués</h2>
-              <a href="#" class="link-more small">Voir toutes les actualités <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
-            </div>
-            <div class="news-list">
-              <a class="news-item" href="#">
-                <img src="assets/images/news-finance-2024.png" alt="Loi de finances 2024" />
-                <span>
-                  <small>Communiqué</small>
-                  <strong>Loi de finances 2024 : les principales mesures fiscales</strong>
-                  <time datetime="2024-05-12">12 Mai 2024</time>
-                </span>
-              </a>
-              <a class="news-item" href="#">
-                <img src="assets/images/news-attestation.png" alt="Attestation fiscale en ligne" />
-                <span>
-                  <small>Nouveau service</small>
-                  <strong>Attestation de régularité fiscale en ligne désormais disponible</strong>
-                  <time datetime="2024-05-08">08 Mai 2024</time>
-                </span>
-              </a>
-              <a class="news-item" href="#">
-                <img src="assets/images/news-ir2024.png" alt="Déclaration en ligne" />
-                <span>
-                  <small>Campagne</small>
-                  <strong>IR 2024 : Déclarez en ligne en toute simplicité</strong>
-                  <time datetime="2024-05-03">03 Mai 2024</time>
-                </span>
-              </a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section info-section pattern-section" id="documentation" aria-label="Échéances documentation et aide">
-        <div class="container info-grid">
-          <article class="panel deadlines" id="echeances">
-            <div class="panel-heading">
-              <h2>Échéances fiscales</h2>
-              <a href="#" class="link-more small">Voir le calendrier <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
-            </div>
-            <div class="deadline-list">
-              <a class="deadline-item" href="#">
-                <time datetime="2024-05-20"><strong>20</strong><span>MAI</span></time>
-                <span>Déclaration TVA - Avril 2024</span>
-                <em>J - 5</em>
-              </a>
-              <a class="deadline-item" href="#">
-                <time datetime="2024-05-31"><strong>31</strong><span>MAI</span></time>
-                <span>Paiement taxe professionnelle</span>
-                <em>J - 16</em>
-              </a>
-              <a class="deadline-item" href="#">
-                <time datetime="2024-06-15"><strong>15</strong><span>JUIN</span></time>
-                <span>Déclaration IR</span>
-                <em>J - 31</em>
-              </a>
-              <a class="deadline-item" href="#">
-                <time datetime="2024-06-30"><strong>30</strong><span>JUIN</span></time>
-                <span>Déclaration IS</span>
-                <em>J - 46</em>
-              </a>
-            </div>
-            <a class="soft-button" href="#">Voir toutes les échéances</a>
-          </article>
-
-          <article class="panel docs-panel">
-            <div class="panel-heading">
-              <h2>Guides &amp; documentation fiscale</h2>
-              <a href="#" class="link-more small">Voir toute la documentation <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
-            </div>
-            <div class="doc-list">
-              <a href="#"><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Guides pratiques</strong><small>Trouvez des réponses à vos questions</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#file-text"></use></svg></span><strong>Textes législatifs &amp; réglementaires</strong><small>Consultez les lois, dahirs et circulaires</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#download-file"></use></svg></span><strong>Formulaires &amp; modèles</strong><small>Téléchargez les formulaires et modèles</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>Fiches questions / réponses</strong><small>Accédez aux réponses à vos questions</small></a>
-            </div>
-          </article>
-
-          <aside class="panel help-panel" id="aide">
-            <h2>Besoin d'aide ?</h2>
-            <div class="help-list">
-              <a href="#"><span><svg aria-hidden="true"><use href="#bot"></use></svg></span><strong>Assistant virtuel</strong><small>Discutez avec notre assistant</small></a>
-              <a href="tel:0537273727"><span><svg aria-hidden="true"><use href="#phone"></use></svg></span><strong>Centre d'appel</strong><small>05 37 27 37 27<br />Lun - Ven : 8h30 - 16h30</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#mail"></use></svg></span><strong>Nous écrire</strong><small>via le formulaire de contact</small></a>
-              <a href="#"><span><svg aria-hidden="true"><use href="#help"></use></svg></span><strong>FAQ</strong><small>Consultez les questions fréquentes</small></a>
-            </div>
+      <section class="survey-content-section" aria-labelledby="ongoing-surveys-title">
+        <div class="container survey-layout">
+          <aside class="survey-side-panel" aria-label="Informations de participation">
+            <span>Participation</span>
+            <h2>Exprimez votre expérience</h2>
+            <p>Les questionnaires sont courts et permettent d'identifier les canaux à renforcer.</p>
+            <ul>
+              <li>Réponses anonymes.</li>
+              <li>Formulaires intégrés à la page.</li>
+              <li>Possibilité d'envoyer vers le formulaire officiel.</li>
+            </ul>
           </aside>
-        </div>
-      </section>
 
-      <section class="newsletter-section" id="newsletter" aria-labelledby="newsletter-title">
-        <div class="container">
-          <div class="newsletter-card">
-            <span class="newsletter-icon"><svg aria-hidden="true"><use href="#mail"></use></svg></span>
-            <div>
-              <h2 id="newsletter-title">Restez informé de l'actualité fiscale</h2>
-              <p>Abonnez-vous à notre newsletter pour recevoir nos dernières actualités, communiqués et informations importantes.</p>
+          <div class="survey-list-wrap">
+            <div class="panel-heading stacked-heading">
+              <h2 id="ongoing-surveys-title">Sondages en cours</h2>
+              <p>Sélectionnez un questionnaire pour répondre directement dans un modal.</p>
             </div>
-            <form class="newsletter-form">
-              <label class="sr-only" for="newsletter-email">Votre adresse e-mail</label>
-              <input id="newsletter-email" type="email" placeholder="Votre adresse e-mail" />
-              <button type="submit">S'abonner</button>
-            </form>
+
+            <div class="survey-card-grid">
+              <article class="survey-card">
+                <div class="survey-card-icon blue"><svg aria-hidden="true"><use href="#phone"></use></svg></div>
+                <div>
+                  <span>Qualité de service</span>
+                  <h3>Votre avis sur le Centre d'Information Téléphonique</h3>
+                  <p>Évaluez l'accès au centre, le délai d'attente, la qualité des réponses et l'orientation vers les services DGI.</p>
+                  <dl>
+                    <div><dt>Questions</dt><dd>9</dd></div>
+                    <div><dt>Durée</dt><dd>2 min</dd></div>
+                    <div><dt>Langues</dt><dd>FR / AR</dd></div>
+                  </dl>
+                  <button type="button" data-survey-open="call-center">Répondre au sondage <svg aria-hidden="true"><use href="#arrow-right"></use></svg></button>
+                </div>
+              </article>
+
+              <article class="survey-card">
+                <div class="survey-card-icon gold"><svg aria-hidden="true"><use href="#globe"></use></svg></div>
+                <div>
+                  <span>Information fiscale</span>
+                  <h3>Sondage sur les moyens par lesquels vous vous informez sur la fiscalité</h3>
+                  <p>Indiquez les canaux que vous utilisez aujourd'hui et ceux que vous souhaitez privilégier demain.</p>
+                  <dl>
+                    <div><dt>Questions</dt><dd>4</dd></div>
+                    <div><dt>Durée</dt><dd>2 min</dd></div>
+                    <div><dt>Langues</dt><dd>FR / AR</dd></div>
+                  </dl>
+                  <button type="button" data-survey-open="tax-info">Répondre au sondage <svg aria-hidden="true"><use href="#arrow-right"></use></svg></button>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer pattern-section">
+    <footer class="site-footer pattern-section" id="contact-footer">
       <div class="container footer-grid">
         <section class="footer-brand" aria-label="Direction Générale des Impôts">
           <img src="assets/images/dgi-logo-footer.png" alt="Direction Générale des Impôts" />
@@ -661,6 +431,24 @@
       <img src="assets/images/whatsapp-chatbot-icon.png" alt="" />
     </a>
 
+    <section class="survey-modal" id="survey-modal" role="dialog" aria-modal="true" aria-labelledby="survey-modal-title" data-survey-modal hidden>
+      <div class="survey-modal-backdrop" data-survey-close></div>
+      <div class="survey-modal-panel">
+        <button class="survey-modal-close" type="button" aria-label="Fermer le sondage" data-survey-close>
+          <svg aria-hidden="true"><use href="#close"></use></svg>
+        </button>
+        <div class="survey-modal-heading">
+          <span data-survey-kicker>Sondage</span>
+          <h2 id="survey-modal-title" data-survey-title>Questionnaire</h2>
+          <p data-survey-description></p>
+        </div>
+        <div class="survey-modal-body" data-survey-form-root></div>
+      </div>
+    </section>
+
+    <iframe class="survey-submit-frame" name="survey-submit-frame" title="Envoi du sondage" hidden></iframe>
+
     <script src="js/app.js?v=20260525-language"></script>
+    <script src="js/sondages.js?v=sondages-v1"></script>
   </body>
 </html>
