@@ -18,7 +18,8 @@ const officeActiveLabel = document.querySelector("[data-office-active-label]");
 
 const connectedSpaceUrl = "https://dgiinternet.vercel.app/espace-connecte.html";
 const moroccoMapView = { lat: 28.5, lng: -9.7, zoom: 4 };
-const moroccoMapEmbedUrl = `https://www.google.com/maps?hl=fr&ll=${moroccoMapView.lat},${moroccoMapView.lng}&z=${moroccoMapView.zoom}&output=embed`;
+const googleMapsLocale = "hl=fr&gl=MA&region=MA";
+const moroccoMapEmbedUrl = `https://www.google.com/maps?${googleMapsLocale}&ll=${moroccoMapView.lat},${moroccoMapView.lng}&z=${moroccoMapView.zoom}&output=embed`;
 const officePinPositions = new Map();
 
 const dgiOffices = [
@@ -157,12 +158,12 @@ const positionOfficePins = () => {
 
 const getGoogleMapsEmbedUrl = (office) =>
   office
-    ? `https://www.google.com/maps?q=${encodeURIComponent(`${office.direction}, ${office.city}, Maroc`)}&hl=fr&z=13&output=embed`
+    ? `https://www.google.com/maps?q=${encodeURIComponent(`${office.direction}, ${office.city}, Maroc`)}&${googleMapsLocale}&z=13&output=embed`
     : moroccoMapEmbedUrl;
 
 const getGoogleMapsUrl = (office) => {
   const query = `${office.direction}, ${office.city}, Maroc`;
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}&hl=fr&gl=MA&region=MA`;
 };
 
 const getOfficeMarkup = (office) => `
