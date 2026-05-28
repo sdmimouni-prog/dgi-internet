@@ -182,7 +182,7 @@ svg {
 
 .main-nav a {
   color: var(--navy-900);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   transition: color 180ms ease;
 }
@@ -221,7 +221,7 @@ svg {
   gap: 5px;
   padding: 0 4px;
   border-radius: 0;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 850;
   letter-spacing: 0;
   transition: color 180ms ease, background 180ms ease;
@@ -925,7 +925,7 @@ body.about-page .mega-nav .nav-item {
 body.about-page .mega-nav .nav-trigger {
   min-height: 36px;
   padding: 0 3px;
-  font-size: 10px;
+  font-size: 13px;
 }
 
 body.about-page .mega-nav .nav-trigger svg {
