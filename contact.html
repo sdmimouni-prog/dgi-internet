@@ -9,7 +9,7 @@
     />
     <title>Contact | Direction Générale des Impôts</title>
         <link rel="alternate" hreflang="fr" href="contact.html" />
-    <link rel="stylesheet" href="css/style.css?v=contact-morocco-map-v2" />
+    <link rel="stylesheet" href="css/style.css?v=contact-google-map-v1" />
   </head>
   <body class="contact-page">
     <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
@@ -558,7 +558,7 @@
         <div class="office-finder-heading">
           <span>Bureaux DGI</span>
           <h2 id="office-finder-title">Trouver un bureau de la DGI</h2>
-          <p>Recherchez une ville ou survolez un point sur la carte pour afficher le responsable, l'email et le téléphone.</p>
+          <p>Recherchez une ville puis sélectionnez un bureau pour afficher ses coordonnées et le localiser dans Google Maps.</p>
         </div>
         <div class="office-finder-layout">
           <aside class="office-finder-sidebar">
@@ -575,12 +575,18 @@
           </aside>
           <div class="office-map-panel">
             <div class="office-map-toolbar">
-              <span>Carte du Maroc</span>
-              <small data-office-active-label>Survolez une ville</small>
+              <span>Google Maps</span>
+              <small data-office-active-label>Maroc</small>
             </div>
-            <div class="office-map" data-office-map>
-              <img src="assets/images/morocco-dgi-map.svg" alt="Carte du Maroc incluant les provinces du Sud" />
-              <div class="office-tooltip" data-office-tooltip></div>
+            <div class="office-map office-google-map" data-office-map>
+              <iframe
+                data-office-map-frame
+                title="Carte Google Maps des bureaux de la DGI au Maroc"
+                src="https://www.google.com/maps?q=Maroc&hl=fr&z=6&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+              ></iframe>
             </div>
             <article class="office-detail" data-office-detail></article>
           </div>
@@ -589,6 +595,6 @@
     </section>
 
     <script src="js/app.js?v=20260525-language"></script>
-    <script src="js/contact.js?v=contact-morocco-map-v2"></script>
+    <script src="js/contact.js?v=contact-google-map-v1"></script>
   </body>
 </html>

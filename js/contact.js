@@ -10,6 +10,7 @@ const officeSearch = document.querySelector("[data-office-search]");
 const officeList = document.querySelector("[data-office-list]");
 const officeMap = document.querySelector("[data-office-map]");
 const officeTooltip = document.querySelector("[data-office-tooltip]");
+const officeMapFrame = document.querySelector("[data-office-map-frame]");
 const officeDetail = document.querySelector("[data-office-detail]");
 const officeCount = document.querySelector("[data-office-count]");
 const officeReset = document.querySelector("[data-office-reset]");
@@ -111,6 +112,16 @@ const getOfficeHaystack = (office) =>
 
 const getPhoneHref = (phone) => `tel:${phone.replace(/\s/g, "")}`;
 
+const getGoogleMapsEmbedUrl = (office) => {
+  const query = office ? `${office.direction}, ${office.city}, Maroc` : "Maroc";
+  return `https://www.google.com/maps?q=${encodeURIComponent(query)}&hl=fr&z=${office ? 13 : 6}&output=embed`;
+};
+
+const getGoogleMapsUrl = (office) => {
+  const query = `${office.direction}, ${office.city}, Maroc`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+};
+
 const getOfficeMarkup = (office) => `
   <strong>${office.city}</strong>
   <span>${office.direction}</span>
@@ -133,6 +144,10 @@ const renderOfficeDetail = (office) => {
       <div><dt>Email</dt><dd><a href="mailto:${office.email}">${office.email}</a></dd></div>
       <div><dt>Téléphone</dt><dd><a href="${getPhoneHref(office.phone)}">${office.phone}</a></dd></div>
     </dl>
+    <a class="office-map-link" href="${getGoogleMapsUrl(office)}" target="_blank" rel="noreferrer">
+      Ouvrir dans Google Maps
+      <svg aria-hidden="true"><use href="#arrow-right"></use></svg>
+    </a>
   `;
 };
 
@@ -141,6 +156,9 @@ const setActiveOffice = (officeId) => {
   document.querySelectorAll("[data-office-pin], [data-office-item]").forEach((element) => {
     element.classList.toggle("is-active", element.dataset.officeId === office.id);
   });
+  if (officeMapFrame) {
+    officeMapFrame.src = getGoogleMapsEmbedUrl(office);
+  }
   if (officeTooltip) {
     officeTooltip.hidden = false;
     officeTooltip.style.left = `${office.x}%`;
@@ -153,7 +171,7 @@ const setActiveOffice = (officeId) => {
 };
 
 const renderOfficePins = () => {
-  if (!officeMap) return;
+  if (!officeMap || officeMapFrame) return;
   dgiOffices.forEach((office) => {
     const pin = document.createElement("button");
     pin.type = "button";
