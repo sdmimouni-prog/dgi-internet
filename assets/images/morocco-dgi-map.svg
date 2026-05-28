@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" role="img" aria-labelledby="title desc">
+  <title id="title">Carte stylisée du Maroc</title>
+  <desc id="desc">Carte large du Maroc incluant les provinces du Sud, avec contexte régional.</desc>
+  <defs>
+    <linearGradient id="ocean" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#c9eff7"/>
+      <stop offset="1" stop-color="#78c9dc"/>
+    </linearGradient>
+    <linearGradient id="land" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8fbf4"/>
+      <stop offset="1" stop-color="#f1e7d6"/>
+    </linearGradient>
+    <linearGradient id="morocco" x1="0.18" x2="0.84" y1="0.1" y2="0.96">
+      <stop offset="0" stop-color="#fffdf7"/>
+      <stop offset="0.5" stop-color="#f5ecd8"/>
+      <stop offset="1" stop-color="#e6d0ad"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#001443" flood-opacity="0.15"/>
+    </filter>
+    <pattern id="roads" width="68" height="68" patternUnits="userSpaceOnUse">
+      <path d="M4 43c17-13 34-13 58 0M8 18c22 9 38 8 56-2" fill="none" stroke="#d6c59f" stroke-width="1.2" opacity=".22"/>
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="620" fill="url(#ocean)"/>
+
+  <path d="M330 0h670v620H510c29-61 81-104 143-143 63-40 74-93 135-128 59-34 124-39 212-8V0Z" fill="url(#land)" opacity=".9"/>
+  <path d="M0 0h430c-8 46-42 75-91 82-73 10-109 46-144 88-42 50-98 75-195 53Z" fill="#edf7f0" opacity=".92"/>
+  <path d="M0 290c55 21 86 65 92 129 7 70-22 124-4 201H0Z" fill="#edf7f0" opacity=".76"/>
+
+  <path d="M362 88c-37 6-62 29-81 61-17 28-41 52-63 77-24 27-31 64-48 102-19 44-48 83-64 130-13 38-23 78-25 119l-3 38h113l21-61 54 3 19-54h74l2-58 59-16 24-50 58-12 58-43h76l47-49 39-22 15-59-38-31 10-51 39-37-21-44-51-21-16-42-62-14-39-38-55 10c-15-24-34-37-62-36Z" fill="url(#morocco)" stroke="#203f67" stroke-width="3.2" filter="url(#shadow)"/>
+  <path d="M362 88c-37 6-62 29-81 61-17 28-41 52-63 77-24 27-31 64-48 102-19 44-48 83-64 130-13 38-23 78-25 119l-3 38h113l21-61 54 3 19-54h74l2-58 59-16 24-50 58-12 58-43h76l47-49 39-22 15-59-38-31 10-51 39-37-21-44-51-21-16-42-62-14-39-38-55 10c-15-24-34-37-62-36Z" fill="url(#roads)" opacity=".8"/>
+  <path d="M191 554h75l19-54h74l2-58 59-16 24-50 58-12 58-43" fill="none" stroke="#bba47d" stroke-width="2" stroke-dasharray="10 9" opacity=".62"/>
+
+  <path d="M356 102c36 17 83 13 126-8M208 256c45 21 96 18 144-9 48-26 107-28 161-3M111 455c54 21 107 12 156-20 54-35 107-37 164-13" fill="none" stroke="#c8d6e5" stroke-width="3" opacity=".52"/>
+
+  <text x="112" y="118" fill="#2f7892" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" opacity=".88">Océan Atlantique</text>
+  <text x="400" y="58" fill="#56647d" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" opacity=".82">Espagne</text>
+  <text x="760" y="392" fill="#605842" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900" opacity=".72">Algérie</text>
+  <text x="190" y="596" fill="#605842" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="900" opacity=".72">Mauritanie</text>
+
+  <text x="279" y="161" fill="#001b5d" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900">Tanger</text>
+  <text x="225" y="221" fill="#001b5d" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900">Rabat</text>
+  <text x="176" y="274" fill="#001b5d" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900">Casablanca</text>
+  <text x="205" y="372" fill="#001b5d" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900">Marrakech</text>
+  <text x="150" y="480" fill="#001b5d" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="900">Agadir</text>
+  <text x="352" y="305" fill="#001b5d" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900" opacity=".16">MAROC</text>
+  <text x="150" y="530" fill="#001b5d" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="900" opacity=".34">PROVINCES DU SUD</text>
+</svg>
