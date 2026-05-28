@@ -17,26 +17,28 @@ const officeReset = document.querySelector("[data-office-reset]");
 const officeActiveLabel = document.querySelector("[data-office-active-label]");
 
 const connectedSpaceUrl = "https://dgiinternet.vercel.app/espace-connecte.html";
-const moroccoMapEmbedUrl = "https://www.google.com/maps?hl=fr&ll=28.5,-9.7&z=5&output=embed";
+const moroccoMapView = { lat: 28.5, lng: -9.7, zoom: 4 };
+const moroccoMapEmbedUrl = `https://www.google.com/maps?hl=fr&ll=${moroccoMapView.lat},${moroccoMapView.lng}&z=${moroccoMapView.zoom}&output=embed`;
+const officePinPositions = new Map();
 
 const dgiOffices = [
-  { id: "casablanca", city: "Casablanca", direction: "Direction Régionale de Casablanca", manager: "Btissam CHARAFEDDINE", email: "b.charafeddine@tax.gov.ma", phone: "06 73 99 56 18", x: 31, y: 34.5 },
-  { id: "mohammedia", city: "Mohammedia", direction: "Direction Provinciale des impôts de Mohammedia", manager: "Maryam MABROUK", email: "m.mabrouk@tax.gov.ma", phone: "06 73 31 73 92", x: 32, y: 32 },
-  { id: "el-jadida", city: "El Jadida", direction: "Direction Provinciale des Impôts d'EL Jadida", manager: "Samir BENJALLOUN", email: "s.benjelloune@tax.gov.ma", phone: "06 62 37 11 00", x: 29, y: 38 },
-  { id: "settat", city: "Settat", direction: "Direction Provinciale des Impôts de Settat", manager: "EL Mehdi CHAHIR", email: "e.chahir@tax.gov.ma", phone: "06 73 69 59 92", x: 34, y: 38 },
-  { id: "rabat", city: "Rabat", direction: "Direction Régionale des Impôts de Rabat", manager: "Fouzia LAMNII", email: "f.lamnii@tax.gov.ma", phone: "06 73 10 61 53", x: 34, y: 27 },
-  { id: "kenitra", city: "Kenitra", direction: "Direction Provinciale des Impôts de Kenitra", manager: "Amina LAMSAF", email: "a.lamsaf@tax.gov.ma", phone: "06 73 85 28 44", x: 34.5, y: 24 },
-  { id: "tanger", city: "Tanger", direction: "Direction Régionale des Impôts de Tanger", manager: "Samira SEFRIOUI", email: "s.sefrioui@tax.gov.ma", phone: "06 73 70 87 17", x: 36, y: 18 },
-  { id: "tetouan", city: "Tétouan", direction: "Direction Provinciale des Impôts de Tétouan", manager: "Ahmed EL HAJ TIRARI", email: "a.elhajtirari@tax.gov.ma", phone: "06 73 26 77 52", x: 39.5, y: 19 },
-  { id: "fes", city: "Fès", direction: "Direction Régionale des Impôts de Fès", manager: "Nezha ALAOUI MDAGHRI", email: "ne.alaoui@tax.gov.ma", phone: "06 73 19 33 17", x: 46, y: 28 },
-  { id: "meknes", city: "Meknès", direction: "Direction Provinciale des Impôts de Meknès", manager: "Ahmed BOUZAFFOUR", email: "a.bouzafour@tax.gov.ma", phone: "06 73 73 88 11", x: 42, y: 28 },
-  { id: "marrakech", city: "Marrakech", direction: "Direction Régionale des Impôts de Marrakech", manager: "Sabah ELMANSOURI", email: "s.elmansouri@tax.gov.ma", phone: "06 60 61 15 06", x: 30, y: 46 },
-  { id: "agadir", city: "Agadir", direction: "Direction Régionale des Impôts d'Agadir", manager: "Elyas ACHBANI", email: "e.achbani@tax.gov.ma", phone: "06 62 76 67 47", x: 25, y: 59 },
-  { id: "inezgane", city: "Inezgane Ait Melloul", direction: "Direction Provinciale des Impôts d'Inezgane Ait Melloul", manager: "Farid SOUDI", email: "f.soudi@tax.gov.ma", phone: "06 62 16 81 52", x: 26, y: 61 },
-  { id: "oujda", city: "Oujda", direction: "Direction Régionale des Impôts d'Oujda", manager: "Naima OUAHHAB", email: "n.ouahhab@tax.gov.ma", phone: "06 73 67 86 47", x: 59, y: 27 },
-  { id: "nador", city: "Nador", direction: "Direction Provinciale des impôts de Nador", manager: "Zakaria AL MAKHFI", email: "z.almakhfi@tax.gov.ma", phone: "06 62 19 06 05", x: 51.5, y: 20.5 },
-  { id: "beni-mellal", city: "Béni Mellal", direction: "Direction Régionale des Impôts de Béni Mellal", manager: "Younes CHADLI", email: "y.chadli@tax.gov.ma", phone: "06 73 43 52 37", x: 39, y: 44 },
-  { id: "errachidia", city: "Errachidia", direction: "Direction Régionale des Impôts d'Errachidia", manager: "Redouane KASSIMI", email: "r.kassimi@tax.gov.ma", phone: "06 25 11 39 24", x: 50, y: 54 },
+  { id: "casablanca", city: "Casablanca", direction: "Direction Régionale de Casablanca", manager: "Btissam CHARAFEDDINE", email: "b.charafeddine@tax.gov.ma", phone: "06 73 99 56 18", lat: 33.5731, lng: -7.5898 },
+  { id: "mohammedia", city: "Mohammedia", direction: "Direction Provinciale des impôts de Mohammedia", manager: "Maryam MABROUK", email: "m.mabrouk@tax.gov.ma", phone: "06 73 31 73 92", lat: 33.6861, lng: -7.3829 },
+  { id: "el-jadida", city: "El Jadida", direction: "Direction Provinciale des Impôts d'EL Jadida", manager: "Samir BENJALLOUN", email: "s.benjelloune@tax.gov.ma", phone: "06 62 37 11 00", lat: 33.2316, lng: -8.5007 },
+  { id: "settat", city: "Settat", direction: "Direction Provinciale des Impôts de Settat", manager: "EL Mehdi CHAHIR", email: "e.chahir@tax.gov.ma", phone: "06 73 69 59 92", lat: 33.001, lng: -7.6166 },
+  { id: "rabat", city: "Rabat", direction: "Direction Régionale des Impôts de Rabat", manager: "Fouzia LAMNII", email: "f.lamnii@tax.gov.ma", phone: "06 73 10 61 53", lat: 34.0209, lng: -6.8416 },
+  { id: "kenitra", city: "Kenitra", direction: "Direction Provinciale des Impôts de Kenitra", manager: "Amina LAMSAF", email: "a.lamsaf@tax.gov.ma", phone: "06 73 85 28 44", lat: 34.261, lng: -6.5802 },
+  { id: "tanger", city: "Tanger", direction: "Direction Régionale des Impôts de Tanger", manager: "Samira SEFRIOUI", email: "s.sefrioui@tax.gov.ma", phone: "06 73 70 87 17", lat: 35.7595, lng: -5.834 },
+  { id: "tetouan", city: "Tétouan", direction: "Direction Provinciale des Impôts de Tétouan", manager: "Ahmed EL HAJ TIRARI", email: "a.elhajtirari@tax.gov.ma", phone: "06 73 26 77 52", lat: 35.5785, lng: -5.3684 },
+  { id: "fes", city: "Fès", direction: "Direction Régionale des Impôts de Fès", manager: "Nezha ALAOUI MDAGHRI", email: "ne.alaoui@tax.gov.ma", phone: "06 73 19 33 17", lat: 34.0181, lng: -5.0078 },
+  { id: "meknes", city: "Meknès", direction: "Direction Provinciale des Impôts de Meknès", manager: "Ahmed BOUZAFFOUR", email: "a.bouzafour@tax.gov.ma", phone: "06 73 73 88 11", lat: 33.8935, lng: -5.5547 },
+  { id: "marrakech", city: "Marrakech", direction: "Direction Régionale des Impôts de Marrakech", manager: "Sabah ELMANSOURI", email: "s.elmansouri@tax.gov.ma", phone: "06 60 61 15 06", lat: 31.6295, lng: -7.9811 },
+  { id: "agadir", city: "Agadir", direction: "Direction Régionale des Impôts d'Agadir", manager: "Elyas ACHBANI", email: "e.achbani@tax.gov.ma", phone: "06 62 76 67 47", lat: 30.4278, lng: -9.5981 },
+  { id: "inezgane", city: "Inezgane Ait Melloul", direction: "Direction Provinciale des Impôts d'Inezgane Ait Melloul", manager: "Farid SOUDI", email: "f.soudi@tax.gov.ma", phone: "06 62 16 81 52", lat: 30.3566, lng: -9.5458 },
+  { id: "oujda", city: "Oujda", direction: "Direction Régionale des Impôts d'Oujda", manager: "Naima OUAHHAB", email: "n.ouahhab@tax.gov.ma", phone: "06 73 67 86 47", lat: 34.6814, lng: -1.9086 },
+  { id: "nador", city: "Nador", direction: "Direction Provinciale des impôts de Nador", manager: "Zakaria AL MAKHFI", email: "z.almakhfi@tax.gov.ma", phone: "06 62 19 06 05", lat: 35.1681, lng: -2.9335 },
+  { id: "beni-mellal", city: "Béni Mellal", direction: "Direction Régionale des Impôts de Béni Mellal", manager: "Younes CHADLI", email: "y.chadli@tax.gov.ma", phone: "06 73 43 52 37", lat: 32.3373, lng: -6.3498 },
+  { id: "errachidia", city: "Errachidia", direction: "Direction Régionale des Impôts d'Errachidia", manager: "Redouane KASSIMI", email: "r.kassimi@tax.gov.ma", phone: "06 25 11 39 24", lat: 31.9314, lng: -4.424 },
 ];
 
 const contactRecommendations = {
@@ -113,6 +115,46 @@ const getOfficeHaystack = (office) =>
 
 const getPhoneHref = (phone) => `tel:${phone.replace(/\s/g, "")}`;
 
+const projectLatLng = (lat, lng, zoom = moroccoMapView.zoom) => {
+  const scale = 256 * 2 ** zoom;
+  const sinLatitude = Math.sin((lat * Math.PI) / 180);
+
+  return {
+    x: ((lng + 180) / 360) * scale,
+    y: (0.5 - Math.log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI)) * scale,
+  };
+};
+
+const getOfficeMapPosition = (office) => {
+  const cachedPosition = officePinPositions.get(office.id);
+  if (cachedPosition) return cachedPosition;
+
+  const rect = officeMap?.getBoundingClientRect();
+  if (!rect?.width || !rect?.height) return { x: 50, y: 50 };
+
+  const center = projectLatLng(moroccoMapView.lat, moroccoMapView.lng);
+  const point = projectLatLng(office.lat, office.lng);
+  const position = {
+    x: 50 + ((point.x - center.x) / rect.width) * 100,
+    y: 50 + ((point.y - center.y) / rect.height) * 100,
+  };
+
+  officePinPositions.set(office.id, position);
+  return position;
+};
+
+const positionOfficePins = () => {
+  if (!officeMap) return;
+  officePinPositions.clear();
+  dgiOffices.forEach((office) => {
+    const pin = officeMap.querySelector(`[data-office-pin][data-office-id="${office.id}"]`);
+    if (!pin) return;
+    const position = getOfficeMapPosition(office);
+    pin.style.left = `${position.x}%`;
+    pin.style.top = `${position.y}%`;
+  });
+};
+
 const getGoogleMapsEmbedUrl = (office) =>
   office
     ? `https://www.google.com/maps?q=${encodeURIComponent(`${office.direction}, ${office.city}, Maroc`)}&hl=fr&z=13&output=embed`
@@ -177,11 +219,12 @@ const previewOffice = (officeId) => {
     element.classList.toggle("is-active", element.dataset.officeId === office.id);
   });
   if (officeTooltip) {
+    const position = getOfficeMapPosition(office);
     officeTooltip.hidden = false;
-    officeTooltip.style.left = `${office.x}%`;
-    officeTooltip.style.top = `${office.y}%`;
-    officeTooltip.classList.toggle("is-left", office.x > 65);
-    officeTooltip.classList.toggle("is-low", office.y < 18);
+    officeTooltip.style.left = `${position.x}%`;
+    officeTooltip.style.top = `${position.y}%`;
+    officeTooltip.classList.toggle("is-left", position.x > 65);
+    officeTooltip.classList.toggle("is-low", position.y < 18);
     officeTooltip.innerHTML = getOfficeMarkup(office);
   }
   renderOfficeDetail(office);
@@ -204,8 +247,6 @@ const renderOfficePins = () => {
     pin.className = "office-pin";
     pin.dataset.officePin = "";
     pin.dataset.officeId = office.id;
-    pin.style.left = `${office.x}%`;
-    pin.style.top = `${office.y}%`;
     pin.setAttribute("aria-label", `${office.city} - ${office.direction}`);
     pin.innerHTML = `<span>${office.city}</span>`;
     pin.addEventListener("mouseenter", () => previewOffice(office.id));
@@ -213,6 +254,7 @@ const renderOfficePins = () => {
     pin.addEventListener("click", () => setActiveOffice(office.id));
     officeMap.append(pin);
   });
+  positionOfficePins();
 };
 
 const renderOfficeList = (items = dgiOffices) => {
@@ -263,8 +305,12 @@ const openOfficeFinder = (event) => {
   officeFinder.hidden = false;
   document.body.classList.add("office-finder-open");
   if (officeSearch) officeSearch.value = "";
-  window.setTimeout(() => officeSearch?.focus(), 60);
   filterOffices();
+  window.setTimeout(() => {
+    positionOfficePins();
+    renderOfficeOverview();
+    officeSearch?.focus();
+  }, 60);
 };
 
 const closeOfficeFinder = () => {
@@ -287,6 +333,10 @@ officeSearch?.addEventListener("input", filterOffices);
 officeReset?.addEventListener("click", () => {
   if (officeSearch) officeSearch.value = "";
   filterOffices();
+});
+window.addEventListener("resize", () => {
+  if (officeFinder?.hidden) return;
+  positionOfficePins();
 });
 document.addEventListener("click", (event) => {
   const opener = event.target.closest("[data-office-finder-open]");
