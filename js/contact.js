@@ -20,10 +20,18 @@ const connectedSpaceUrl = "https://dgiinternet.vercel.app/espace-connecte.html";
 const googleMapsLocale = "hl=fr&gl=MA&region=MA";
 
 const dgiOffices = [
-  { id: "casablanca", city: "Casablanca", direction: "Direction Régionale de Casablanca", manager: "Btissam CHARAFEDDINE", email: "b.charafeddine@tax.gov.ma", phone: "06 73 99 56 18", lat: 33.5731, lng: -7.5898, x: 48, y: 22 },
-  { id: "mohammedia", city: "Mohammedia", direction: "Direction Provinciale des impôts de Mohammedia", manager: "Maryam MABROUK", email: "m.mabrouk@tax.gov.ma", phone: "06 73 31 73 92", lat: 33.6861, lng: -7.3829, x: 49, y: 21 },
-  { id: "el-jadida", city: "El Jadida", direction: "Direction Provinciale des Impôts d'EL Jadida", manager: "Samir BENJALLOUN", email: "s.benjelloune@tax.gov.ma", phone: "06 62 37 11 00", lat: 33.2316, lng: -8.5007, x: 43, y: 29 },
-  { id: "settat", city: "Settat", direction: "Direction Provinciale des Impôts de Settat", manager: "EL Mehdi CHAHIR", email: "e.chahir@tax.gov.ma", phone: "06 73 69 59 92", lat: 33.001, lng: -7.6166, x: 51, y: 31 },
+  { id: "casa-centre", city: "Casablanca", label: "Casablanca - Casa Centre", direction: "Direction Inter-préfectorale Casa Centre", manager: "Bureau d'accueil et de communication", managerRole: "Point de contact", email: "contact.casacentre@tax.gov.ma", address: "Centre-ville, Casablanca", lat: 33.5899, lng: -7.6039, x: 48, y: 22 },
+  { id: "casa-sud", city: "Casablanca", label: "Casablanca - Casa Sud", direction: "Direction Inter-préfectorale Casa Sud", manager: "Bureau d'accueil et de communication", managerRole: "Point de contact", email: "contact.casasud@tax.gov.ma", address: "Sidi Maârouf, Casablanca", lat: 33.522, lng: -7.647, x: 47.5, y: 24 },
+  { id: "casa-nord", city: "Casablanca", label: "Casablanca - Casa Nord", direction: "Direction Inter-préfectorale Casa Nord", manager: "Bureau d'accueil et de communication", managerRole: "Point de contact", email: "contact.casanord@tax.gov.ma", address: "Ain Sebaâ, Casablanca", lat: 33.6078, lng: -7.5358, x: 49.3, y: 21 },
+  { id: "casa-anfa", city: "Casablanca", label: "Casablanca - Casa Anfa", direction: "Direction Inter-préfectorale Casa Anfa", manager: "Bureau d'accueil et de communication", managerRole: "Point de contact", email: "contact.casaanfa@tax.gov.ma", address: "Anfa, Casablanca", lat: 33.5901, lng: -7.646, x: 46.7, y: 22 },
+  { id: "casa-maarif-est", city: "Casablanca", label: "Casablanca - Maârif Est", direction: "Direction Inter-préfectorale Casa Maârif Est", manager: "Bureau d'accueil et de communication", managerRole: "Point de contact", email: "contact.casaelfida@tax.gov.ma", address: "Maârif Est - El Fida, Casablanca", lat: 33.573, lng: -7.612, x: 47.6, y: 22.6 },
+  { id: "hay-mohammadi-ain-sebaa", city: "Casablanca", label: "Hay Mohammadi - Ain Sebaâ", direction: "Direction Inter-préfectorale Hay Mohammadi Ain Sebaâ", manager: "Bureau d'accueil et de communication", managerRole: "Point de contact", email: "contact.hmas@tax.gov.ma", address: "Hay Mohammadi - Ain Sebaâ, Casablanca", lat: 33.588, lng: -7.559, x: 49.6, y: 22.4 },
+  { id: "hay-hassani-ain-chock", city: "Casablanca", label: "Hay Hassani - Ain Chock", direction: "Direction Inter-préfectorale Hay Hassani Ain Chock", manager: "Bureau d'accueil et de communication", managerRole: "Point de contact", email: "contact.achh@tax.gov.ma", address: "Hay Hassani - Ain Chock, Casablanca", lat: 33.5458, lng: -7.676, x: 46.4, y: 24.3 },
+  { id: "ben-msick-sidi-othmane", city: "Casablanca", label: "Ben M'Sick - Sidi Othmane", direction: "Direction Inter-préfectorale Ben M'Sick Sidi Othmane", manager: "Bureau d'accueil et de communication", managerRole: "Point de contact", email: "contact.bmso@tax.gov.ma", address: "Ben M'Sick - Sidi Othmane, Casablanca", lat: 33.5536, lng: -7.5662, x: 49.1, y: 24.4 },
+  { id: "mohammedia", city: "Mohammedia", direction: "Direction Provinciale des impôts de Mohammedia", manager: "Maryam MABROUK", email: "contact.mohammadia@tax.gov.ma", phone: "06 73 31 73 92", address: "Mohammedia", lat: 33.6861, lng: -7.3829, x: 50, y: 20.5 },
+  { id: "el-jadida", city: "El Jadida", direction: "Direction Provinciale des Impôts d'EL Jadida", manager: "Samir BENJALLOUN", email: "contact.jadida@tax.gov.ma", phone: "06 62 37 11 00", address: "El Jadida", lat: 33.2316, lng: -8.5007, x: 43, y: 29 },
+  { id: "settat", city: "Settat", direction: "Direction Provinciale des Impôts de Settat", manager: "EL Mehdi CHAHIR", email: "contact.settat@tax.gov.ma", phone: "06 73 69 59 92", address: "Settat", lat: 33.001, lng: -7.6166, x: 51, y: 31 },
+  { id: "berrechid", city: "Berrechid", direction: "Direction Provinciale des Impôts de Berrechid", manager: "Bureau d'accueil et de communication", managerRole: "Point de contact", email: "contact.berrechid@tax.gov.ma", address: "Berrechid", lat: 33.2655, lng: -7.5875, x: 50.5, y: 27 },
   { id: "rabat", city: "Rabat", direction: "Direction Régionale des Impôts de Rabat", manager: "Fouzia LAMNII", email: "f.lamnii@tax.gov.ma", phone: "06 73 10 61 53", lat: 34.0209, lng: -6.8416, x: 53, y: 15 },
   { id: "kenitra", city: "Kenitra", direction: "Direction Provinciale des Impôts de Kenitra", manager: "Amina LAMSAF", email: "a.lamsaf@tax.gov.ma", phone: "06 73 85 28 44", lat: 34.261, lng: -6.5802, x: 54, y: 12 },
   { id: "tanger", city: "Tanger", direction: "Direction Régionale des Impôts de Tanger", manager: "Samira SEFRIOUI", email: "s.sefrioui@tax.gov.ma", phone: "06 73 70 87 17", lat: 35.7595, lng: -5.834, x: 61, y: 4 },
@@ -109,9 +117,13 @@ const normalizeOfficeText = (value) =>
     .trim();
 
 const getOfficeHaystack = (office) =>
-  normalizeOfficeText(`${office.city} ${office.direction} ${office.manager} ${office.email} ${office.phone}`);
+  normalizeOfficeText(`${office.city} ${office.label || ""} ${office.direction} ${office.manager} ${office.email} ${office.phone || ""} ${office.address || ""}`);
 
 const getPhoneHref = (phone) => `tel:${phone.replace(/\s/g, "")}`;
+
+const getOfficeTitle = (office) => office.label || office.city;
+
+const getOfficeMapQuery = (office) => office.mapsQuery || `${office.direction}, ${office.address || office.city}, Maroc`;
 
 const getOfficeMapPosition = (office) => {
   return { x: office.x, y: office.y };
@@ -129,34 +141,35 @@ const positionOfficePins = () => {
 };
 
 const getGoogleMapsEmbedUrl = (office) =>
-  `https://www.google.com/maps?q=${encodeURIComponent(`${office.direction}, ${office.city}, Maroc`)}&${googleMapsLocale}&z=13&output=embed`;
+  `https://www.google.com/maps?q=${encodeURIComponent(getOfficeMapQuery(office))}&${googleMapsLocale}&z=13&output=embed`;
 
 const getGoogleMapsUrl = (office) => {
-  const query = `${office.direction}, ${office.city}, Maroc`;
+  const query = getOfficeMapQuery(office);
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}&hl=fr&gl=MA&region=MA`;
 };
 
 const getOfficeMarkup = (office) => `
-  <strong>${office.city}</strong>
+  <strong>${getOfficeTitle(office)}</strong>
   <span>${office.direction}</span>
-  <small>${office.manager}</small>
+  <small>${office.address || office.manager}</small>
   <div>
     <a href="mailto:${office.email}">${office.email}</a>
-    <a href="${getPhoneHref(office.phone)}">${office.phone}</a>
+    ${office.phone ? `<a href="${getPhoneHref(office.phone)}">${office.phone}</a>` : ""}
   </div>
 `;
 
 const renderOfficeDetail = (office) => {
   if (!officeDetail || !officeActiveLabel) return;
-  officeActiveLabel.textContent = office.city;
+  officeActiveLabel.textContent = getOfficeTitle(office);
   officeDetail.innerHTML = `
     <span>Bureau sélectionné</span>
-    <h3>${office.city}</h3>
+    <h3>${getOfficeTitle(office)}</h3>
     <p>${office.direction}</p>
     <dl>
-      <div><dt>Responsable</dt><dd>${office.manager}</dd></div>
+      <div><dt>${office.managerRole || "Responsable"}</dt><dd>${office.manager}</dd></div>
+      ${office.address ? `<div><dt>Adresse</dt><dd>${office.address}</dd></div>` : ""}
       <div><dt>Email</dt><dd><a href="mailto:${office.email}">${office.email}</a></dd></div>
-      <div><dt>Téléphone</dt><dd><a href="${getPhoneHref(office.phone)}">${office.phone}</a></dd></div>
+      ${office.phone ? `<div><dt>Téléphone</dt><dd><a href="${getPhoneHref(office.phone)}">${office.phone}</a></dd></div>` : ""}
     </dl>
     <a class="office-map-link" href="${getGoogleMapsUrl(office)}" target="_blank" rel="noreferrer">
       Ouvrir dans Google Maps
@@ -216,8 +229,8 @@ const renderOfficePins = () => {
     pin.className = "office-pin";
     pin.dataset.officePin = "";
     pin.dataset.officeId = office.id;
-    pin.setAttribute("aria-label", `${office.city} - ${office.direction}`);
-    pin.innerHTML = `<span>${office.city}</span>`;
+    pin.setAttribute("aria-label", `${getOfficeTitle(office)} - ${office.direction}`);
+    pin.innerHTML = `<span>${getOfficeTitle(office)}</span>`;
     pin.addEventListener("mouseenter", () => previewOffice(office.id));
     pin.addEventListener("focus", () => previewOffice(office.id));
     pin.addEventListener("click", () => setActiveOffice(office.id));
@@ -238,9 +251,9 @@ const renderOfficeList = (items = dgiOffices) => {
     .map(
       (office) => `
         <button type="button" class="office-list-item" data-office-item data-office-id="${office.id}">
-          <strong>${office.city}</strong>
+          <strong>${getOfficeTitle(office)}</strong>
           <span>${office.direction}</span>
-          <small>${office.manager}</small>
+          <small>${office.address || office.manager}</small>
         </button>
       `,
     )
