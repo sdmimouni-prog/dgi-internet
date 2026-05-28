@@ -1672,8 +1672,8 @@ body.about-page .social-links {
 }
 
 body.about-page .social-links a {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   font-size: 8px;
 }
 
@@ -5443,21 +5443,26 @@ body.office-finder-open {
 }
 
 .social-links a {
-  width: 25px;
-  height: 25px;
+  width: 28px;
+  height: 28px;
   display: grid;
   place-items: center;
   color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.33);
+  border: 0;
   border-radius: 999px;
   font-size: 10px;
   font-weight: 850;
-  transition: background 180ms ease, border-color 180ms ease;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.social-links svg {
+  transform: scale(1.15);
+  transform-origin: center;
 }
 
 .social-links a:hover {
   background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.62);
+  transform: translateY(-1px);
 }
 
 .footer-grid h2 {
@@ -5480,6 +5485,14 @@ body.office-finder-open {
 
 .footer-grid a:hover {
   color: var(--gold-600);
+}
+
+.footer-grid .social-links a {
+  width: 28px;
+  max-width: 28px;
+  height: 28px;
+  margin-bottom: 0;
+  display: grid;
 }
 
 .app-download {
