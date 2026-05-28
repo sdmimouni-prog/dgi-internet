@@ -328,6 +328,10 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !officeFinder?.hidden) closeOfficeFinder();
 });
 
+if (window.location.hash === "#office-finder") {
+  window.setTimeout(() => openOfficeFinder(), 120);
+}
+
 feedbackForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   const button = feedbackForm.querySelector("button");
