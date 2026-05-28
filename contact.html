@@ -9,7 +9,7 @@
     />
     <title>Contact | Direction Générale des Impôts</title>
         <link rel="alternate" hreflang="fr" href="contact.html" />
-    <link rel="stylesheet" href="css/style.css?v=contact-full-router" />
+    <link rel="stylesheet" href="css/style.css?v=contact-office-map" />
   </head>
   <body class="contact-page">
     <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
@@ -28,6 +28,9 @@
       </symbol>
       <symbol id="chevron-down" viewBox="0 0 24 24">
         <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="close" viewBox="0 0 24 24">
+        <path d="m18 6-12 12M6 6l12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </symbol>
       <symbol id="arrow-right" viewBox="0 0 24 24">
         <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -333,8 +336,8 @@
             <h2>Espace connecté DGI</h2>
             <p>Pour une demande liée à votre dossier fiscal, connectez-vous à votre espace afin de sécuriser l'échange et de suivre votre demande.</p>
             <div class="contact-recommendation-actions">
-              <a href="espace-connecte.html">Accéder à mon espace <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
-              <a href="centre-appel.html">Centre d'appel</a>
+              <a href="https://dgiinternet.vercel.app/espace-connecte.html">Accéder à mon espace <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
+              <a href="#office-finder" data-office-finder-open>Trouver un bureau de la DGI</a>
             </div>
           </article>
           <aside class="contact-before-card" aria-label="Avant de contacter la DGI">
@@ -546,7 +549,46 @@
       <img src="assets/images/whatsapp-chatbot-icon.png" alt="" />
     </a>
 
+    <section class="office-finder-modal" id="office-finder" role="dialog" aria-modal="true" aria-labelledby="office-finder-title" data-office-finder hidden>
+      <div class="office-finder-backdrop" data-office-finder-close></div>
+      <div class="office-finder-panel">
+        <button class="office-finder-close" type="button" aria-label="Fermer la carte" data-office-finder-close>
+          <svg aria-hidden="true"><use href="#close"></use></svg>
+        </button>
+        <div class="office-finder-heading">
+          <span>Bureaux DGI</span>
+          <h2 id="office-finder-title">Trouver un bureau de la DGI</h2>
+          <p>Recherchez une ville ou survolez un point sur la carte pour afficher le responsable, l'email et le téléphone.</p>
+        </div>
+        <div class="office-finder-layout">
+          <aside class="office-finder-sidebar">
+            <label for="office-search">Ville, direction ou responsable</label>
+            <div class="office-search-box">
+              <svg aria-hidden="true"><use href="#search"></use></svg>
+              <input id="office-search" type="search" placeholder="Casablanca, Rabat, Tanger..." data-office-search />
+            </div>
+            <div class="office-finder-meta">
+              <span><strong data-office-count>17</strong> bureaux</span>
+              <button type="button" data-office-reset>Voir tout</button>
+            </div>
+            <div class="office-list" data-office-list></div>
+          </aside>
+          <div class="office-map-panel">
+            <div class="office-map-toolbar">
+              <span>Carte du Maroc</span>
+              <small data-office-active-label>Survolez une ville</small>
+            </div>
+            <div class="office-map" data-office-map>
+              <img src="assets/images/rendezvous-map.png" alt="Carte du Maroc" />
+              <div class="office-tooltip" data-office-tooltip></div>
+            </div>
+            <article class="office-detail" data-office-detail></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <script src="js/app.js?v=20260525-language"></script>
-    <script src="js/contact.js?v=contact-no-annuaire"></script>
+    <script src="js/contact.js?v=contact-office-map"></script>
   </body>
 </html>

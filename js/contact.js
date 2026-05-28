@@ -3,13 +3,46 @@ const contactProfile = document.querySelector("[data-contact-profile]");
 const contactTopic = document.querySelector("[data-contact-topic]");
 const contactRecommendation = document.querySelector("[data-contact-recommendation]");
 const feedbackForm = document.querySelector("[data-contact-feedback-form]");
+const officeFinder = document.querySelector("[data-office-finder]");
+const officeFinderOpeners = document.querySelectorAll("[data-office-finder-open]");
+const officeFinderClosers = document.querySelectorAll("[data-office-finder-close]");
+const officeSearch = document.querySelector("[data-office-search]");
+const officeList = document.querySelector("[data-office-list]");
+const officeMap = document.querySelector("[data-office-map]");
+const officeTooltip = document.querySelector("[data-office-tooltip]");
+const officeDetail = document.querySelector("[data-office-detail]");
+const officeCount = document.querySelector("[data-office-count]");
+const officeReset = document.querySelector("[data-office-reset]");
+const officeActiveLabel = document.querySelector("[data-office-active-label]");
+
+const connectedSpaceUrl = "https://dgiinternet.vercel.app/espace-connecte.html";
+
+const dgiOffices = [
+  { id: "casablanca", city: "Casablanca", direction: "Direction Régionale de Casablanca", manager: "Btissam CHARAFEDDINE", email: "b.charafeddine@tax.gov.ma", phone: "06 73 99 56 18", x: 31, y: 52 },
+  { id: "mohammedia", city: "Mohammedia", direction: "Direction Provinciale des impôts de Mohammedia", manager: "Maryam MABROUK", email: "m.mabrouk@tax.gov.ma", phone: "06 73 31 73 92", x: 36, y: 46 },
+  { id: "el-jadida", city: "El Jadida", direction: "Direction Provinciale des Impôts d'EL Jadida", manager: "Samir BENJALLOUN", email: "s.benjelloune@tax.gov.ma", phone: "06 62 37 11 00", x: 25, y: 62 },
+  { id: "settat", city: "Settat", direction: "Direction Provinciale des Impôts de Settat", manager: "EL Mehdi CHAHIR", email: "e.chahir@tax.gov.ma", phone: "06 73 69 59 92", x: 38, y: 59 },
+  { id: "rabat", city: "Rabat", direction: "Direction Régionale des Impôts de Rabat", manager: "Fouzia LAMNII", email: "f.lamnii@tax.gov.ma", phone: "06 73 10 61 53", x: 43, y: 37 },
+  { id: "kenitra", city: "Kenitra", direction: "Direction Provinciale des Impôts de Kenitra", manager: "Amina LAMSAF", email: "a.lamsaf@tax.gov.ma", phone: "06 73 85 28 44", x: 44, y: 29 },
+  { id: "tanger", city: "Tanger", direction: "Direction Régionale des Impôts de Tanger", manager: "Samira SEFRIOUI", email: "s.sefrioui@tax.gov.ma", phone: "06 73 70 87 17", x: 49, y: 8 },
+  { id: "tetouan", city: "Tétouan", direction: "Direction Provinciale des Impôts de Tétouan", manager: "Ahmed EL HAJ TIRARI", email: "a.elhajtirari@tax.gov.ma", phone: "06 73 26 77 52", x: 55, y: 14 },
+  { id: "fes", city: "Fès", direction: "Direction Régionale des Impôts de Fès", manager: "Nezha ALAOUI MDAGHRI", email: "ne.alaoui@tax.gov.ma", phone: "06 73 19 33 17", x: 68, y: 31 },
+  { id: "meknes", city: "Meknès", direction: "Direction Provinciale des Impôts de Meknès", manager: "Ahmed BOUZAFFOUR", email: "a.bouzafour@tax.gov.ma", phone: "06 73 73 88 11", x: 61, y: 36 },
+  { id: "marrakech", city: "Marrakech", direction: "Direction Régionale des Impôts de Marrakech", manager: "Sabah ELMANSOURI", email: "s.elmansouri@tax.gov.ma", phone: "06 60 61 15 06", x: 35, y: 75 },
+  { id: "agadir", city: "Agadir", direction: "Direction Régionale des Impôts d'Agadir", manager: "Elyas ACHBANI", email: "e.achbani@tax.gov.ma", phone: "06 62 76 67 47", x: 20, y: 90 },
+  { id: "inezgane", city: "Inezgane Ait Melloul", direction: "Direction Provinciale des Impôts d'Inezgane Ait Melloul", manager: "Farid SOUDI", email: "f.soudi@tax.gov.ma", phone: "06 62 16 81 52", x: 24, y: 93 },
+  { id: "oujda", city: "Oujda", direction: "Direction Régionale des Impôts d'Oujda", manager: "Naima OUAHHAB", email: "n.ouahhab@tax.gov.ma", phone: "06 73 67 86 47", x: 86, y: 46 },
+  { id: "nador", city: "Nador", direction: "Direction Provinciale des impôts de Nador", manager: "Zakaria AL MAKHFI", email: "z.almakhfi@tax.gov.ma", phone: "06 62 19 06 05", x: 84, y: 24 },
+  { id: "beni-mellal", city: "Béni Mellal", direction: "Direction Régionale des Impôts de Béni Mellal", manager: "Younes CHADLI", email: "y.chadli@tax.gov.ma", phone: "06 73 43 52 37", x: 51, y: 65 },
+  { id: "errachidia", city: "Errachidia", direction: "Direction Régionale des Impôts d'Errachidia", manager: "Redouane KASSIMI", email: "r.kassimi@tax.gov.ma", phone: "06 25 11 39 24", x: 72, y: 79 },
+];
 
 const contactRecommendations = {
   dossier: {
     title: "Espace connecté DGI",
     body: "Pour une demande liée à votre dossier fiscal, connectez-vous à votre espace afin de sécuriser l'échange et de suivre votre demande.",
-    primary: ["Accéder à mon espace", "espace-connecte.html"],
-    secondary: ["Centre d'appel", "centre-appel.html"],
+    primary: ["Accéder à mon espace", connectedSpaceUrl],
+    secondary: ["Trouver un bureau de la DGI", "#office-finder", "office"],
   },
   teleservices: {
     title: "Assistance téléservices",
@@ -21,7 +54,7 @@ const contactRecommendations = {
     title: "Réclamation fiscale",
     body: "Pour contester une situation fiscale ou suivre une réclamation, préparez l'identifiant fiscal, la période concernée et les pièces justificatives.",
     primary: ["Préparer ma réclamation", "#reclamations"],
-    secondary: ["Centre d'appel", "centre-appel.html"],
+    secondary: ["Trouver un bureau de la DGI", "#office-finder", "office"],
   },
   attestation: {
     title: "Attestations et documents",
@@ -33,7 +66,7 @@ const contactRecommendations = {
     title: "Rendez-vous DGI",
     body: "Si votre demande nécessite un accompagnement en agence, planifiez un rendez-vous et choisissez le centre le plus proche.",
     primary: ["Prendre rendez-vous", "prendre-rendez-vous.html"],
-    secondary: ["Centre d'appel", "centre-appel.html"],
+    secondary: ["Trouver un bureau de la DGI", "#office-finder", "office"],
   },
   general: {
     title: "FAQ et centre d'appel",
@@ -60,9 +93,135 @@ const renderRecommendation = () => {
     <p>${recommendation.body}</p>
     <div class="contact-recommendation-actions">
       <a href="${recommendation.primary[1]}">${recommendation.primary[0]} <svg aria-hidden="true"><use href="#arrow-right"></use></svg></a>
-      <a href="${recommendation.secondary[1]}">${recommendation.secondary[0]}</a>
+      <a href="${recommendation.secondary[1]}" ${recommendation.secondary[2] === "office" ? "data-office-finder-open" : ""}>${recommendation.secondary[0]}</a>
     </div>
   `;
+};
+
+const normalizeOfficeText = (value) =>
+  value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+const getOfficeHaystack = (office) =>
+  normalizeOfficeText(`${office.city} ${office.direction} ${office.manager} ${office.email} ${office.phone}`);
+
+const getPhoneHref = (phone) => `tel:${phone.replace(/\s/g, "")}`;
+
+const getOfficeMarkup = (office) => `
+  <strong>${office.city}</strong>
+  <span>${office.direction}</span>
+  <small>${office.manager}</small>
+  <div>
+    <a href="mailto:${office.email}">${office.email}</a>
+    <a href="${getPhoneHref(office.phone)}">${office.phone}</a>
+  </div>
+`;
+
+const renderOfficeDetail = (office) => {
+  if (!officeDetail || !officeActiveLabel) return;
+  officeActiveLabel.textContent = office.city;
+  officeDetail.innerHTML = `
+    <span>Bureau sélectionné</span>
+    <h3>${office.city}</h3>
+    <p>${office.direction}</p>
+    <dl>
+      <div><dt>Responsable</dt><dd>${office.manager}</dd></div>
+      <div><dt>Email</dt><dd><a href="mailto:${office.email}">${office.email}</a></dd></div>
+      <div><dt>Téléphone</dt><dd><a href="${getPhoneHref(office.phone)}">${office.phone}</a></dd></div>
+    </dl>
+  `;
+};
+
+const setActiveOffice = (officeId) => {
+  const office = dgiOffices.find((item) => item.id === officeId) || dgiOffices[0];
+  document.querySelectorAll("[data-office-pin], [data-office-item]").forEach((element) => {
+    element.classList.toggle("is-active", element.dataset.officeId === office.id);
+  });
+  if (officeTooltip) {
+    officeTooltip.hidden = false;
+    officeTooltip.style.left = `${office.x}%`;
+    officeTooltip.style.top = `${office.y}%`;
+    officeTooltip.classList.toggle("is-left", office.x > 65);
+    officeTooltip.classList.toggle("is-low", office.y < 18);
+    officeTooltip.innerHTML = getOfficeMarkup(office);
+  }
+  renderOfficeDetail(office);
+};
+
+const renderOfficePins = () => {
+  if (!officeMap) return;
+  dgiOffices.forEach((office) => {
+    const pin = document.createElement("button");
+    pin.type = "button";
+    pin.className = "office-pin";
+    pin.dataset.officePin = "";
+    pin.dataset.officeId = office.id;
+    pin.style.left = `${office.x}%`;
+    pin.style.top = `${office.y}%`;
+    pin.setAttribute("aria-label", `${office.city} - ${office.direction}`);
+    pin.innerHTML = `<span>${office.city}</span>`;
+    pin.addEventListener("mouseenter", () => setActiveOffice(office.id));
+    pin.addEventListener("focus", () => setActiveOffice(office.id));
+    pin.addEventListener("click", () => setActiveOffice(office.id));
+    officeMap.append(pin);
+  });
+};
+
+const renderOfficeList = (items = dgiOffices) => {
+  if (!officeList || !officeCount) return;
+  officeCount.textContent = String(items.length);
+  if (!items.length) {
+    officeList.innerHTML = `<p class="office-empty">Aucun bureau trouvé.</p>`;
+    return;
+  }
+
+  officeList.innerHTML = items
+    .map(
+      (office) => `
+        <button type="button" class="office-list-item" data-office-item data-office-id="${office.id}">
+          <strong>${office.city}</strong>
+          <span>${office.direction}</span>
+          <small>${office.manager}</small>
+        </button>
+      `,
+    )
+    .join("");
+
+  officeList.querySelectorAll("[data-office-item]").forEach((item) => {
+    item.addEventListener("mouseenter", () => setActiveOffice(item.dataset.officeId));
+    item.addEventListener("focus", () => setActiveOffice(item.dataset.officeId));
+    item.addEventListener("click", () => setActiveOffice(item.dataset.officeId));
+  });
+};
+
+const filterOffices = () => {
+  const query = normalizeOfficeText(officeSearch?.value || "");
+  const results = query ? dgiOffices.filter((office) => getOfficeHaystack(office).includes(query)) : dgiOffices;
+
+  document.querySelectorAll("[data-office-pin]").forEach((pin) => {
+    pin.hidden = !results.some((office) => office.id === pin.dataset.officeId);
+  });
+  renderOfficeList(results);
+  setActiveOffice(results[0]?.id || dgiOffices[0].id);
+};
+
+const openOfficeFinder = (event) => {
+  event?.preventDefault();
+  if (!officeFinder) return;
+  officeFinder.hidden = false;
+  document.body.classList.add("office-finder-open");
+  window.setTimeout(() => officeSearch?.focus(), 60);
+  filterOffices();
+};
+
+const closeOfficeFinder = () => {
+  if (!officeFinder) return;
+  officeFinder.hidden = true;
+  document.body.classList.remove("office-finder-open");
 };
 
 contactRouter?.addEventListener("submit", (event) => {
@@ -73,6 +232,20 @@ contactRouter?.addEventListener("submit", (event) => {
 
 contactProfile?.addEventListener("change", renderRecommendation);
 contactTopic?.addEventListener("change", renderRecommendation);
+officeFinderOpeners.forEach((opener) => opener.addEventListener("click", openOfficeFinder));
+officeFinderClosers.forEach((closer) => closer.addEventListener("click", closeOfficeFinder));
+officeSearch?.addEventListener("input", filterOffices);
+officeReset?.addEventListener("click", () => {
+  if (officeSearch) officeSearch.value = "";
+  filterOffices();
+});
+document.addEventListener("click", (event) => {
+  const opener = event.target.closest("[data-office-finder-open]");
+  if (opener) openOfficeFinder(event);
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !officeFinder?.hidden) closeOfficeFinder();
+});
 
 feedbackForm?.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -87,3 +260,6 @@ feedbackForm?.addEventListener("submit", (event) => {
 });
 
 renderRecommendation();
+renderOfficePins();
+renderOfficeList();
+setActiveOffice(dgiOffices[0].id);
