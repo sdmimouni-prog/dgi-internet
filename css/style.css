@@ -4613,7 +4613,11 @@ body.survey-modal-open {
 }
 
 .reclamations-page .survey-hero-shell {
-  min-height: 320px;
+  min-height: 250px;
+}
+
+.reclamations-page .survey-content-section {
+  padding-top: 14px;
 }
 
 .reclamations-page .survey-layout {
